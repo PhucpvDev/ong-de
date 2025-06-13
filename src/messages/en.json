@@ -1,0 +1,579 @@
+{
+  "banner": {
+    "ecoTourism": {
+      "title": "Ong De Eco-Tourism Village",
+      "subtitle": "Experience the authentic riverside orchard life",
+      "description": "Discover an eco-tourism destination featuring all the characteristics of the Mekong Delta with fruit orchards, traditional folk games, and authentic Western cuisine",
+      "tag": "Open daily",
+      "buttonText": "Book tour now",
+      "price": "$3/person",
+      "location": "Phong Dien, Can Tho",
+      "features": {
+        "boating": "Traditional bamboo boat tours",
+        "folkGames": "Unique folk games experience",
+        "homestay": "Scenic riverside homestay",
+        "cuisine": "Authentic Western cuisine"
+      }
+    },
+    "teamBuilding": {
+      "title": "Team Building at Ong De Village",
+      "subtitle": "Bond your team by the riverside",
+      "description": "Organize team building with comprehensive professional services: stage, sound system, MC, and engaging traditional folk activities",
+      "tag": "Budget package",
+      "buttonText": "Consult now",
+      "price": "$50/group",
+      "location": "For 20-50 people",
+      "features": {
+        "audio": "Professional MC + sound system",
+        "activities": "Orchard team building games",
+        "bbq": "BBQ party + Gala dinner",
+        "stage": "Full stage performance setup"
+      }
+    },
+    "quickInfo": {
+      "title": "Quick info",
+      "operatingHours": "Operating hours",
+      "hours": "8:00 AM - 10:00 PM daily",
+      "address": "Address",
+      "location": "My Khanh Commune, Phong Dien",
+      "distance": "Distance",
+      "distanceValue": "10km from Can Tho center",
+      "area": "Area",
+      "areaValue": "3 hectares of diverse services"
+    },
+    "stats": {
+      "games": "Games",
+      "area": "Area",
+      "eco": "Eco",
+      "natural": "100% natural"
+    }
+  },
+
+ "whyChooseUs": {
+    "header": "Why Choose Ong De",
+    "title": "Eco-Tourism Village",
+    "titleHighlight": "Ong De",
+    "description": "Discover the beauty of Mekong Delta with unique eco-tourism experiences in Can Tho",
+    "evaluationIndex": "Evaluation Index",
+    "reasons": {
+      "nature": {
+        "title": "Natural Ecology",
+        "description": "Immerse yourself in the cool green space with diverse ecosystems, mangrove forests and Mekong Delta waterways",
+        "features": [
+          "2.5 hectares of green space",
+          "Diverse ecosystem",
+          "Fresh air"
+        ],
+        "illustration": {
+          "title": "Environmental Rating",
+          "stats": [
+            { "label": "Water Quality" },
+            { "label": "Green Coverage" },
+            { "label": "Biodiversity" },
+            { "label": "Clean Air" }
+          ],
+          "mainLabel": "Eco-friendly",
+          "chartData": { "label": "Natural" }
+        }
+      },
+      "activities": {
+        "title": "Diverse Activities",
+        "description": "Experience exciting activities like rowing traditional boats, folk games and water sports",
+        "features": [
+          "Traditional boat rowing",
+          "Folk games",
+          "Water sports"
+        ],
+        "illustration": {
+          "title": "Popular Activities",
+          "stats": [
+            { "label": "Boat Rowing" },
+            { "label": "Fishing" },
+            { "label": "Canal Catching" },
+            { "label": "Swing Bridge" }
+          ],
+          "mainLabel": "Activities",
+          "chartData": { "label": "Exciting" }
+        }
+      },
+      "culture": {
+        "title": "Mekong Culture",
+        "description": "Discover the beauty of Mekong folk culture with distinctive cuisine and simple lifestyle of local people",
+        "features": [
+          "Folk cuisine",
+          "Traditional culture",
+          "Orchard lifestyle"
+        ],
+        "illustration": {
+          "title": "Cultural Experience",
+          "stats": [
+            { "label": "Cuisine" },
+            { "label": "Folk Music" },
+            { "label": "Handicrafts" },
+            { "label": "Festivals" }
+          ],
+          "mainLabel": "Authentic",
+          "chartData": { "label": "Traditional" }
+        }
+      }
+    }
+  },
+  
+  "footer": {
+    "company": {
+      "description": "Discover an eco-tourism destination featuring all the characteristics of the Mekong Delta with fruit orchards, traditional folk games, and authentic Western cuisine.",
+      "address": "My Khanh Commune, Phong Dien, Can Tho",
+      "phone": "+84 292 123 456"
+    },
+    "sections": {
+      "aboutUs": "ABOUT ONG DE",
+      "partners": "PARTNERS", 
+      "terms": "TERMS"
+    },
+    "links": {
+      "aboutTitle": "About us",
+      "blog": "Ong De Blog",
+      "sustainableTourism": "Sustainable tourism",
+      "supplierRegistration": "Supplier registration",
+      "partnerLogin": "Partner login",
+      "partnerAffiliate": "Partner affiliate",
+      "influencerProgram": "Influencer program",
+      "agentProgram": "Agent program",
+      "termsOfUse": "Terms of use",
+      "privacyPolicy": "Privacy policy",
+      "rulesAndRegulations": "Rules and regulations",
+      "collaborators": "Collaborators"
+    },
+    "payment": {
+      "title": "PAYMENT METHODS"
+    },
+    "social": {
+      "title": "FOLLOW US"
+    },
+    "copyright": "© 2025 Ong De. All Rights Reserved.",
+    "bottom": {
+      "terms": "Terms",
+      "privacy": "Privacy", 
+      "sitemap": "Sitemap"
+    }
+  },
+
+  "contact": {
+      "title": "Ông Đề - Ecotourism Village in Cần Thơ",
+      "description": "Contact us now to receive information about tours and services at Ông Đề Ecotourism Village!",
+      "emailPlaceholder": "Enter your email address",
+      "submitButton": "Send Contact"
+  },
+
+  "features": {
+    "items": {
+      "1": {
+        "title": "Explore Ông Đề's Blog",
+        "description": "Ông Đề suggests travel trends, detailed itineraries, and helpful tips",
+        "buttonText": "Read More"
+      },
+      "2": {
+        "title": "Save More with Ông Đề Coins",
+        "description": "Learn how to book activities at great savings by offering the right price",
+        "buttonText": "Discover"
+      },
+      "3": {
+        "title": "Get Rewards for Inviting Friends",
+        "description": "After your friend signs up and completes their first order, you'll receive a 100,000 VND discount",
+        "buttonText": "Invite Friends"
+      }
+    }
+  },
+
+  "tourExperience": {
+    "title": "Tours and Experiences",
+    "exploreButton": "Explore",
+    "showMore": "Show More",
+    "tours": {
+      "1": {
+        "title": "Quick Deal: Culinary and Eco-Tourism at Ông Đề",
+        "subtitle": "Hottest travel deal",
+        "description": "Cuisine & Travel"
+      },
+      "2": {
+        "title": "The More You Buy, The More You Save",
+        "subtitle": "Attractive offers",
+        "description": "Buy more, save more"
+      },
+      "3": {
+        "title": "Discover Ông Đề Homestay, Known as an Oasis",
+        "subtitle": "Top travel suggestion",
+        "description": "Cần Thơ"
+      },
+      "4": {
+        "title": "Unique Program Tour",
+        "subtitle": "Explore culture",
+        "description": "Unique tour"
+      },
+      "5": {
+        "title": "Experience Distinctive Cuisine",
+        "subtitle": "Signature dishes",
+        "description": "Local cuisine"
+      }
+    }
+  },
+  "tourAttractions": {
+    "title": "Equally Exciting Attractions",
+    "subtitle": "Must-visit and experience areas at Ông Đề Tourism Village - Cần Thơ",
+    "attractions": {
+      "1": { "name": "Western cuisine restaurant" },
+      "2": { "name": "Photography with landscapes and animals" },
+      "3": { "name": "Homestay resort" },
+      "4": { "name": "Western culture corner" },
+      "5": { "name": "Fruit garden" },
+      "6": { "name": "Cool green space" },
+      "7": { "name": "Shaky bamboo bridge" },
+      "8": { "name": "Kite-flying area" },
+      "9": { "name": "Mini floating market" },
+      "10": { "name": "Evening campfire" },
+      "11": { "name": "Beekeeping area" },
+      "12": { "name": "Traditional bakery workshop" },
+      "13": { "name": "Green tree tunnel" },
+      "14": { "name": "Recreational fishing area" },
+      "15": { "name": "Western cooking class" },
+      "16": { "name": "Fish foot massage area" },
+      "17": { "name": "Western flower garden" },
+      "18": { "name": "Flower boat tour" },
+      "19": { "name": "Archery game" },
+      "20": { "name": "Handicraft village" }
+    }
+  },
+ "featuredServices": {
+    "title": "Featured Services",
+    "showMore": "Show More",
+    "from": "From",
+    "services": {
+      "1": {
+        "category": "Travel Services • Ông Đề",
+        "title": "West Moon Night Program – 2 Days 1 Night Stay",
+        "status": "Booked",
+        "tags": ["Free cancellation"]
+      },
+      "2": {
+        "category": "Tour • Ông Đề",
+        "title": "Unique Exploration Tour at Ông Đề 2025",
+        "status": "Booked",
+        "tags": ["Hotel pickup", "Private tour"]
+      },
+      "3": {
+        "category": "Cuisine • Ông Đề",
+        "title": "Mobile Cooking Service at Ông Đề 2025",
+        "status": "Booked",
+        "tags": ["Free cancellation", "Book for tomorrow"]
+      },
+      "4": {
+        "category": "Tour • Ông Đề",
+        "title": "Folk Games Teambuilding at Ông Đề 2025",
+        "status": "Booked",
+        "tags": ["Homestay pickup", "Private tour"]
+      },
+      "5": {
+        "category": "Travel Services • Ông Đề",
+        "title": "West Moon Night Program – 2 Days 1 Night Stay",
+        "status": "Booked",
+        "tags": ["Free cancellation"]
+      },
+      "6": {
+        "category": "Tour • Ông Đề",
+        "title": "Unique Exploration Tour at Ông Đề 2025",
+        "status": "Booked",
+        "tags": ["Hotel pickup", "Private tour"]
+      },
+      "7": {
+        "category": "Cuisine • Ông Đề",
+        "title": "Mobile Cooking Service at Ông Đề 2025",
+        "status": "Booked",
+        "tags": ["Free cancellation", "Book for tomorrow"]
+      },
+      "8": {
+        "category": "Tour • Ông Đề",
+        "title": "Folk Games Teambuilding at Ông Đề 2025",
+        "status": "Booked",
+        "tags": ["Homestay pickup", "Private tour"]
+      }
+    }
+  },
+  "tourList": {
+    "title": "Day Tours",
+    "viewAll": "View All",
+    "iconAlt": "Day Trips Icon",
+    "tours": {
+      "1": {
+        "title": "Children's Adventure Program - Experience Making...",
+        "tag": "Spring Offer"
+      },
+      "2": {
+        "title": "Traditional Teambuilding Games at Ong De"
+      },
+      "3": {
+        "title": "Fish Catching Program - Authentic Mekong Style",
+        "tag": "Spring Offer"
+      },
+      "4": {
+        "title": "Unique Sightseeing Program at Ong De"
+      },
+      "5": {
+        "title": "Tay Do Moonlit Night Program - Relaxation",
+        "tag": "Spring Offer"
+      }
+    }
+  },
+  "serviceBanner": {
+    "title": "Tours & Experiences",
+    "subtitle": "Travel tours, exploration experiences, cuisine, and more",
+    "searchPlaceholder": "Search for tours and experiences...",
+    "exploreButton": "Explore",
+    "categories": {
+      "1": {
+        "title": "Folk Festivals",
+        "activities": "50+ activities"
+      },
+      "2": {
+        "title": "Games",
+        "activities": "12 activities"
+      },
+      "3": {
+        "title": "Boating",
+        "activities": "34 activities"
+      },
+      "4": {
+        "title": "Camping",
+        "activities": "100+ activities"
+      },
+      "5": {
+        "title": "Fishing",
+        "activities": "1 activity"
+      },
+      "6": {
+        "title": "Fruit Gardens",
+        "activities": "16 activities"
+      },
+      "7": {
+        "title": "Film Studios",
+        "activities": "4 activities"
+      }
+    }
+  },
+  "festivalExperience": {
+    "title": "Festival Experiences",
+    "viewAll": "View All",
+    "iconAlt": "Festival Icon",
+    "festivals": {
+      "1": {
+        "title": "Ong De Memorial Festival: Cultural Experience...",
+        "tag": ""
+      },
+      "2": {
+        "title": "Tu Do Exploration: Ong De Don Ca Tai Tu Festival",
+        "tag": "New Service"
+      },
+      "3": {
+        "title": "Mekong Tet Festival: Explore Tet Film Studio...",
+        "tag": ""
+      },
+      "4": {
+        "title": "Ong De Rural Cuisine Festival: Enjoy...",
+        "tag": ""
+      },
+      "5": {
+        "title": "Tu Do Exploration: Ong De Fish Catching Festival",
+        "tag": ""
+      }
+    }
+  },
+  "gardenHopOnHopOff": {
+    "title": "Explore the Garden",
+    "viewAll": "View All",
+    "iconAlt": "Hop On Hop Off Icon",
+    "tours": {
+      "1": {
+        "title": "Explore Ong De Tourism Village by Leaf Boat...",
+        "tag": ""
+      },
+      "2": {
+        "title": "Leaf Boat Tour with Fruit Cuisine Experience...",
+        "tag": ""
+      },
+      "3": {
+        "title": "Explore Ong De Tet Film Studio",
+        "tag": ""
+      },
+      "4": {
+        "title": "Enjoy Specialty Cuisine at Ong De Tum",
+        "tag": ""
+      },
+      "5": {
+        "title": "Wild Pool Swimming and Games at Ong De",
+        "tag": ""
+      }
+    }
+  },
+  "sightseeingList": {
+    "title": "Explore Sightseeing",
+    "showMore": "Show More",
+    "from": "From",
+    "explore": "Explore",
+    "banners": {
+      "DU LỊCH SINH THÁI": "Ecotourism",
+      "CHÈO XUỒNG": "Rowing",
+      "TRÒ CHƠI DÂN GIAN": "Folk Games",
+      "TRẢI NGHIỆM LÀM NÔNG NGHIỆP": "Farming Experience",
+      "ĐÓN CA TÀI TỬ": "Cai Tu Festival",
+      "BUFFET MIỀN TÂY": "Western Buffet",
+      "ĐAN LÁT THỦ CÔNG": "Handmade Weaving"
+    },
+    "sightseeings": {
+      "1": { "title": "Sun World Ba Na Hills Cable Car Ticket, Da Nang" },
+      "2": { "title": "Explore Ong De Tourism Village by Bamboo Boat" },
+      "3": { "title": "Lotte World Aquarium Ticket, Hanoi" },
+      "4": { "title": "Explore Ong De Tourism Village by Bamboo Boat" },
+      "5": { "title": "Explore Ong De Fruit Garden by Bamboo Boat" },
+      "6": { "title": "Erawan Museum and Mekong River Boat Ticket" },
+      "7": { "title": "An Thoi Rowing Experience Tour" },
+      "8": { "title": "Truth Temple Visit Ticket in Pattaya" },
+      "9": { "title": "Special Program 'Temple Exploration' Tour" },
+      "10": { "title": "Explore Ong De Fruit Garden by Bamboo Boat" },
+      "11": { "title": "Lotte World Seoul Ticket" },
+      "12": { "title": "Busan Pass" },
+      "13": { "title": "N Seoul Tower Ticket" },
+      "14": { "title": "Haeundae Blueline Park Ticket in Busan" },
+      "15": { "title": "Explore Ong De Tourism Village by Bamboo Boat" },
+      "16": { "title": "Universal Studios Singapore Ticket" },
+      "17": { "title": "Gardens by the Bay Ticket" },
+      "18": { "title": "S.E.A. Aquarium Sentosa Ticket, Singapore" },
+      "19": { "title": "Harry Potter: A Magical Experience" },
+      "20": { "title": "Explore Ong De Cai Tu Festival Freely", "discountText": "Free SIM with K. Ticket Purchase" },
+      "21": { "title": "Explore Ong De Cai Tu Festival Freely", "discountText": "Free SIM (App Only)" },
+      "22": { "title": "Explore Ong De Cai Tu Festival Freely", "discountText": "10% Off at Paradise Lounge" },
+      "23": { "title": "Explore Ong De Cai Tu Festival Freely", "discountText": "Free SIM with K. Ticket Purchase" },
+      "24": { "title": "Niem An Lu Ong De Cai Tu Festival Service 2025" },
+      "25": { "title": "Ong De Folk Seaweed Pancake", "discountText": "Buy 1 Ticket for 1 Day & Get 1 Free" },
+      "26": { "title": "Western Pancake - Ong De Tourism" },
+      "27": { "title": "Niem An Lu Ong De Cai Tu Festival Service 2025" },
+      "28": { "title": "Explore Ong De Cai Tu Festival Freely" },
+      "29": { "title": "Explore Ong De Cai Tu Festival Freely" },
+      "30": { "title": "Explore Ong De Cai Tu Festival Freely" },
+      "31": { "title": "Explore Ong De Cai Tu Festival Freely" }
+    }
+  },
+  "sightseeingBanner": {
+    "title": "Attraction Tickets",
+    "subtitle": "Tourist attraction tickets, exploration experiences, cuisine, and more",
+    "searchPlaceholder": "Search for attraction tickets...",
+    "searchButton": "Explore"
+  },
+  "featuredCategories": {
+    "title": "Explore Services",
+    "categories": {
+      "Du lịch sinh thái": "Ecotourism",
+      "Chèo Xuồng": "Rowing",
+      "Trò chơi dân gian": "Folk Games",
+      "Làm nông nghiệp": "Farming Experience",
+      "Đờn ca tài tử": "Cai Tu Festival",
+      "Buffet miền Tây": "Western Buffet",
+      "Dệt lát thủ công": "Handmade Weaving",
+      "Câu cá giải trí": "Recreational Fishing",
+      "Du thuyền trên sông": "River Cruise"
+    }
+  },
+  "bannerCuisine": {
+    "location": "Ong De Restaurant",
+    "title": "Cuisine & Restaurant",
+    "highlight": "Ong De",
+    "subtitle": "Discover the unique flavors of Ong De cuisine",
+    "features": {
+      "luxurious_space": {
+        "title": "Luxurious Space",
+        "description": "Modern and cozy design"
+      },
+      "diverse_menu": {
+        "title": "Diverse Menu",
+        "description": "Over 100+ distinctive dishes"
+      }
+    }
+  },
+  "cuisineList": {
+    "categories": {
+      "all": "All Dishes",
+      "lau": "Hot Pot",
+      "trang_mieng": "Dessert",
+      "hai_san": "Seafood",
+      "banh_dan_gian": "Folk Cakes",
+      "nuoc_uong": "Drinks"
+    },
+    "sortOptions": {
+      "popular": "Most Popular",
+      "rating": "Highest Rated",
+      "price_asc": "Price (Low to High)",
+      "ongDe": "Ong De's Recommendation"
+    },
+    "dishes": {
+      "1": {
+        "name": "Seafood Feast - Ong De Cuisine",
+        "serviceType": "Mobile Cooking Service"
+      },
+      "2": {
+        "name": "Seafood Hot Pot - Ong De Cuisine",
+        "serviceType": "Mobile Cooking Service"
+      }
+    },
+    "filters": {
+      "category": "Dish Type",
+      "sortBy": "Sort By"
+    },
+    "pagination": {
+      "reviews": "Reviews",
+      "discount": "% OFF"
+    }
+  },
+ "TourCart": {
+  "cartTitle": "Cart",
+  "emptyCart": "Your cart is empty",
+  "emptyCartMessage": "And now its become a cats nest. Explore Ông Đề to add items to your cart.",
+  "backToHome": "Back to Home",
+  "selectAll": "Select All",
+  "deselectAll": "Deselect All",
+  "deleteSelected": "Delete Selected Services",
+  "checkout": "Checkout",
+  "editOrder": "Edit Order",
+  "selectDate": "Select Tour Date",
+  "freeCancel": "Free Cancellation 24 Hours",
+  "instantConfirm": "Instant Confirmation",
+  "adult": "Adult",
+  "child": "Child (1-12)",
+  "confirm": "Confirm",
+  "oldPrice": "Old Price {price}",
+  "month": "{month}",
+  "total": "Total ({count} services)",
+  "days": {
+    "CN": "Sun",
+    "T2": "Mon",
+    "T3": "Tue",
+    "T4": "Wed",
+    "T5": "Thu",
+    "T6": "Fri",
+    "T7": "Sat"
+  },
+  "cart": {
+    "items": {
+      "1": {
+        "title": "Childhood Memory Program - Traditional Cake Making Experience",
+        "subtitle": "One-day tour experiencing childhood through traditional cake making"
+      },
+      "2": {
+        "title": "Tây Đô Moonlit Night Program - 2 Days 1 Night Stay at Ông Đề 2025",
+        "subtitle": "2 Days 1 Night Relaxation Tour at Ông Đề 2025"
+      },
+      "3": {
+        "title": "Tật Mương Fish Catching Program at Ông Đề Tourism Village 2025",
+        "subtitle": "Fish Catching Experience at Ông Đề Tourism Village 2025"
+      }
+    }
+  }
+}
+}

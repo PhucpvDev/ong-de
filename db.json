@@ -1,0 +1,230 @@
+{
+  "tickets": [
+    {
+      "id": 1,
+      "name": "Vé Người Lớn",
+      "description": "Vé vào cổng tham quan Làng Du lịch Sinh thái Ông Đề, Cần Thơ",
+      "includes": "Tham quan khu du lịch, trải nghiệm văn hóa miền Tây, chụp ảnh tại các điểm check-in",
+      "categories": [
+        {
+          "id": 6,
+          "name": "Vé Tham Quan",
+          "slug": "ve-tham-quan",
+          "description": "Vé dùng để vào cổng Làng Du lịch Sinh thái Ông Đề"
+        }
+      ],
+      "base_prices": [
+        {
+          "price": 100000,
+          "price_type": {
+            "id": 2,
+            "name": "Ngày thường",
+            "description": "Giá áp dụng từ thứ Hai đến thứ Sáu"
+          }
+        },
+        {
+          "price": 120000,
+          "price_type": {
+            "id": 3,
+            "name": "Ngày lễ",
+            "description": "Giá áp dụng cho các ngày lễ, Tết"
+          }
+        },
+        {
+          "price": 110000,
+          "price_type": {
+            "id": 4,
+            "name": "Cuối tuần",
+            "description": "Giá áp dụng cho thứ Bảy và Chủ Nhật"
+          }
+        }
+      ],
+      "capacity_prices": [
+        {
+          "price": 90000,
+          "min_person": 10,
+          "max_person": 20,
+          "price_type": {
+            "id": 2,
+            "name": "Ngày thường",
+            "description": "Giá áp dụng từ thứ Hai đến thứ Sáu"
+          },
+          "customer_segment": {
+            "id": 1,
+            "name": "Người lớn",
+            "description": "Khách từ 12 tuổi trở lên"
+          }
+        }
+      ],
+      "segment_prices": [
+        {
+          "price": 100000,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          },
+          "customer_segment": {
+            "id": 1,
+            "name": "Người lớn",
+            "description": "Khách từ 12 tuổi trở lên"
+          }
+        },
+        {
+          "price": 50000,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          },
+          "customer_segment": {
+            "id": 2,
+            "name": "Trẻ em (1m2 - 1m4)",
+            "description": "Trẻ em cao từ 1m2 đến dưới 1m4"
+          }
+        },
+        {
+          "price": 0,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          },
+          "customer_segment": {
+            "id": 3,
+            "name": "Trẻ em dưới 1m2",
+            "description": "Trẻ em cao dưới 1m2 được miễn phí vé"
+          }
+        }
+      ],
+      "policies": [
+        {
+          "id": 1,
+          "name": "Chính sách đổi vé",
+          "content": "Vé có thể đổi trước 24 giờ với điều kiện vé chưa sử dụng",
+          "description": "Chính sách đổi vé linh hoạt cho khách hàng",
+          "type": "Đổi trả"
+        },
+        {
+          "id": 2,
+          "name": "Chính sách hoàn tiền",
+          "content": "Hoàn tiền 100% nếu hủy vé trước 48 giờ",
+          "description": "Hoàn tiền cho vé chưa sử dụng",
+          "type": "Hoàn tiền"
+        }
+      ]
+    }
+  ],
+  "ticket-categories": [
+    {
+      "id": 6,
+      "name": "Vé Tham Quan",
+      "slug": "ve-tham-quan",
+      "description": "Vé vào cổng Làng Du lịch Sinh thái Ông Đề, trải nghiệm văn hóa miền Tây"
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "name": "Chèo xuồng ba lá",
+      "slug": "cheo-xuong-ba-la",
+      "short_description": "Trải nghiệm chèo xuồng trên kênh rạch miền Tây",
+      "long_description": "Khám phá cảnh quan sông nước đặc trưng của miền Tây Nam Bộ, chèo xuồng ba lá qua các kênh rạch xanh mát, tận hưởng không khí trong lành và tìm hiểu đời sống người dân địa phương.",
+      "main_image": "https://ongde.vn/images/cheo-xuong.jpg",
+      "images": [
+        "https://ongde.vn/images/cheo-xuong-1.jpg",
+        "https://ongde.vn/images/cheo-xuong-2.jpg"
+      ],
+      "conditions": "Tối thiểu 2 người mỗi xuồng",
+      "location_area": "Kênh rạch khu du lịch",
+      "min_participants": 2,
+      "max_participants": 4,
+      "base_prices": [
+        {
+          "price": 50000,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          }
+        }
+      ],
+      "capacity_prices": [],
+      "segment_prices": [],
+      "policies": [
+        {
+          "id": 3,
+          "name": "Chính sách an toàn",
+          "content": "Khách tham gia phải mặc áo phao và tuân thủ hướng dẫn của hướng dẫn viên",
+          "description": "Đảm bảo an toàn khi chèo xuồng",
+          "type": "An toàn"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Đạp xe khám phá làng quê",
+      "slug": "dap-xe-kham-pha",
+      "short_description": "Đạp xe qua các con đường làng quê yên bình",
+      "long_description": "Trải nghiệm đạp xe qua những con đường làng quê xanh mát, khám phá cuộc sống nông thôn miền Tây, ghé thăm vườn cây ăn trái và các điểm dừng chân độc đáo.",
+      "main_image": "https://ongde.vn/images/dap-xe.jpg",
+      "images": [
+        "https://ongde.vn/images/dap-xe-1.jpg",
+        "https://ongde.vn/images/dap-xe-2.jpg"
+      ],
+      "conditions": "Phù hợp cho mọi lứa tuổi",
+      "location_area": "Đường làng khu du lịch",
+      "min_participants": 1,
+      "max_participants": 10,
+      "base_prices": [
+        {
+          "price": 30000,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          }
+        }
+      ],
+      "capacity_prices": [],
+      "segment_prices": [],
+      "policies": []
+    }
+  ],
+  "rental-services": [
+    {
+      "id": 3,
+      "name": "Thuê áo bà ba",
+      "slug": "thue-ao-ba-ba",
+      "short_description": "Thuê áo bà ba truyền thống miền Tây để chụp ảnh và trải nghiệm",
+      "long_description": "<p>Áo bà ba với thiết kế đặc trưng của người dân miền Tây, phù hợp để chụp ảnh check-in và hòa mình vào không gian văn hóa Nam Bộ.</p>",
+      "main_image": "https://ongde.vn/images/ao-ba-ba.jpg",
+      "images": [
+        "https://ongde.vn/images/ao-ba-ba-1.jpg",
+        "https://ongde.vn/images/ao-ba-ba-2.jpg"
+      ],
+      "conditions": "Đặt cọc trước khi thuê, hoàn trả sau khi sử dụng",
+      "base_prices": [
+        {
+          "price": 30000,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          }
+        }
+      ],
+      "capacity_prices": [],
+      "segment_prices": [],
+      "policies": [
+        {
+          "id": 3,
+          "name": "Chính sách thuê trang phục",
+          "content": "Hoàn tiền cọc khi trả trang phục đúng thời gian và không hư hỏng",
+          "description": "Chính sách thuê áo bà ba linh hoạt",
+          "type": "Hoàn tiền"
+        }
+      ]
+    }
+  ]
+}

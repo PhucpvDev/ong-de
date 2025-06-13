@@ -1,0 +1,509 @@
+{
+  "banner": {
+    "ecoTourism": {
+      "title": "Làng Du Lịch Sinh Thái Ông Đề",
+      "subtitle": "Trải nghiệm miệt vườn đậm chất sông nước",
+      "description": "Khám phá khu du lịch sinh thái đầy đủ tất cả đặc trưng của miền sông nước Nam Bộ với vườn trái cây, trò chơi dân gian và ẩm thực miền Tây",
+      "tag": "Mở cửa hàng ngày",
+      "buttonText": "Đặt tour ngay",
+      "price": "70.000đ/người",
+      "location": "Phong Điền, Cần Thơ",
+      "features": {
+        "boating": "Chèo xuồng ba lá miệt vườn",
+        "folkGames": "Trò chơi dân gian độc đáo",
+        "homestay": "Homestay view sông thơ mộng",
+        "cuisine": "Ẩm thực đặc sản miền Tây"
+      }
+    },
+    "teamBuilding": {
+      "title": "Team Building Làng Du Lịch Ông Đề",
+      "subtitle": "Gắn kết đội nhóm bên sông nước",
+      "description": "Tổ chức team building với đầy đủ dịch vụ chuyên nghiệp: sân khấu, âm thanh, MC và các hoạt động vui chơi dân gian hấp dẫn",
+      "tag": "Gói tiết kiệm",
+      "buttonText": "Tư vấn ngay",
+      "price": "1.200.000đ/nhóm",
+      "location": "Từ 20-50 người",
+      "features": {
+        "audio": "MC + Âm thanh chuyên nghiệp",
+        "activities": "Trò chơi teambuilding miệt vườn",
+        "bbq": "Tiệc BBQ + Gala Dinner",
+        "stage": "Sân khấu biểu diễn đầy đủ"
+      }
+    },
+    "quickInfo": {
+      "title": "Thông tin nhanh",
+      "operatingHours": "Giờ hoạt động",
+      "hours": "8:00 - 22:00 hàng ngày",
+      "address": "Địa chỉ",
+      "location": "Xã Mỹ Khánh, Phong Điền",
+      "distance": "Khoảng cách",
+      "distanceValue": "Cách trung tâm Cần Thơ 10km",
+      "area": "Diện tích",
+      "areaValue": "3 hecta đa dạng dịch vụ"
+    },
+    "stats": {
+      "games": "Trò chơi",
+      "area": "Diện tích",
+      "eco": "Sinh thái",
+      "natural": "100% tự nhiên"
+    }
+  },
+
+  "footer": {
+    "company": {
+      "description": "Khám phá khu du lịch sinh thái đầy đủ tất cả đặc trưng của miền sông nước Nam Bộ với vườn trái cây, trò chơi dân gian và ẩm thực miền Tây.",
+      "address": "Xã Mỹ Khánh, Phong Điền, Cần Thơ",
+      "phone": "0292 123 456"
+    },
+    "sections": {
+      "aboutUs": "VỀ ÔNG ĐỀ",
+      "partners": "ĐỐI TÁC",
+      "terms": "ĐIỀU KHOẢN"
+    },
+    "links": {
+      "aboutTitle": "Về chúng tôi",
+      "blog": "Ông Đề Blog",
+      "sustainableTourism": "Du lịch bền vững",
+      "supplierRegistration": "Đăng ký nhà cung cấp",
+      "partnerLogin": "Đối tác đăng nhập",
+      "partnerAffiliate": "Đối tác liên kết",
+      "influencerProgram": "Chương trình cho người nổi tiếng",
+      "agentProgram": "Chương trình cho đại lý",
+      "termsOfUse": "Điều khoản sử dụng",
+      "privacyPolicy": "Chính sách bảo mật thông tin",
+      "rulesAndRegulations": "Chính sách và quy định",
+      "collaborators": "Công tác viên"
+    },
+    "payment": {
+      "title": "KÊNH THANH TOÁN"
+    },
+    "social": {
+      "title": "THEO DÕI CHÚNG TÔI"
+    },
+    "copyright": "© 2025 Ông Đề. All Rights Reserved.",
+    "bottom": {
+      "terms": "Điều khoản",
+      "privacy": "Bảo mật",
+      "sitemap": "Sơ đồ trang"
+    }
+  },
+
+    "contact": {
+      "title": "Ông Đề - Làng du lịch sinh thái tại Cần Thơ",
+      "description": "Liên hệ ngay để nhận thông tin các tour và dịch vụ tại Làng du lịch Ông Đề!",
+      "emailPlaceholder": "Nhập địa chỉ email của bạn",
+      "submitButton": "Gửi liên hệ"
+    },
+
+  "features": {
+    "items": {
+      "1": {
+        "title": "Xem blog của Ông Đề",
+        "description": "Ông Đề gợi ý cho bạn các xu hướng du lịch, lịch trình chi tiết và các mẹo hữu ích",
+        "buttonText": "Xem thêm"
+      },
+      "2": {
+        "title": "Tiết kiệm hơn với Ông Đề xu",
+        "description": "Tìm hiểu cách đặt hoạt động với giá siêu tiết kiệm bằng cách đề lại đúng giá",
+        "buttonText": "Khám phá"
+      },
+      "3": {
+        "title": "Nhận ưu đãi khi mời bạn bè",
+        "description": "Sau khi bạn của bạn đăng ký và hoàn thành đơn hàng đầu tiên bạn sẽ nhận g100,000 Giảm thưởng",
+        "buttonText": "Mời bạn bè"
+      }
+    }
+  },
+  "tourExperience": {
+    "title": "Tour Và Trải Nghiệm",
+    "exploreButton": "Khám phá",
+    "showMore": "Xem thêm",
+    "tours": {
+      "1": {
+        "title": "Chốt Gấp Kèo Ẩm Thực Và Du Lịch Sinh Thái Ở Ông Đề",
+        "subtitle": "Deal du lịch HOT nhất",
+        "description": "Ẩm thực & Du Lịch"
+      },
+      "2": {
+        "title": "Càng Mua Càng Hời",
+        "subtitle": "Ưu đãi hấp dẫn",
+        "description": "Càng mua nhiều - càng thêm lời"
+      },
+      "3": {
+        "title": "Khám Phá Homestay Ông Đề Được Gọi Là Ốc Đảo",
+        "subtitle": "Gợi ý du lịch hàng đầu",
+        "description": "Cần Thơ"
+      },
+      "4": {
+        "title": "Tour Chương Trình Đặc Sắc",
+        "subtitle": "Khám phá văn hóa",
+        "description": "Tour độc đáo"
+      },
+      "5": {
+        "title": "Trải Nghiệm Ẩm Thực Đặc Sắc",
+        "subtitle": "Món ngon đặc trưng",
+        "description": "Ẩm thực địa phương"
+      }
+    }
+  },
+  "tourAttractions": {
+    "title": "Hấp dẫn không kém",
+    "subtitle": "Các khu tham quan và nên trải nghiệm ở Làng Du Lịch Ông Đề - Cần Thơ",
+    "attractions": {
+      "1": { "name": "Nhà hàng ẩm thực miền Tây" },
+      "2": { "name": "Chụp ảnh với cảnh quan và động vật" },
+      "3": { "name": "Khu nghỉ dưỡng homestay" },
+      "4": { "name": "Góc văn hóa miền Tây" },
+      "5": { "name": "Vườn trái cây" },
+      "6": { "name": "Không gian xanh mát" },
+      "7": { "name": "Cầu tre lắc lẻo" },
+      "8": { "name": "Khu vực thả diều" },
+      "9": { "name": "Chợ nổi mini" },
+      "10": { "name": "Lửa trại buổi tối" },
+      "11": { "name": "Khu nuôi ong lấy mật" },
+      "12": { "name": "Xưởng làm bánh truyền thống" },
+      "13": { "name": "Đường hầm cây xanh" },
+      "14": { "name": "Khu câu cá giải trí" },
+      "15": { "name": "Lớp học nấu ăn miền Tây" },
+      "16": { "name": "Khu vực massage chân bằng cá" },
+      "17": { "name": "Vườn hoa miền Tây" },
+      "18": { "name": "Thuyền hoa tham quan" },
+      "19": { "name": "Trò chơi bắn cung" },
+      "20": { "name": "Làng nghề thủ công" }
+    }
+  },
+"featuredServices": {
+    "title": "Các dịch vụ nổi bật",
+    "showMore": "Xem thêm",
+    "from": "Từ",
+    "services": {
+      "1": {
+        "category": "Dịch vụ du lịch • Ông Đề",
+        "title": "Chương Trình \"Đêm Trăng Tây Đô – Nghỉ Dưỡng 2 Ngày 1 Đêm\"",
+        "status": "Đã được đặt",
+        "tags": ["Miễn phí hủy"]
+      },
+      "2": {
+        "category": "Tour • Ông Đề",
+        "title": "Tour Chương Trình \"Tham Quan Đặc Sắc\" Tại Ông Đề 2025",
+        "status": "Đã được đặt",
+        "tags": ["Đón tại khách sạn", "Tour riêng"]
+      },
+      "3": {
+        "category": "Ẩm Thực • Ông Đề",
+        "title": "Dịch Vụ Nấu Ăn Lưu Động Tại Ông Đề 2025",
+        "status": "Đã được đặt",
+        "tags": ["Miễn phí hủy", "Đặt trước cho ngày mai"]
+      },
+      "4": {
+        "category": "Tour • Ông Đề",
+        "title": "Trò Chơi Dân Gian Teambuilding Tại Ông Đề 2025",
+        "status": "Đã được đặt",
+        "tags": ["Đón tại homestay", "Tour riêng"]
+      },
+      "5": {
+        "category": "Dịch vụ du lịch • Ông Đề",
+        "title": "Chương Trình \"Đêm Trăng Tây Đô – Nghỉ Dưỡng 2 Ngày 1 Đêm\"",
+        "status": "Đã được đặt",
+        "tags": ["Miễn phí hủy"]
+      },
+      "6": {
+        "category": "Tour • Ông Đề",
+        "title": "Tour Chương Trình \"Tham Quan Đặc Sắc\" Tại Ông Đề 2025",
+        "status": "Đã được đặt",
+        "tags": ["Đón tại khách sạn", "Tour riêng"]
+      },
+      "7": {
+        "category": "Ẩm Thực • Ông Đề",
+        "title": "Dịch Vụ Nấu Ăn Lưu Động Tại Ông Đề 2025",
+        "status": "Đã được đặt",
+        "tags": ["Miễn phí hủy", "Đặt trước cho ngày mai"]
+      },
+      "8": {
+        "category": "Tour • Ông Đề",
+        "title": "Trò Chơi Dân Gian Teambuilding Tại Ông Đề 2025",
+        "status": "Đã được đặt",
+        "tags": ["Đón tại homestay", "Tour riêng"]
+      }
+    }
+  },
+  "tourList": {
+    "title": "Tour trong ngày",
+    "viewAll": "Xem tất cả",
+    "iconAlt": "Biểu tượng Tour trong ngày",
+    "tours": {
+      "1": {
+        "title": "Chương Trình Kỳ Úc Tuổi Thơ - Trải nghiệm làm...",
+        "tag": "Ưu đãi xuân"
+      },
+      "2": {
+        "title": "Trò Chơi Dân Gian Teambuilding tại Ông Đề"
+      },
+      "3": {
+        "title": "Chương Trình 'Tắt Mương Bắt Cá - Đậm Chất Miền Tây'",
+        "tag": "Ưu đãi xuân"
+      },
+      "4": {
+        "title": "Chương Trình Tham Quan 'Đặc Sắc' Tại Ông Đề"
+      },
+      "5": {
+        "title": "Chương Trình 'Đêm Trăng Tây Đô – Nghỉ Dưỡng'",
+        "tag": "Ưu đãi xuân"
+      }
+    }
+  },
+  "serviceBanner": {
+    "title": "Tour & Trải nghiệm",
+    "subtitle": "Tour du lịch, trải nghiệm khám phá, ẩm thực và hơn thế nữa",
+    "searchPlaceholder": "Tìm kiếm tour và trải nghiệm...",
+    "exploreButton": "Khám phá",
+    "categories": {
+      "1": {
+        "title": "Lễ Hội Dân Gian",
+        "activities": "50+ hoạt động"
+      },
+      "2": {
+        "title": "Trò Chơi",
+        "activities": "12 hoạt động"
+      },
+      "3": {
+        "title": "Chèo Xuồng",
+        "activities": "34 hoạt động"
+      },
+      "4": {
+        "title": "Cắm Trại",
+        "activities": "100+ hoạt động"
+      },
+      "5": {
+        "title": "Bắt Cá",
+        "activities": "1 hoạt động"
+      },
+      "6": {
+        "title": "Vườn Trái Cây",
+        "activities": "16 hoạt động"
+      },
+      "7": {
+        "title": "Phim Trường",
+        "activities": "4 hoạt động"
+      }
+    }
+  },
+  "festivalExperience": {
+    "title": "Trải nghiệm các lễ hội",
+    "viewAll": "Xem tất cả",
+    "iconAlt": "Biểu tượng Lễ hội",
+    "festivals": {
+      "1": {
+        "title": "Lễ Giỗ Ông Đề: Trải Nghiệm Văn Hóa Truyền...",
+        "tag": ""
+      },
+      "2": {
+        "title": "Tứ Do Khám Phá Lễ Hội Đờn Ca Tài Tử Ông Đề",
+        "tag": "Dịch vụ mới"
+      },
+      "3": {
+        "title": "Lễ Hội Tết Miền Tây: Khám Phá Phim Trường Tết...",
+        "tag": ""
+      },
+      "4": {
+        "title": "Lễ Hội Ẩm Thực Đồng Quê Ông Đề: Thưởng...",
+        "tag": ""
+      },
+      "5": {
+        "title": "Tứ Do Khám Phá Lễ Hội Bắt Cá Ông Đề",
+        "tag": ""
+      }
+    }
+  },
+  "gardenHopOnHopOff": {
+    "title": "Khám Phá Miệt Vườn",
+    "viewAll": "Xem tất cả",
+    "iconAlt": "Biểu tượng Hop On Hop Off",
+    "tours": {
+      "1": {
+        "title": "Khám Phá Làng Du Lịch Ông Đề Bằng Xuồng Ba Lá...",
+        "tag": ""
+      },
+      "2": {
+        "title": "Tour Chèo Xuồng Trải Nghiệm Ẩm Thực Trái Cây...",
+        "tag": ""
+      },
+      "3": {
+        "title": "Khám Phá Phim Trường Tết Du Lịch Ông Đề",
+        "tag": ""
+      },
+      "4": {
+        "title": "Thưởng Thức Ẩm Thực Đặc Sản Tại Tum Ông Đề",
+        "tag": ""
+      },
+      "5": {
+        "title": "Tắm Hồ Bơi Hoang Dã Và Chơi Trò Chơi Tại Ông Đề",
+        "tag": ""
+      }
+    }
+  },
+  "sightseeingList": {
+    "title": "Khám Phá Du Lịch",
+    "showMore": "Xem Thêm",
+    "from": "Từ",
+    "explore": "Khám phá",
+    "banners": {
+      "DU LỊCH SINH THÁI": "Du Lịch Sinh Thái",
+      "CHÈO XUỒNG": "Chèo Xuồng",
+      "TRÒ CHƠI DÂN GIAN": "Trò Chơi Dân Gian",
+      "TRẢI NGHIỆM LÀM NÔNG NGHIỆP": "Trải Nghiệm Làm Nông Nghiệp",
+      "ĐÓN CA TÀI TỬ": "Đón Ca Tài Tử",
+      "BUFFET MIỀN TÂY": "Buffet Miền Tây",
+      "ĐAN LÁT THỦ CÔNG": "Đan Lát Thủ Công"
+    },
+    "sightseeings": {
+      "1": { "title": "Vé Cáp Treo Sun World Ba Na Hills Đà Nẵng" },
+      "2": { "title": "Khám Phá Làng Du Lịch Ông Đề Bằng Xuồng Ba Lá" },
+      "3": { "title": "Vé Thủy Cung Lotte World Hà Nội" },
+      "4": { "title": "Khám Phá Làng Du Lịch Ông Đề Bằng Xuồng Ba Lá" },
+      "5": { "title": "Khám Phá Vườn Trái Cây Ông Đề Bằng Xuồng Ba Lá" },
+      "6": { "title": "Vé Bảo Tàng Erawan và Thuyền Trên Sông Mê Kông" },
+      "7": { "title": "Tour Chèo Xuồng Trải Nghiệm An Thới" },
+      "8": { "title": "Vé Ngồi Đền Chùa Truth ở Pattaya" },
+      "9": { "title": "Chương Trình Đặc Sắc 'Tham Quan Đền Sắc' Tour" },
+      "10": { "title": "Khám Phá Vườn Trái Cây Ông Đề Bằng Xuồng Ba Lá" },
+      "11": { "title": "Vé Lotte World Seoul" },
+      "12": { "title": "Thẻ Tham Quan Busan Pass" },
+      "13": { "title": "Vé Tháp N Seoul" },
+      "14": { "title": "Vé Công Viên Du Lịch Haeundae Blueline ở Busan" },
+      "15": { "title": "Khám Phá Làng Du Lịch Ông Đề Bằng Xuồng Ba Lá" },
+      "16": { "title": "Vé Universal Studios Singapore" },
+      "17": { "title": "Vé Gardens by the Bay" },
+      "18": { "title": "Vé Thủy Cung S.E.A. Sentosa - Singapore" },
+      "19": { "title": "Harry Potter: Nơi Ma Thuật Thành Hình" },
+      "20": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề", "discountText": "Tặng SIM khi mua vé K." },
+      "21": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề", "discountText": "Tặng SIM (Chỉ trên ứng dụng)" },
+      "22": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề", "discountText": "Giảm 10% tại Paradise Lounge" },
+      "23": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề", "discountText": "Tặng SIM khi mua vé K." },
+      "24": { "title": "Dịch Vụ Niềm An Lữ Đón Tài Ông Đề 2025" },
+      "25": { "title": "Lá Hẹ Biển Dân Gian - Ông Đề", "discountText": "Mua 1 vé 1 ngày & Tặng vé 2" },
+      "26": { "title": "Bánh Xèo Miền Tây - Du Lịch Ông Đề" },
+      "27": { "title": "Dịch Vụ Niềm An Lữ Đón Tài Ông Đề 2025" },
+      "28": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề" },
+      "29": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề" },
+      "30": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề" },
+      "31": { "title": "Tự Do Khám Phá Lễ Hội Đón Ca Tài Tử Ông Đề" }
+    }
+  },
+  "sightseeingBanner": {
+    "title": "Vé tham quan",
+    "subtitle": "Vé tham quan du lịch, trải nghiệm khám phá, ẩm thực và hơn thế nữa",
+    "searchPlaceholder": "Tìm kiếm vé tham quan...",
+    "searchButton": "Khám phá"
+  },
+  "featuredCategories": {
+    "title": "Khám phá dịch vụ",
+    "categories": {
+      "Du lịch sinh thái": "Du lịch sinh thái",
+      "Chèo Xuồng": "Chèo Xuồng",
+      "Trò chơi dân gian": "Trò chơi dân gian",
+      "Làm nông nghiệp": "Làm nông nghiệp",
+      "Đờn ca tài tử": "Đờn ca tài tử",
+      "Buffet miền Tây": "Buffet miền Tây",
+      "Dệt lát thủ công": "Dệt lát thủ công",
+      "Câu cá giải trí": "Câu cá giải trí",
+      "Du thuyền trên sông": "Du thuyền trên sông"
+    }
+  },
+  "bannerCuisine": {
+    "location": "Nhà hàng Ông Đề",
+    "title": "Ẩm thực & nhà hàng",
+    "highlight": "Ông Đề",
+    "subtitle": "Khám phá hương vị độc đáo của ẩm thực Ông Đề",
+    "features": {
+      "luxurious_space": {
+        "title": "Không gian sang trọng",
+        "description": "Thiết kế hiện đại, ấm cúng"
+      },
+      "diverse_menu": {
+        "title": "Đa dạng món ăn",
+        "description": "Hơn 100+ món ăn đặc sắc"
+      }
+    }
+  },
+  "cuisineList": {
+    "categories": {
+      "all": "Tất cả các món",
+      "lau": "Lẩu",
+      "trang_mieng": "Tráng miệng",
+      "hai_san": "Hải Sản",
+      "banh_dan_gian": "Bánh Dân Gian",
+      "nuoc_uong": "Nước Uống"
+    },
+    "sortOptions": {
+      "popular": "Được yêu thích nhất",
+      "rating": "Được đánh giá cao nhất",
+      "price_asc": "Giá (thấp đến cao)",
+      "ongDe": "Ông Đề giới thiệu"
+    },
+    "dishes": {
+      "1": {
+        "name": "Đại Tiệc Hải Sản - Ẩm Thực Ông Đề",
+        "serviceType": "Dịch vụ nấu ăn lưu động"
+      },
+      "2": {
+        "name": "Lẩu Hải Sản - Ẩm Thực Ông Đề",
+        "serviceType": "Dịch vụ nấu ăn lưu động"
+      }
+    },
+    "filters": {
+      "category": "Loại món ăn",
+      "sortBy": "Sắp xếp theo"
+    },
+    "pagination": {
+      "reviews": "Đánh giá",
+      "discount": "% OFF"
+    }
+  },
+"TourCart": {
+  "cartTitle": "Giỏ hàng",
+  "emptyCart": "Giỏ hàng đang trống",
+  "emptyCartMessage": "Và giờ đã trở thành ổ của mèo. Khám phá Ông Đề để thêm vào giỏ hàng của bạn.",
+  "backToHome": "Về trang chủ",
+  "selectAll": "Chọn tất cả",
+  "deselectAll": "Bỏ chọn tất cả",
+  "deleteSelected": "Xóa dịch vụ đã chọn",
+  "checkout": "Thanh toán",
+  "editOrder": "Chỉnh sửa đơn hàng",
+  "selectDate": "Chọn ngày đi tour",
+  "freeCancel": "Hủy miễn phí 24 giờ",
+  "instantConfirm": "Xác nhận ngay",
+  "adult": "Người lớn",
+  "child": "Trẻ em (1-12)",
+  "confirm": "Xác nhận",
+  "oldPrice": "Giá cũ {price}",
+  "month": "{month}",
+  "total": "Tổng cộng ({count} dịch vụ)",
+  "days": {
+    "CN": "CN",
+    "T2": "T2",
+    "T3": "T3",
+    "T4": "T4",
+    "T5": "T5",
+    "T6": "T6",
+    "T7": "T7"
+  },
+  "cart": {
+    "items": {
+      "1": {
+        "title": "Chương trình Kỳ Ức Tuổi Thơ - Trải Nghiệm Làm Bánh Dân Gian",
+        "subtitle": "Tour trong ngày trải nghiệm tuổi thơ làm bánh dân gian"
+      },
+      "2": {
+        "title": "Chương trình Đêm Trăng Tây Đô - Nghỉ Dưỡng 2 Ngày 1 Đêm tại Ông Đề 2025",
+        "subtitle": "Tour nghỉ dưỡng 2 ngày 1 đêm tại Ông Đề 2025"
+      },
+      "3": {
+        "title": "Chương trình Tật Mương Bắt Cá tại Làng Du Lịch Ông Đề 2025",
+        "subtitle": "Trải nghiệm bắt cá tại Làng Du Lịch Ông Đề 2025"
+      }
+    }
+  }
+}
+ 
+}
