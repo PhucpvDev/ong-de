@@ -7,7 +7,7 @@ const MenuMobile = dynamic(() => import('@/components/theme/menuMobile'), { ssr:
 const TicketsDetails = dynamic(() => import('@/components/ticketsDetails/ticketsDetails'), { ssr: false });
 const Footer = dynamic(() => import('@/components/theme/footer'), { ssr: false });
 
-export default function ServicesPage() {
+export default function TicketsPageDetails() {
     return (
         <>
             <Navbar />

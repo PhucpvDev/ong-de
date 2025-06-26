@@ -1,53 +1,331 @@
 {
-  "tickets": [
+  "packages": [
     {
       "id": 1,
-      "name": "Vé Người Lớn",
-      "description": "Vé vào cổng tham quan Làng Du lịch Sinh thái Ông Đề, Cần Thơ",
-      "includes": "Tham quan khu du lịch, trải nghiệm văn hóa miền Tây, chụp ảnh tại các điểm check-in",
+      "name": "Chương Trình Vui Chơi Trọn Gói Học Sinh 2025 - Tiểu Học & THCS",
+      "slug": "chuong-trinh-vui-choi-tron-goi-hoc-sinh-2025-hoc-sinh-tieu-hoc-thcs",
+      "description": "Chương trình vui chơi trọn gói dành cho học sinh tiểu học và THCS tại Làng Du Lịch Sinh Thái Ông Đề, với các hoạt động khám phá, học tập và giải trí.",
+      "long_description": "<p>Tham gia chương trình để trải nghiệm văn hóa, vui chơi và học hỏi tại Làng Du Lịch Sinh Thái Ông Đề. Phù hợp cho học sinh tiểu học và THCS.</p>",
+      "main_image": "https://ongde.vn/wp-content/uploads/2022/03/z4414975293809_5be4d055fd86a9532a05583fd474d598.jpg",
+      "images": [
+        "https://ongde.vn/wp-content/uploads/2022/03/z4414975301097_6aa8e647c100cebc1113d8a6f21f36b9.jpg",
+        "https://ongde.vn/wp-content/uploads/2022/03/z4414975294065_75c03679611a3242df841933553a6160.jpg"
+      ],
+      "duration": "Trong ngày",
+      "conditions": "Đăng ký trước, tối thiểu 10 người",
+      "min_quantity": 10,
+      "is_active": true,
+      "is_featured": true,
+      "keywords": "vui chơi, học sinh, tiểu học, THCS, Ông Đề, tour nhóm",
+      "meta_description": "Khám phá chương trình vui chơi trọn gói 2025 tại Làng Du Lịch Ông Đề cho học sinh tiểu học và THCS với nhiều hoạt động thú vị.",
+      "available_start": "2025-06-01 00:00:00",
+      "available_end": "2025-08-15 00:00:00",
       "categories": [
         {
-          "id": 6,
-          "name": "Vé Tham Quan",
-          "slug": "ve-tham-quan",
-          "description": "Vé dùng để vào cổng Làng Du lịch Sinh thái Ông Đề"
+          "id": 1,
+          "name": "Chương trình mùa hè",
+          "slug": "chuong-trinh-mua-he",
+          "description": "Các chương trình du lịch mùa hè tại Làng Du Lịch Sinh Thái Ông Đề"
+        }
+      ],
+      "audiences": [
+        {
+          "id": 1,
+          "name": "Học sinh tiểu học - THCS",
+          "description": "Dành cho học sinh từ 6-15 tuổi",
+          "icon": null
+        }
+      ],
+      "services": [
+        {
+          "id": 1,
+          "name": "Tham Quan Làng Du Lịch",
+          "description": "Khám phá các khu vực nổi bật của Làng Du Lịch Sinh Thái Ông Đề.",
+          "icon": null
+        },
+        {
+          "id": 2,
+          "name": "Vé Hồ Bơi Ông Đề",
+          "description": "Thưởng thức thời gian thư giãn tại hồ bơi Ông Đề.",
+          "icon": null
+        },
+        {
+          "id": 3,
+          "name": "Trò Chơi Dân Gian",
+          "description": "Tham gia các trò chơi dân gian truyền thống đầy thú vị.",
+          "icon": null
+        }
+      ],
+      "menus": [
+        {
+          "id": 1,
+          "name": "Menu Ăn Trưa",
+          "type": "lunch",
+          "description": "Bữa ăn trưa phong phú dành cho người tham gia.",
+          "menu_structure": "fixed",
+          "fixed_items": [
+            {
+              "id": 1,
+              "name": "Bùi Gà Chiên Nước Mắm",
+              "unit": "dĩa",
+              "quantity": "1"
+            },
+            {
+              "id": 2,
+              "name": "Thịt Ram Mặn",
+              "unit": "dĩa",
+              "quantity": "1"
+            },
+            {
+              "id": 3,
+              "name": "Trứng Chiên Hành Lá",
+              "unit": "dĩa",
+              "quantity": "1"
+            }
+          ]
         }
       ],
       "base_prices": [
         {
-          "price": 100000,
+          "price": 190000,
           "price_type": {
-            "id": 2,
-            "name": "Ngày thường",
-            "description": "Giá áp dụng từ thứ Hai đến thứ Sáu"
-          }
-        },
-        {
-          "price": 120000,
-          "price_type": {
-            "id": 3,
-            "name": "Ngày lễ",
-            "description": "Giá áp dụng cho các ngày lễ, Tết"
-          }
-        },
-        {
-          "price": 110000,
-          "price_type": {
-            "id": 4,
-            "name": "Cuối tuần",
-            "description": "Giá áp dụng cho thứ Bảy và Chủ Nhật"
+            "id": 1,
+            "name": "Giá ngày thường",
+            "description": "Áp dụng cho tất cả các ngày từ thứ 2 - thứ 6"
           }
         }
       ],
       "capacity_prices": [
         {
-          "price": 90000,
+          "price": 190000,
           "min_person": 10,
-          "max_person": 20,
+          "max_person": null,
           "price_type": {
+            "id": 1,
+            "name": "Giá ngày thường",
+            "description": "Áp dụng cho tất cả các ngày từ thứ 2 - thứ 6"
+          },
+          "customer_segment": {
+            "id": 3,
+            "name": "Trẻ em dưới 14 tuổi",
+            "description": "Học sinh dưới 14 tuổi"
+          }
+        }
+      ],
+      "segment_prices": [
+        {
+          "price": 100000,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          },
+          "customer_segment": {
+            "id": 1,
+            "name": "Người lớn",
+            "description": "Khách từ 12 tuổi trở lên"
+          }
+        },
+        {
+          "price": 50000,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          },
+          "customer_segment": {
             "id": 2,
-            "name": "Ngày thường",
-            "description": "Giá áp dụng từ thứ Hai đến thứ Sáu"
+            "name": "Trẻ em (1m2 - 1m4)",
+            "description": "Trẻ em cao từ 1m2 đến dưới 1m4"
+          }
+        },
+        {
+          "price": 0,
+          "price_type": {
+            "id": 1,
+            "name": "Default",
+            "description": "Giá áp dụng cho mọi thời điểm"
+          },
+          "customer_segment": {
+            "id": 3,
+            "name": "Trẻ em dưới 1m2",
+            "description": "Trẻ em cao dưới 1m2 được miễn phí vé"
+          }
+        }
+      ],
+      "policies": [
+        {
+          "id": 2,
+          "name": "Điều Kiện Đăng Ký",
+          "content": "Đơn giá: 190.000 VNĐ/khách\nTối thiểu 10 người để đăng ký.",
+          "description": "Chính sách áp dụng cho chương trình vui chơi trọn gói",
+          "type": "Đổi trả"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Chương Trình Đêm Trắng Tây Đô Chiều Bên Bếp Lửa Hồng",
+      "slug": "chuong-trinh-dem-trang-tay-do-chieu-ben-bep-lua-hong",
+      "description": "Trải nghiệm đêm trắng Tây Đô với các hoạt động bên bếp lửa hồng tại Làng Du Lịch Sinh Thái Ông Đề.",
+      "long_description": "<p>Tham gia chương trình để trải nghiệm các hoạt động văn hóa, ẩm thực và nghỉ dưỡng tại Làng Du Lịch Sinh Thái Ông Đề. Bao gồm vé cổng, phòng nghỉ có máy lạnh và các bữa ăn đặc sắc.</p>",
+      "main_image": "https://ongde.vn/wp-content/uploads/2024/01/z5078876404566_bbbf36bee5ec8967dcb1b2492273ccff-1.jpg",
+      "images": [
+        "https://ongde.vn/wp-content/uploads/2022/05/z4464121306794_35bccb8a963f996c617543325c6962bf-1200x800.jpg",
+        "https://ongde.vn/wp-content/uploads/2024/01/z5078876463067_3f3380e55c789bd202e0aaf70732d30d-1067x800.jpg"
+      ],
+      "duration": "2 ngày 1 đêm",
+      "conditions": "Tối thiểu 20 người",
+      "min_quantity": 20,
+      "is_active": true,
+      "is_featured": false,
+      "keywords": "đêm trắng, Tây Đô, bếp lửa hồng, Ông Đề",
+      "meta_description": "Khám phá chương trình Đêm Trắng Tây Đô với các hoạt động văn hóa và ẩm thực tại Làng Du Lịch Ông Đề.",
+      "available_start": null,
+      "available_end": null,
+      "categories": [
+        {
+          "id": 1,
+          "name": "Chương trình mùa hè",
+          "slug": "chuong-trinh-mua-he",
+          "description": "Các chương trình du lịch mùa hè tại Làng Du Lịch Sinh Thái Ông Đề"
+        }
+      ],
+      "audiences": [
+        {
+          "id": 5,
+          "name": "Nhóm bạn",
+          "description": "Dành cho nhóm bạn yêu thích trải nghiệm văn hóa",
+          "icon": null
+        }
+      ],
+      "services": [
+        {
+          "id": 4,
+          "name": "Vé Cổng",
+          "description": "Vé vào cổng Làng Du Lịch Sinh Thái Ông Đề",
+          "icon": null
+        },
+        {
+          "id": 5,
+          "name": "Phòng nghỉ có máy lạnh",
+          "description": "Phòng nghỉ tiện nghi với máy lạnh",
+          "icon": null
+        }
+      ],
+      "menus": [
+        {
+          "id": 2,
+          "name": "Ăn tối BBQ",
+          "type": "dinner",
+          "description": "Những món nướng thú vị",
+          "menu_structure": "fixed",
+          "fixed_items": [
+            {
+              "id": 4,
+              "name": "Ốc Bươu nướng tiêu đen",
+              "unit": "kg",
+              "quantity": "1"
+            },
+            {
+              "id": 5,
+              "name": "Tôm sú nướng",
+              "unit": "dĩa",
+              "quantity": "1"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Ăn trưa",
+          "type": "lunch",
+          "description": "Menu ăn trưa ngon lành",
+          "menu_structure": "fixed",
+          "fixed_items": [
+            {
+              "id": 6,
+              "name": "Gỏi gà hoa chuối",
+              "unit": "Dĩa",
+              "quantity": "1"
+            },
+            {
+              "id": 7,
+              "name": "Cá tai tượng hấp Hồng Kông",
+              "unit": "con",
+              "quantity": "1"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Ăn cháo Khuya",
+          "type": "dinner",
+          "description": "Bữa khuya nhẹ nhàng",
+          "menu_structure": "options",
+          "options": [
+            {
+              "id": 1,
+              "name": "Ăn sáng 1",
+              "description": null,
+              "items": [
+                {
+                  "id": 1,
+                  "name": "Cháo cá lóc rau ngọt",
+                  "unit": "tô",
+                  "quantity": 1
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "Ăn sáng 2",
+              "description": null,
+              "items": [
+                {
+                  "id": 2,
+                  "name": "Cháo gà xé mỏng",
+                  "unit": "tô",
+                  "quantity": 1
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "base_prices": [
+        {
+          "price": 1500000,
+          "price_type": {
+            "id": 1,
+            "name": "Giá ngày thường",
+            "description": "Áp dụng cho tất cả các ngày từ thứ 2 - thứ 6"
+          }
+        }
+      ],
+      "capacity_prices": [
+        {
+          "price": 1400000,
+          "min_person": 20,
+          "max_person": 29,
+          "price_type": {
+            "id": 1,
+            "name": "Giá ngày thường",
+            "description": "Áp dụng cho tất cả các ngày từ thứ 2 - thứ 6"
+          },
+          "customer_segment": {
+            "id": 1,
+            "name": "Người lớn",
+            "description": "Khách từ 12 tuổi trở lên"
+          }
+        },
+        {
+          "price": 1350000,
+          "min_person": 30,
+          "max_person": 39,
+          "price_type": {
+            "id": 1,
+            "name": "Giá ngày thường",
+            "description": "Áp dụng cho tất cả các ngày từ thứ 2 - thứ 6"
           },
           "customer_segment": {
             "id": 1,
@@ -99,132 +377,21 @@
       ],
       "policies": [
         {
-          "id": 1,
-          "name": "Chính sách đổi vé",
-          "content": "Vé có thể đổi trước 24 giờ với điều kiện vé chưa sử dụng",
-          "description": "Chính sách đổi vé linh hoạt cho khách hàng",
-          "type": "Đổi trả"
-        },
-        {
-          "id": 2,
+          "id": 3,
           "name": "Chính sách hoàn tiền",
-          "content": "Hoàn tiền 100% nếu hủy vé trước 48 giờ",
-          "description": "Hoàn tiền cho vé chưa sử dụng",
+          "content": "Hoàn tiền 50% nếu hủy trước 72 giờ. Hoàn tiền 100% nếu hủy trước 7 ngày.",
+          "description": "Chính sách hoàn tiền linh hoạt cho gói tour",
           "type": "Hoàn tiền"
         }
       ]
     }
   ],
-  "ticket-categories": [
-    {
-      "id": 6,
-      "name": "Vé Tham Quan",
-      "slug": "ve-tham-quan",
-      "description": "Vé vào cổng Làng Du lịch Sinh thái Ông Đề, trải nghiệm văn hóa miền Tây"
-    }
-  ],
-  "activities": [
+  "categories": [
     {
       "id": 1,
-      "name": "Chèo xuồng ba lá",
-      "slug": "cheo-xuong-ba-la",
-      "short_description": "Trải nghiệm chèo xuồng trên kênh rạch miền Tây",
-      "long_description": "Khám phá cảnh quan sông nước đặc trưng của miền Tây Nam Bộ, chèo xuồng ba lá qua các kênh rạch xanh mát, tận hưởng không khí trong lành và tìm hiểu đời sống người dân địa phương.",
-      "main_image": "https://ongde.vn/images/cheo-xuong.jpg",
-      "images": [
-        "https://ongde.vn/images/cheo-xuong-1.jpg",
-        "https://ongde.vn/images/cheo-xuong-2.jpg"
-      ],
-      "conditions": "Tối thiểu 2 người mỗi xuồng",
-      "location_area": "Kênh rạch khu du lịch",
-      "min_participants": 2,
-      "max_participants": 4,
-      "base_prices": [
-        {
-          "price": 50000,
-          "price_type": {
-            "id": 1,
-            "name": "Default",
-            "description": "Giá áp dụng cho mọi thời điểm"
-          }
-        }
-      ],
-      "capacity_prices": [],
-      "segment_prices": [],
-      "policies": [
-        {
-          "id": 3,
-          "name": "Chính sách an toàn",
-          "content": "Khách tham gia phải mặc áo phao và tuân thủ hướng dẫn của hướng dẫn viên",
-          "description": "Đảm bảo an toàn khi chèo xuồng",
-          "type": "An toàn"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Đạp xe khám phá làng quê",
-      "slug": "dap-xe-kham-pha",
-      "short_description": "Đạp xe qua các con đường làng quê yên bình",
-      "long_description": "Trải nghiệm đạp xe qua những con đường làng quê xanh mát, khám phá cuộc sống nông thôn miền Tây, ghé thăm vườn cây ăn trái và các điểm dừng chân độc đáo.",
-      "main_image": "https://ongde.vn/images/dap-xe.jpg",
-      "images": [
-        "https://ongde.vn/images/dap-xe-1.jpg",
-        "https://ongde.vn/images/dap-xe-2.jpg"
-      ],
-      "conditions": "Phù hợp cho mọi lứa tuổi",
-      "location_area": "Đường làng khu du lịch",
-      "min_participants": 1,
-      "max_participants": 10,
-      "base_prices": [
-        {
-          "price": 30000,
-          "price_type": {
-            "id": 1,
-            "name": "Default",
-            "description": "Giá áp dụng cho mọi thời điểm"
-          }
-        }
-      ],
-      "capacity_prices": [],
-      "segment_prices": [],
-      "policies": []
-    }
-  ],
-  "rental-services": [
-    {
-      "id": 3,
-      "name": "Thuê áo bà ba",
-      "slug": "thue-ao-ba-ba",
-      "short_description": "Thuê áo bà ba truyền thống miền Tây để chụp ảnh và trải nghiệm",
-      "long_description": "<p>Áo bà ba với thiết kế đặc trưng của người dân miền Tây, phù hợp để chụp ảnh check-in và hòa mình vào không gian văn hóa Nam Bộ.</p>",
-      "main_image": "https://ongde.vn/images/ao-ba-ba.jpg",
-      "images": [
-        "https://ongde.vn/images/ao-ba-ba-1.jpg",
-        "https://ongde.vn/images/ao-ba-ba-2.jpg"
-      ],
-      "conditions": "Đặt cọc trước khi thuê, hoàn trả sau khi sử dụng",
-      "base_prices": [
-        {
-          "price": 30000,
-          "price_type": {
-            "id": 1,
-            "name": "Default",
-            "description": "Giá áp dụng cho mọi thời điểm"
-          }
-        }
-      ],
-      "capacity_prices": [],
-      "segment_prices": [],
-      "policies": [
-        {
-          "id": 3,
-          "name": "Chính sách thuê trang phục",
-          "content": "Hoàn tiền cọc khi trả trang phục đúng thời gian và không hư hỏng",
-          "description": "Chính sách thuê áo bà ba linh hoạt",
-          "type": "Hoàn tiền"
-        }
-      ]
+      "name": "Chương trình mùa hè",
+      "slug": "chuong-trinh-mua-he",
+      "description": "Các chương trình du lịch mùa hè tại Làng Du Lịch Sinh Thái Ông Đề"
     }
   ]
 }

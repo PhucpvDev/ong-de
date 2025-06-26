@@ -2,10 +2,9 @@
 
 import { IMAGES } from "@/constants/theme";
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { ConfigProvider } from "antd";
-import Contact from "@/components/contact/contactForm";
 
 const footerLinks = {
   aboutUs: [
@@ -35,17 +34,9 @@ const paymentMethods = [
 ];
 
 export default function Footer() {
-  const themeConfig = {
-    token: {
-      colorPrimary: "#FFC800",
-      borderRadius: 8,
-    },
-  };
-
   return (
-    <ConfigProvider theme={themeConfig}>
-      <Contact />
-      <footer className="py-16 md:pt-32 bg-slate-900 text-white">
+    <ConfigProvider>
+      <div className="mt-16 pb-6 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="pt-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
@@ -185,7 +176,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </footer>
+      </div>
     </ConfigProvider>
   );
 }

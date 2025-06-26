@@ -88,9 +88,6 @@ export default function Banner() {
                       fill
                       className="object-cover"
                       priority
-                      onError={(e) => {
-                        e.currentTarget.src = "/fallback-image.jpg";
-                      }}
                     />
 
                     <div className="absolute inset-0 pointer-events-none z-[2]">
@@ -152,7 +149,7 @@ export default function Banner() {
                           </div>
 
                           <div className="lg:col-span-5 flex justify-center items-center">
-                            <div className="space-y-6 w-full max-w-sm">
+                            <div className="space-y-6 md:w-90 w-full">
                               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/20">
                                 <h2 className="font-bold text-lg text-gray-800 mb-4 text-center">
                                   {locale === "vi"

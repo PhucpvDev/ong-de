@@ -3,29 +3,38 @@ import { usePathname } from "next/navigation";
 import {
   ShoppingCartOutlined,
   UserOutlined,
+  CaretDownOutlined,
 } from "@ant-design/icons";
 import { IMAGES } from "@/constants/theme";
 import { ConfigProvider } from "antd";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import Switcher from "@/components/language/switcher";
+import LoginModal from "@/components/auth/login";
 
 const menuItems = [
-  {
-    label: "Hoạt động & Trải nghiệm",
-    href: "/services",
-  },
-  { label: "Vé tham quan", href: "/tickets" },
   { label: "Gói tiết kiệm", href: "/packages" },
+  {
+    label: "Dịch vụ",
+    href: "/services",
+    children: [
+      { label: "Vé", href: "/tickets" },
+      { label: "Homestay", href: "/homestay" },
+      { label: "Dịch vụ cho thuê", href: "/rental-services" },
+      { label: "Hoạt động & trãi nghiệm", href: "/activities" }
+    ],
+  },
   { label: "Tin tức", href: "/posts" },
   { label: "Giới thiệu", href: "/about" },
   { label: "Chính sách", href: "/policy" },
+  { label: "Liên hệ", href: "/contact" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const [drawerHeight, setDrawerHeight] = useState("81vh");
   const [isClient, setIsClient] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const localeMatch = pathname.match(/^\/(en|vi|zh|ko)(\/|$)/);
   const currentLocale = localeMatch ? localeMatch[1] : "vi";
@@ -57,8 +66,8 @@ export default function Navbar() {
     return pathWithoutLocale === href || pathWithoutLocale.startsWith(`${href}/`);
   };
 
-  const getLocalizedHref = (href: string) => {
-    return `/${currentLocale}${href}`;
+  const showModal = () => {
+    setIsModalOpen(true);
   };
 
   return (
@@ -68,7 +77,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="max-w-7xl mx-auto px-6">
               <div className="flex items-center justify-between py-2.5">
-                <Link href={`/${currentLocale}`} className="flex-shrink-0 group">
+                <Link href={`/`} className="flex-shrink-0 group">
                   <Image
                     src={IMAGES.logo}
                     alt="Logo"
@@ -78,20 +87,46 @@ export default function Navbar() {
                   />
                 </Link>
 
-                <ul className="flex items-center gap-4 text-base font-medium">
+                <ul className="flex items-center gap-6 text-base font-medium">
                   {menuItems.map((item, index) => (
-                    <li key={index}>
-                      <Link
-                        href={getLocalizedHref(item.href)} 
-                        className={`px-3 py-2 rounded-lg group relative transition-all duration-200 text-gray-700 hover:bg-gray-50 ${isActive(item.href) ? "bg-gray-100 text-orange-400" : ""
-                          }`}
-                      >
-                        <span className="relative z-10">{item.label}</span>
-                        <div
-                          className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-yellow-500 transition-all duration-300 transform -translate-x-1/2 ${isActive(item.href) ? "w-full" : "group-hover:w-full"
+                    <li key={index} className="relative group">
+                      {item.children ? (
+                        <div className="px-4 py-2 rounded-lg relative transition-all duration-200 text-gray-800 hover:bg-gray-50">
+                          <span className="flex items-center gap-2 cursor-pointer">
+                            {item.label}
+                            <span className="text-sm text-gray-600 transition-transform duration-300 ease-in-out group-hover:rotate-180 group-hover:text-orange-500"><CaretDownOutlined /></span>
+                          </span>
+                          <div
+                            className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 transition-all duration-300 transform -translate-x-1/2 ${isActive(item.href) ? "w-full" : "group-hover:w-full"
+                              }`}
+                          ></div>
+                          <ul className="absolute left-0 top-full mt-2 w-56 bg-white shadow-2xl rounded-xl py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-in-out translate-y-2 group-hover:translate-y-0 z-50 border-t-4 border-orange-400">
+                            {item.children.map((child, childIndex) => (
+                              <li key={childIndex}>
+                                <Link
+                                  href={child.href}
+                                  className={`block px-6 py-3 text-gray-800 hover:bg-orange-100 hover:text-orange-600 transition-all duration-200 font-medium text-sm ${isActive(child.href) ? "bg-orange-100 text-orange-600" : ""
+                                    }`}
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className={`px-4 py-2 rounded-lg group relative transition-all duration-200 text-gray-800 hover:bg-gray-50 ${isActive(item.href) ? "bg-gray-50 text-orange-500" : ""
                             }`}
-                        ></div>
-                      </Link>
+                        >
+                          <span className="relative z-10">{item.label}</span>
+                          <div
+                            className={`absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 transition-all duration-300 transform -translate-x-1/2 ${isActive(item.href) ? "w-full" : "group-hover:w-full"
+                              }`}
+                          ></div>
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -99,7 +134,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                   <Switcher />
                   <Link
-                    href={getLocalizedHref("/cart")} 
+                    href={"/cart"}
                     className="relative p-2 rounded-lg transition-colors text-gray-600 hover:text-gray-800 hover:bg-gray-100"
                   >
                     <ShoppingCartOutlined className="text-2xl" />
@@ -109,18 +144,19 @@ export default function Navbar() {
                   </Link>
 
                   <div className="flex items-center gap-3">
-                    <Link href={getLocalizedHref("/login")}>
-                      <span className="bg-orange-500 hover:bg-orange-600 text-white text-sm rounded-full px-3.5 py-2.5 cursor-pointer font-semibold transition-all duration-200">
-                        Đăng nhập
-                      </span>
-                    </Link>
+                    <span
+                      onClick={showModal}
+                      className="bg-orange-500 hover:bg-orange-600 text-white text-sm rounded-full px-3.5 py-2.5 cursor-pointer font-semibold transition-all duration-200"
+                    >
+                      Đăng nhập
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex md:hidden items-center justify-between px-4 py-3">
+          <div className="flex md:hidden items-center justify-between px-3 py-3">
             <div className="flex items-center gap-4">
               <Link href={`/${currentLocale}`} className="flex-shrink-0">
                 <Image
@@ -128,29 +164,30 @@ export default function Navbar() {
                   alt="Logo"
                   width={80}
                   height={32}
-                  className="h-8 w-auto"
+                  className="h-10 w-auto"
                 />
               </Link>
             </div>
             <div className="flex items-center gap-3">
               <Link
-                href={getLocalizedHref("/cart")}
+                href={"/cart"}
                 className="p-2 relative transition-colors text-gray-600 hover:text-yellow-500"
               >
-                <ShoppingCartOutlined className="text-xl" />
+                <ShoppingCartOutlined className="!text-xl" />
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   3
                 </span>
               </Link>
-              <Link
-                href={getLocalizedHref("/login")}
+              <span
+                onClick={showModal}
                 className="p-2 relative transition-colors text-gray-600 hover:text-yellow-500"
               >
-                <UserOutlined className="text-xl" />
-              </Link>
+                <UserOutlined className="!text-xl" />
+              </span>
             </div>
           </div>
         </div>
+        <LoginModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       </div>
     </ConfigProvider>
   );

@@ -9,7 +9,7 @@ const LandingSection = dynamic(() => import('@/components/pageAbout/landingSecti
 const CardSection = dynamic(() => import('@/components/pageAbout/cardSection'), { ssr: false });
 const Footer = dynamic(() => import('@/components/theme/footer'), { ssr: false });
 
-export default function CartPage() {
+export default function AboutPage() {
     return (
         <>
             <Navbar />

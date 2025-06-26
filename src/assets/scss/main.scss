@@ -14,7 +14,7 @@ body {
 }
 
 @theme static { 
-  --color-primary: #FF5B00; 
+  --color-primary: #F54A00; 
 }
 
 @theme dark {
@@ -23,4 +23,11 @@ body {
 
 [class*="ant-"] {
   font-family: var(--font-family-primary) !important;
+}
+
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 0.835rem !important;
+  }
 }

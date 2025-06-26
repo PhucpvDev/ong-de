@@ -6,7 +6,7 @@ import { IMAGES } from "@/constants/theme";
 import React, { useRef, useState, useEffect } from "react";
 import Image, { StaticImageData } from "next/image";
 import { ConfigProvider } from "antd";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 interface Service {
   id: number;

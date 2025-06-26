@@ -7,7 +7,7 @@ const MenuMobile = dynamic(() => import('@/components/theme/menuMobile'), { ssr:
 const PostList = dynamic(() => import('@/components/posts/postList'), { ssr: false });
 const Footer = dynamic(() => import('@/components/theme/footer'), { ssr: false });
 
-export default function CuisinePage() {
+export default function PostsPage() {
     return (
         <>
             <Navbar />

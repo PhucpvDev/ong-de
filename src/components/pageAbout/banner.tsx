@@ -1,22 +1,71 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography } from 'antd';
-import { IMAGES } from '@/constants/theme';
+import { GetBannerAbout } from '@/lib/directus/about/banner_about';
+import { BannerAboutTranslation } from '@/types/directus/about/banner_about';
 import Image from 'next/image';
+import parse from 'html-react-parser';
+import DOMPurify from 'dompurify';
+import { useLocale } from 'next-intl';
 
 const { Title, Paragraph } = Typography;
 
 export default function SapoLandingPage() {
+  const locale = useLocale();
+  const [banner, setBanner] = useState<BannerAboutTranslation | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchBanner() {
+      try {
+        const data = await GetBannerAbout(locale);
+        if (data) {
+          setBanner(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch banner data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchBanner();
+  }, [locale]);
+
+  const parseContent = (content: string) => {
+    const sanitizedContent = DOMPurify.sanitize(content);
+    return parse(sanitizedContent, {
+      replace: (domNode) => {
+        if (domNode.type === 'tag' && domNode.name === 'p') {
+          return (
+            <Paragraph className="text-gray-700 text-sm sm:text-base mb-4">
+              {domNode.children[0]?.data}
+            </Paragraph>
+          );
+        }
+        return domNode;
+      },
+    });
+  };
+
+  if (loading) {
+    return <div className="text-center py-12">Loading...</div>;
+  }
+
+  if (!banner) {
+    return <div className="text-center py-12">No data available.</div>;
+  }
+
   return (
     <>
       <div className="h-[600px] relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
             alt="Ảnh nền Làng Du Lịch Ông Đề"
-            src={IMAGES.banner_1}
-            layout="fill"
-            objectFit="cover"
+            src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${banner.images}`}
+            fill
+            style={{ objectFit: 'cover' }}
             className="opacity-80"
+            priority
           />
           <div className="absolute inset-0 bg-black opacity-30"></div>
         </div>
@@ -26,23 +75,17 @@ export default function SapoLandingPage() {
         <div className="bg-white overflow-hidden border-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
             <div className="p-6 sm:p-8 md:p-10 lg:p-12 order-2 lg:order-1">
-              <Title level={2}>
-                Làng Du Lịch Sinh Thái Ông Đề Cần Thơ
+              <Title level={2} className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                {banner.title}
               </Title>
-              <Paragraph >
-                Làng du lịch sinh thái Ông Đề nằm tại xã Mỹ Khánh, huyện Phong Điền, thành phố Cần Thơ, là điểm đến lý tưởng để khám phá vẻ đẹp thiên nhiên và văn hóa miền Tây sông nước. Với không gian xanh mát, sông nước hữu tình, khu du lịch mang đến trải nghiệm độc đáo, gần gũi với thiên nhiên, kết hợp cùng các hoạt động văn hóa dân gian đặc sắc.
-              </Paragraph>
-
-              <Paragraph>
-                Đến với Làng du lịch Ông Đề, du khách sẽ được tham gia vào những hoạt động thú vị như chèo xuồng ba lá len lỏi qua những con rạch nhỏ, tham quan các vườn cây ăn trái với những loại trái cây đặc sản như chôm chôm, sầu riêng, măng cụt và xoài. Bên cạnh đó, bạn còn có cơ hội thưởng thức các món ăn dân dã miền Tây như bánh xèo, cá lóc nướng trui, lẩu mắm.
-              </Paragraph>
+              {parseContent(banner.content)}
             </div>
 
             <div className="relative flex items-center justify-center order-1 lg:order-2 min-h-[200px] sm:min-h-[250px] md:min-h-[300px] lg:min-h-auto">
               <div className="absolute w-full h-full">
                 <Image
                   alt="Ảnh giới thiệu Làng Du Lịch Ông Đề"
-                  src="https://r2.nucuoimekong.com/wp-content/uploads/khu-du-lich-ong-de.png"
+                  src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${banner.intro_image}`}
                   width={400}
                   height={192}
                   className="h-full w-full object-cover"

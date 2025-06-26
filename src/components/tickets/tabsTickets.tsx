@@ -1,58 +1,100 @@
 "use client";
 
-import React, { useState } from "react";
-import { DatePicker, ConfigProvider, Tabs, Button } from "antd";
-import { EnvironmentOutlined, CrownOutlined, UsergroupAddOutlined, SmileOutlined } from "@ant-design/icons";
-import viVN from "antd/lib/locale/vi_VN";
+import React, { useState, useEffect } from "react";
+import { ConfigProvider, Tabs, Button, Spin, message, Typography } from "antd";
+import { useLocale } from "next-intl";
+import TicketsList from "@/components/tickets/ticketsList";
 
-const { RangePicker } = DatePicker;
+const { Title, Text } = Typography
 
 const CarRentalSearch = () => {
-  const [location, setLocation] = useState("");
-  const [returnDifferentLocation, setReturnDifferentLocation] = useState(false);
-  const [driverAge, setDriverAge] = useState("30-65");
+  const locale = useLocale()
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [loading, setLoading] = useState(true);
+  const [hasSearched, setHasSearched] = useState(true);
 
-  const onDateChange = (dates, dateStrings) => {
-    console.log("Selected Dates:", dateStrings);
-  };
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ticket-categories?locale=${locale}`);
+        const data = await response.json();
+        setCategories(data.data["ticket-categories"] || []);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching ticket categories:", error);
+        message.error("Không thể tải danh mục vé. Vui lòng thử lại sau.");
+        setCategories([]);
+        setLoading(false);
+      }
+    };
+    fetchCategories();
+  }, [locale]);
 
   const tabItems = [
-    { key: "1", label: <span><EnvironmentOutlined /> Du Lịch Sinh Thái</span>, children: null },
-    { key: "2", label: <span><CrownOutlined /> Chèo Xuồng</span>, children: null },
-    { key: "3", label: <span><UsergroupAddOutlined /> Trò Chơi Dân Gian</span>, children: null },
-    { key: "4", label: <span><SmileOutlined /> Trải Nghiệm Nông Nghiệp</span>, children: null },
-    { key: "5", label: <span><CrownOutlined /> Đàn Ca Tài Tử</span>, children: null },
-    { key: "6", label: <span><SmileOutlined /> Buffet Miền Tây</span>, children: null },
-    { key: "7", label: <span><UsergroupAddOutlined /> Đan Lát Thủ Công</span>, children: null },
+    {
+      key: "all",
+      label: (
+        <span>
+          Tất cả
+        </span>
+      ),
+    },
+    ...categories.map((category) => ({
+      key: category.id.toString(),
+      label: (
+        <span>
+          {category.name}
+        </span>
+      ),
+    })),
   ];
 
+  const handleTabChange = (key) => {
+    setSelectedCategory(key);
+    setHasSearched(true);
+  };
+
   return (
-    <ConfigProvider locale={viVN}>
-      <div className="max-w-7xl mx-auto px-6 py-6 mb-6">
-        <div className="bg-white p-4 rounded-lg shadow-lg">
-          <Tabs
-            defaultActiveKey="1"
-            items={tabItems}
-            type="card"
-            className="mb-4"
-            onChange={(key) => console.log("Tab changed to:", key)}
-          />
-          <div className="space-y-4">
-            <div className="flex space-x-4">
-              <input
-                type="text"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                placeholder="Điểm nhận vé/tour..."
-                className="w-3/5 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-orange-400"
-              />
-              <button
-                className="bg-orange-500 w-2/5 p-2 rounded-lg cursor-pointer text-white hover:bg-orange-600"
-              >
-                Tìm kiếm
-              </button>
-            </div>
+    <ConfigProvider>
+      <div className="max-w-7xl mx-auto md:px-6 px-4 py-10 mb-6">
+        <Title level={2} className="!text-xl md:!text-3xl pb-4">
+          {locale === "vi" ? (
+            <>Danh sách vé của <span className="text-orange-500">Ông Đề</span></>
+          ) : locale === "en" ? (
+            <>List of <span className="text-orange-500">Ong De</span> Tickets</>
+          ) : locale === "zh" ? (
+            <> <span className="text-orange-500">翁德</span>门票列表</>
+          ) : locale === "ko" ? (
+            <> <span className="text-orange-500">옹 데</span> 티켓 목록</>
+          ) : (
+            <>List of <span className="text-orange-500">Ong De</span> Tickets</>
+          )}
+        </Title>
+        <div className="bg-orange-50 p-4 py-10 rounded-3xl border border-dashed border-orange-400/30">
+          <div>
+            {loading ? (
+              <div className="flex justify-center py-8">
+                <Spin size="large" tip="Đang tải danh mục..." />
+              </div>
+            ) : (
+              <>
+                <Tabs
+                  activeKey={selectedCategory}
+                  items={tabItems}
+                  type="card"
+                  className="mb-6"
+                  onChange={handleTabChange}
+                />
+              </>
+            )}
           </div>
+
+          <TicketsList
+            selectedCategory={selectedCategory === "all" ? null : selectedCategory}
+            hasSearched={hasSearched}
+            onSearchStateChange={setHasSearched}
+          />
         </div>
       </div>
     </ConfigProvider>

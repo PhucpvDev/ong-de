@@ -4,11 +4,13 @@ import { Carousel } from "antd";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import { ConfigProvider } from "antd";
+import { ConfigProvider, Typography, Button } from "antd";
 import { useLocale } from "next-intl";
 import { GetTourExperiences } from "@/lib/directus/about/tourExperience";
 import { TourExperienceTranslation } from "@/types/directus/about/tourExperience";
 import SkeletonTourExperience from "@/skeleton/about/tourExperience";
+
+const { Title, Paragraph } = Typography
 
 export default function TourExperience() {
   const locale = useLocale();
@@ -76,17 +78,16 @@ export default function TourExperience() {
         className={`absolute inset-0 ${isMobile ? "p-3" : "p-6"} ${isMobile ? "flex flex-col justify-center" : "flex flex-col justify-between"}`}
       >
         <div>
-          <h3
-            className={`${isMobile ? "text-base leading-tight" : "text-xl md:text-2xl"} font-bold text-white mb-1 drop-shadow-md line-clamp-2`}
+          <Title
+            className={`${isMobile ? "!text-lg !text-white -mt-22" : "!text-xl md:!text-2xl !text-white"} font-bold text-white mb-1 drop-shadow-md line-clamp-2`}
           >
             {tour.title}
-          </h3>
+          </Title>
           {isMobile ? (
-            <p className="text-xs text-white/90 drop-shadow-md line-clamp-1">{tour.description}</p>
+            <Paragraph className="text-xs !text-white/90 drop-shadow-md line-clamp-1">{tour.description}</Paragraph>
           ) : (
             <>
-              <p className="text-sm text-white/90 drop-shadow-md">{tour.subtitle}</p>
-              <p className="text-sm font-medium text-white/80 drop-shadow-md">{tour.description}</p>
+              <Paragraph className="text-sm font-medium !text-white/90 drop-shadow-md">{tour.subtitle}</Paragraph>
             </>
           )}
         </div>
@@ -141,11 +142,11 @@ export default function TourExperience() {
 
   return (
     <ConfigProvider theme={themeConfig}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 bg-white mt-20">
         <div className="flex justify-between items-center mb-4 sm:mb-6">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
+          <Title level={2} className="md:!text-3xl !text-xl">
             {locale === "vi"
-              ? "Hoạt Động Và Trải Nghiệm"
+              ? "Hoạt động và trãi nghiệm"
               : locale === "en"
               ? "Activities and Experiences"
               : locale === "zh"
@@ -153,7 +154,7 @@ export default function TourExperience() {
               : locale === "ko"
               ? "활동 및 체험"
               : "Activities and Experiences"}
-          </h2>
+          </Title>
         </div>
 
         {isMobile ? (
@@ -166,10 +167,10 @@ export default function TourExperience() {
               ))}
             </div>
             {!showMore && tourTranslations.length > 3 && (
-              <div className="flex justify-center mt-4 pb-6">
-                <button
+              <div className="flex justify-center mt-5 pb-6">
+                <Button
                   onClick={() => setShowMore(true)}
-                  className="w-full max-w-md py-2 text-sm cursor-pointer font-medium text-gray-600 border border-gray-200 rounded-xl hover:bg-gray-50 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-200 shadow-sm hover:shadow-md"
+                  className="w-full !h-12"
                 >
                   {locale === "vi"
                     ? "Xem thêm"
@@ -180,7 +181,7 @@ export default function TourExperience() {
                     : locale === "ko"
                     ? "더 보기"
                     : "View More"}
-                </button>
+                </Button>
               </div>
             )}
           </>

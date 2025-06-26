@@ -7,7 +7,7 @@ const Banner = dynamic(() => import('@/components/policy/banner'), { ssr: false 
 const PrivacyPolicy = dynamic(() => import('@/components/policy/privacyPolicy'), { ssr: false });
 const Footer = dynamic(() => import('@/components/theme/footer'), { ssr: false });
 
-export default function CartPage() {
+export default function PolicyPage() {
     return (
         <>
             <Navbar />

@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import { EnvironmentOutlined, ThunderboltOutlined, SafetyOutlined } from "@ant-design/icons";
-import { ConfigProvider, theme as antdTheme } from "antd";
+import { ConfigProvider, theme as antdTheme, Typography } from "antd";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useLocale } from "next-intl";
 import { GetWhyChooseUs } from "@/lib/directus/about/whyChooseUs";
 import SkeletonWhyChooseUsWithTabs from "@/skeleton/about/whyChooseUs";
+
+const { Title, Paragraph, Text } = Typography;
 
 interface ReasonStats {
   label: string;
@@ -76,9 +78,9 @@ export default function WhyChooseUsWithTabs() {
               ...translation.illustration,
               stats: translation.illustration.stats.length > 0
                 ? translation.illustration.stats.map((stat) => ({
-                    ...stat,
-                    color: config.statColor,
-                  }))
+                  ...stat,
+                  color: config.statColor,
+                }))
                 : [{ label: "Dữ liệu không khả dụng", value: 0, color: config.statColor }],
             },
           };
@@ -167,41 +169,13 @@ export default function WhyChooseUsWithTabs() {
 
   if (error || !reasons.length) {
     return (
-      <div className="py-16 text-center">
-        <p className="text-red-600">{error || "Không tìm thấy dữ liệu phù hợp."}</p>
+      <div className="py-6 px-4 text-center">
+        <p className="text-red-600 text-sm">{error || "Không tìm thấy dữ liệu phù hợp."}</p>
       </div>
     );
   }
 
   const activeReason = reasons.find((reason) => reason.id === activeTab) || reasons[0];
-
-  const getLocalizedTitle = () => {
-    switch (locale) {
-      case "en":
-        return "Why Choose Ong De Eco-Tourism Village Ong De";
-      case "zh":
-        return "为什么选择翁德生态旅游村翁德";
-      case "ko":
-        return "옹 데 생태 관광 마을 옹 데를 선택하는 이유";
-      case "vi":
-      default:
-        return "Tại sao chọn Ông Đề Làng Du Lịch Sinh Thái Ông Đề";
-    }
-  };
-
-  const getLocalizedDescription = () => {
-    switch (locale) {
-      case "en":
-        return "Discover the beauty of the Mekong Delta with unique eco-tourism experiences in Can Tho";
-      case "zh":
-        return "探索湄公河三角洲的美景，体验在岘港的独特生态旅游";
-      case "ko":
-        return "메콩 델타의 아름다움을 발견하고, 깐터에서 독특한 생태 관광을 경험하세요";
-      case "vi":
-      default:
-        return "Khám phá vẻ đẹp miền Tây sông nước với những trải nghiệm sinh thái độc đáo tại Cần Thơ";
-    }
-  };
 
   const getLocalizedEvaluationLabel = () => {
     switch (locale) {
@@ -219,19 +193,26 @@ export default function WhyChooseUsWithTabs() {
 
   return (
     <ConfigProvider theme={themeConfig}>
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 lg:px-12 xl:px-20 2xl:px-36">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-gray-900">
-              {getLocalizedTitle()} <span className="text-green-600">Ong De</span>
-            </h2>
-            <p className="text-xl max-w-2xl mx-auto text-gray-600">
-              {getLocalizedDescription()}
-            </p>
+      <section className="py-12 bg-white mb-10">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="mb-8">
+            <Title level={2} className="!text-xl md:!text-3xl">
+              {locale === "vi" ? (
+                <>Những gì <span className="text-orange-500">Ông Đề</span> mang lại</>
+              ) : locale === "en" ? (
+                <>What <span className="text-orange-500">Ong De</span> Brings</>
+              ) : locale === "zh" ? (
+                <> <span className="text-orange-500">翁德</span>带来的</>
+              ) : locale === "ko" ? (
+                <> <span className="text-orange-500">옹 데</span>가 가져오는 것</>
+              ) : (
+                <>What <span className="text-orange-500">Ong De</span> Brings</>
+              )}
+            </Title>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-6 items-start">
-            <div className="lg:col-span-2 space-y-3">
+          <div className="grid lg:grid-cols-5 gap-4 items-stretch">
+            <div className="lg:col-span-2 space-y-2 flex flex-col h-full reasons-container">
               {reasons.map((reason) => {
                 const IconComponent = reason.icon;
                 const isActive = activeTab === reason.id;
@@ -240,33 +221,32 @@ export default function WhyChooseUsWithTabs() {
                   <div
                     key={reason.id}
                     onClick={() => setActiveTab(reason.id)}
-                    className={`group relative rounded-xl cursor-pointer transition-all duration-200 border ${
-                      isActive ? "bg-white border-gray-200 shadow-lg" : "bg-white hover:bg-gray-50 border-gray-200 hover:shadow-md"
-                    }`}
+                    className={`group relative rounded-lg cursor-pointer transition-all duration-200 border shadow-lg shadow-gray-150 ${isActive ? "bg-white border-gray-200 shadow-lg" : "bg-white hover:bg-gray-50 border-gray-200 hover:shadow-md"} min-h-[120px]`}
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`panel-${reason.id}`}
                   >
                     {isActive && (
                       <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-xl bg-green-600"></div>
                     )}
-                    <div className="p-4">
+                    <div className="p-2.5">
                       <div className="flex items-start gap-3">
-                        <div className={`p-3 rounded-lg ${isActive ? reason.activeBgColor : "bg-gray-100"}`}>
+                        <div className={`py-3 px-3 rounded-lg ${isActive ? reason.activeBgColor : "bg-gray-100"}`}>
                           <span className={isActive ? `${reason.activeBgColor} text-white` : "bg-gray-100 text-gray-800"}>
-                            <IconComponent />
+                            <IconComponent style={{ fontSize: isMobile ? "1.5rem" : "1.25rem" }} />
                           </span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className={`text-lg font-bold mb-1 ${isActive ? "text-gray-900" : "text-gray-700"}`}>
-                            {reason.title}
-                          </h3>
-                          <p className={`text-sm leading-relaxed mb-3 ${isActive ? "text-gray-600" : "text-gray-500"}`}>
+                          <Title className="!text-base">{reason.title}</Title>
+                          <Paragraph className="text-sm leading-relaxed mb-2 text-gray-600">
                             {reason.description}
-                          </p>
+                          </Paragraph>
                           {isActive && (
                             <div className="space-y-1">
                               {reason.features.map((feature, index) => (
                                 <div key={index} className="flex items-center gap-2">
                                   <div className="w-1 h-1 rounded-full bg-green-600"></div>
-                                  <span className="text-xs text-gray-500">{feature}</span>
+                                  <Text className="text-sm text-gray-500">{feature}</Text>
                                 </div>
                               ))}
                             </div>
@@ -279,30 +259,30 @@ export default function WhyChooseUsWithTabs() {
               })}
             </div>
 
-            <div className="lg:col-span-3">
-              <div className="rounded-2xl p-4 border bg-white border-gray-200 shadow-xs">
+            <div className="lg:col-span-3 h-full" role="tabpanel" id={`panel-${activeReason.id}`} aria-labelledby={activeReason.id}>
+              <div className="rounded-xl p-4 pt-6 border bg-white border-gray-200 shadow-lg shadow-gray-150 flex flex-col h-full">
                 <div className="text-center mb-3">
-                  <div className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg mb-3 shadow-md ${activeReason.bgColor}`}>
-                    <span className={activeReason.color}><activeReason.icon /></span>
-                    <span className={`font-semibold text-sm ${activeReason.color}`}>
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-lg mb-2 shadow-md ${activeReason.bgColor}`}>
+                    <span className={activeReason.color}><activeReason.icon style={{ fontSize: isMobile ? "1.25rem" : "1rem" }} /></span>
+                    <Text className={`!text-sm font-semibold ${activeReason.color}`}>
                       {activeReason.illustration.title}
-                    </span>
+                    </Text>
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="rounded-xl p-4 bg-gray-50">
-                    <h4 className="font-semibold mb-3 text-sm text-gray-800">
+                <div className="grid md:grid-cols-2 gap-3">
+                  <div className="rounded-lg p-4 bg-gray-50">
+                    <Title className="font-semibold !mb-3 !text-sm text-gray-800">
                       {getLocalizedEvaluationLabel()}
-                    </h4>
+                    </Title>
                     <div className="space-y-2">
                       {activeReason.illustration.stats.map((stat, index) => (
                         <div key={index}>
                           <div className="flex justify-between items-center mb-1">
-                            <span className="text-xs text-gray-600">{stat.label}</span>
-                            <span className={`text-xs font-bold ${activeReason.color}`}>{stat.value}%</span>
+                            <Text className="!text-sm text-gray-600">{stat.label}</Text>
+                            <span className={`text-sm font-bold ${activeReason.color}`}>{stat.value}%</span>
                           </div>
-                          <div className="h-1.5 rounded-full overflow-hidden bg-gray-200">
+                          <div className="h-2 rounded-full overflow-hidden bg-gray-200">
                             <div
                               className={`h-full rounded-full transition-all duration-1000 ease-out ${stat.color}`}
                               style={{ width: `${stat.value}%` }}
@@ -313,20 +293,20 @@ export default function WhyChooseUsWithTabs() {
                     </div>
                   </div>
 
-                  <div className="rounded-xl p-4 bg-gray-50">
+                  <div className="rounded-lg p-4 bg-gray-50">
                     <div className="text-center">
-                      <div className="w-24 h-24 mx-auto rounded-full flex items-center justify-center bg-gray-200">
-                        <span className={`text-xl font-bold ${activeReason.color}`}>
+                      <div className={`w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full flex items-center justify-center bg-gray-200`}>
+                        <span className={`text-base md:text-lg font-bold ${activeReason.color}`}>
                           {activeReason.illustration.chartData.percentage}%
                         </span>
                       </div>
-                      <div className="text-xs mt-4 text-gray-500">{activeReason.illustration.chartData.label}</div>
-                      <div className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg mt-3 shadow-md ${activeReason.bgColor}`}>
+                      <Title className="!text-sm mt-3 !text-gray-600">{activeReason.illustration.chartData.label}</Title>
+                      <div className={`inline-flex items-center gap-2 px-4 py-1 rounded-lg mt-2 shadow-md ${activeReason.bgColor}`}>
                         <div className="text-center">
-                          <div className={`text-xl font-bold ${activeReason.color}`}>
+                          <div className={`text-base md:text-lg font-bold ${activeReason.color}`}>
                             {activeReason.illustration.mainStat}
                           </div>
-                          <div className={`text-xs ${activeReason.color} opacity-80`}>
+                          <div className={`text-xs md:text-sm ${activeReason.color} opacity-80`}>
                             {activeReason.illustration.mainLabel}
                           </div>
                         </div>
@@ -335,9 +315,9 @@ export default function WhyChooseUsWithTabs() {
                   </div>
                 </div>
 
-                <div className="mt-4 text-center p-4 rounded-xl border bg-gray-50 border-gray-200">
-                  <h3 className="text-lg font-bold mb-1 text-gray-900">{activeReason.title}</h3>
-                  <p className="text-sm text-gray-600">{activeReason.description}</p>
+                <div className="mt-3 text-center p-4 rounded-lg border bg-gray-50 border-gray-200">
+                  <Title className="!text-base">{activeReason.title}</Title>
+                  <Paragraph className="text-sm">{activeReason.description}</Paragraph>
                 </div>
               </div>
             </div>

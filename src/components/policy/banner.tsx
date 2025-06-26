@@ -1,28 +1,57 @@
 "use client";
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typography } from 'antd';
-import { IMAGES } from '@/constants/theme';
+import { GetBannerPolicy } from '@/lib/directus/policy/banner_policy';
+import { BannerPolicyTranslation } from '@/types/directus/policy/banner_policy';
 import Image from 'next/image';
 import { ConfigProvider } from 'antd';
+import { useLocale } from 'next-intl';
+import parse from 'html-react-parser';
+import DOMPurify from 'dompurify';
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 export default function BannerPolicy() {
-  const themeConfig = {
-    token: {
-      colorPrimary: '#FFC800',
-      borderRadius: 8,
-    },
+  const locale = useLocale();
+  const [banner, setBanner] = useState<BannerPolicyTranslation | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchBanner() {
+      try {
+        const data = await GetBannerPolicy(locale);
+        if (data) {
+          setBanner(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch banner policy data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchBanner();
+  }, [locale]);
+
+  const parseSubtitle = (subtitle: string) => {
+    const sanitizedSubtitle = DOMPurify.sanitize(subtitle);
+    return parse(sanitizedSubtitle);
   };
 
+  if (loading) {
+    return <div className="text-center py-12 text-white">Loading...</div>;
+  }
+
+  if (!banner) {
+    return <div className="text-center py-12 text-white">No data available.</div>;
+  }
+
   return (
-    <ConfigProvider theme={themeConfig}>
+    <ConfigProvider>
       <div className="relative w-full h-[80vh] min-h-[500px] max-h-[700px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
             alt="Ảnh nền Làng Du Lịch Sinh Thái Ông Đề"
-            src={IMAGES.banner_1}
+            src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${banner.images}`}
             fill
             className="object-cover opacity-85"
             priority
@@ -61,11 +90,12 @@ export default function BannerPolicy() {
             <div className="text-center max-w-3xl">
               <Title level={1}>
                 <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-2xl">
-                  Chính Sách Làng Du Lịch Sinh Thái <span className='text-orange-500'>Ông Đề</span>
+                  {banner.title.replace(banner.highlighted_title, '')}
+                  <span className="text-orange-500">{banner.highlighted_title}</span>
                 </span>
               </Title>
               <p className="text-lg sm:text-xl text-white/90 mt-10 mx-auto drop-shadow-lg bg-black/20 p-4 rounded-lg border border-white/20 backdrop-blur-sm">
-                <span>Tìm hiểu các chính sách và quy định để có trải nghiệm tuyệt vời tại Làng Du Lịch Sinh Thái Ông Đề, Cần Thơ</span>
+                {parseSubtitle(banner.subtitle)}
               </p>
             </div>
           </div>
