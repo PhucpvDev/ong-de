@@ -49,7 +49,9 @@ export default function CardSection() {
               level={3}
               className="!text-sm md:!text-base font-bold text-gray-800 !mb-4 !sm:mb-4 leading-tight"
             >
-              {domNode.children[0]?.data}
+              {domNode.children[0] && domNode.children[0].type === 'text'
+                ? (domNode.children[0] as any).data
+                : null}
             </Title>
           );
         }
@@ -60,7 +62,9 @@ export default function CardSection() {
                 <CheckCircleFilled />
               </span>
               <Text className="text-gray-700 !text-sm mt-1">
-                {domNode.children[0]?.data}
+                {domNode.children[0] && domNode.children[0].type === 'text'
+                  ? (domNode.children[0] as any).data
+                  : null}
               </Text>
             </div>
           );
@@ -91,31 +95,31 @@ export default function CardSection() {
         />
       </div>
 
-      <div className="max-w-7xl md:px-6 px-4 mx-auto md:pb-2">
+      <div className="max-w-7xl text-center md:px-6 px-4 mx-auto md:pb-4">
         <Title level={2} className="!text-xl md:!text-3xl py-5">
           {locale === "vi" ? (
-            <>Dịch vụ và hoạt động <span className="text-orange-500">Ông Đề</span></>
+            <>Dịch vụ và hoạt động <span className="text-green-700">Ông Đề</span></>
           ) : locale === "en" ? (
-            <>Services and Activities of <span className="text-orange-500">Ong De</span></>
+            <>Services and Activities of <span className="text-green-700">Ong De</span></>
           ) : locale === "zh" ? (
-            <> <span className="text-orange-500">翁德</span>的服务与活动</>
+            <> <span className="text-green-700">翁德</span>的服务与活动</>
           ) : locale === "ko" ? (
-            <> <span className="text-orange-500">옹 데</span>의 서비스 및 활동</>
+            <> <span className="text-green-700">옹 데</span>의 서비스 및 활동</>
           ) : (
-            <>Services and Activities of <span className="text-orange-500">Ong De</span></>
+            <>Services and Activities of <span className="text-green-700">Ong De</span></>
           )}
         </Title>
       </div>
 
       <div className="max-w-7xl md:px-6 px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {sections.map((section, index) => {
-          const iconColor = index === 0 ? 'bg-green-500' : index === 1 ? 'bg-orange-500' : 'bg-blue-500';
-          const titleColor = index === 0 ? 'text-green-600' : index === 1 ? 'text-orange-600' : 'text-blue-600';
+          const iconColor = index === 0 ? 'bg-green-500' : index === 1 ? 'bg-orange-600' : 'bg-blue-500';
+          const titleColor = index === 0 ? 'text-green-700' : index === 1 ? 'text-orange-600' : 'text-blue-600';
 
           return (
             <Card
               key={section.id}
-              className="bg-white rounded-2xl shadow-lg border-0 p-4 sm:p-6 flex flex-col min-h-[300px] sm:min-h-[400px] relative"
+              className="bg-white !rounded-xl shadow-lg border-0 p-4 sm:p-6 flex flex-col min-h-[300px] sm:min-h-[400px] relative"
             >
               <div className="flex-grow">
                 <div className="flex items-center mb-4 sm:mb-6">
@@ -138,7 +142,7 @@ export default function CardSection() {
                   {parseContent(section.content)}
                 </div>
               </div>
-              <Link href={`/activities`}>
+              <Link href={`/packages`}>
                 <button
                   style={{
                     backgroundColor: section.bg_button_color,

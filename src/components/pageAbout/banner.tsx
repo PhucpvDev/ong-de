@@ -38,7 +38,20 @@ export default function SapoLandingPage() {
         if (domNode.type === 'tag' && domNode.name === 'p') {
           return (
             <Paragraph className="text-gray-700 text-sm sm:text-base mb-4">
-              {domNode.children[0]?.data}
+              {domNode.children && domNode.children.map((child, idx) => {
+                if (child.type === 'text' && 'data' in child) {
+                  return child.data;
+                }
+                if (child.type === 'tag' && child.children) {
+                  return child.children.map((grandChild, grandIdx) => {
+                    if (grandChild.type === 'text' && 'data' in grandChild) {
+                      return grandChild.data;
+                    }
+                    return null;
+                  });
+                }
+                return null;
+              })}
             </Paragraph>
           );
         }

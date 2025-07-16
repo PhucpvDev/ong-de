@@ -1,3 +1,28 @@
 {
-    
+  "packages": {
+    "brandName": "옹 데 캔 토",
+    "headerTitle": "절약 패키지",
+    "filters": "필터",
+    "reset": "초기화",
+    "sortBy": "정렬 기준:",
+    "priceLowToHigh": "가격: 낮은 순",
+    "priceHighToLow": "가격: 높은 순",
+    "priceUp": "가격 ↑",
+    "priceDown": "가격 ↓",
+    "searchPlaceholder": "주문 코드 또는 제품 이름으로 검색",
+    "priceRange": "가격 범위",
+    "minimum": "최소",
+    "maximum": "최대",
+    "all": "전체",
+    "under100": "₩100,000 미만",
+    "range100300": "₩100,000 - ₩300,000",
+    "range300500": "₩300,000 - ₩500,000",
+    "over500": "₩500,000 초과",
+    "category": "카테고리",
+    "enterCategory": "카테고리 이름 입력",
+    "fetchPackagesError": "패키지 데이터를 로드할 수 없습니다",
+    "fetchCategoriesError": "카테고리를 로드할 수 없습니다",
+    "noResults": "일치하는 결과가 없습니다",
+    "noResultsSuggestion": "필터를 조정하거나 다른 키워드로 검색해 보세요"
+  }
 }

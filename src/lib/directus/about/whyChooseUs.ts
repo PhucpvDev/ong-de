@@ -1,11 +1,11 @@
 import { WhyChooseUsTranslation, WhyChooseUsResponse } from "@/types/directus/about/whyChooseUs";
 function cleanJsonString(jsonString: string): string {
   return jsonString
-    .replace(/^"|"$/g, '') // Loại bỏ dấu nháy kép ở đầu và cuối
-    .replace(/,\s*([\]}])/g, '$1') // Loại bỏ dấu phẩy thừa trước ] hoặc }
-    .replace(/[\n\t]+/g, ' ') // Thay thế dòng mới và tab bằng khoảng trắng
-    .replace(/\s+/g, ' ') // Gộp nhiều khoảng trắng thành một
-    .replace(/\\"/g, '"') // Thay thế \"
+    .replace(/^"|"$/g, '') 
+    .replace(/,\s*([\]}])/g, '$1') 
+    .replace(/[\n\t]+/g, ' ') 
+    .replace(/\s+/g, ' ') 
+    .replace(/\\"/g, '"') 
     .trim();
 }
 export async function GetWhyChooseUs(locale: string): Promise<WhyChooseUsTranslation[] | undefined> {
@@ -26,7 +26,6 @@ export async function GetWhyChooseUs(locale: string): Promise<WhyChooseUsTransla
     }
 
     const { data }: WhyChooseUsResponse = await response.json();
-    console.log("API Response:", data); // Debug log
 
     const translations = data
       .map((item) => {

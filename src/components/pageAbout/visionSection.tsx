@@ -18,7 +18,7 @@ export default function OngDeEcotourismSection() {
   useEffect(() => {
     async function fetchSections() {
       try {
-        const data = await GetEcotourismSections(locale); // Fetch Vietnamese translations
+        const data = await GetEcotourismSections(locale); 
         if (data) {
           setSections(data);
         }
@@ -38,7 +38,22 @@ export default function OngDeEcotourismSection() {
         if (domNode.type === 'tag' && domNode.name === 'div' && domNode.attribs.class?.includes('ant-typography')) {
           return (
             <Paragraph className="text-gray-700 text-sm sm:text-base mb-6 font-medium">
-              {domNode.children[0]?.data || domNode.children[0]?.children[0]?.data}
+              {(() => {
+                const child = domNode.children?.[0];
+                if (child && 'data' in child) {
+                  return (child as any).data;
+                }
+                if (child && 'children' in child && Array.isArray((child as any).children) && (child as any).children[0] && 'data' in (child as any).children[0]) {
+                  return (child as any).children[0].data;
+                }
+                const getText = (node: any): string =>
+                  node.type === 'text'
+                    ? node.data
+                    : node.children
+                    ? node.children.map(getText).join('')
+                    : '';
+                return getText(domNode);
+              })()}
             </Paragraph>
           );
         }
@@ -51,7 +66,9 @@ export default function OngDeEcotourismSection() {
                 </span>
               </div>
               <Paragraph className="text-gray-700 text-sm sm:text-base leading-relaxed mb-0 flex-1">
-                {domNode.children[0]?.data}
+                {domNode.children[0] && domNode.children[0].type === 'text'
+                  ? (domNode.children[0] as any).data
+                  : ''}
               </Paragraph>
             </div>
           );
@@ -70,7 +87,6 @@ export default function OngDeEcotourismSection() {
     return <div>No data available.</div>;
   }
 
-  // Fallback achievements for when API data is unavailable
   const fallbackAchievements = [
     {
       text: "Điểm đến du lịch sinh thái hàng đầu tại Phong Điền, Cần Thơ, thu hút hàng ngàn du khách mỗi năm.",
@@ -84,18 +100,18 @@ export default function OngDeEcotourismSection() {
   ];
 
   return (
-    <div className="max-w-7xl md:px-4 px-4 mx-auto py-8 -mb-[600px] md:py-6">
-      <Title level={2} className="!text-xl md:!text-3xl py-5">
+    <div className="max-w-7xl md:px-4 px-4 mx-auto py-8 -mb-[600px] md:py-16">
+      <Title level={2} className="!text-xl md:!text-3xl py-5 text-center mt-8 pb-10">
         {locale === "vi" ? (
-          <>Về làng du lịch <span className="text-orange-500">Ông Đề</span></>
+          <>Về làng du lịch <span className="text-green-700">Ông Đề</span></>
         ) : locale === "en" ? (
-          <>About <span className="text-orange-500">Ong De</span> Tourism Village</>
+          <>About <span className="text-green-700">Ong De</span> Tourism Village</>
         ) : locale === "zh" ? (
-          <>关于<span className="text-orange-500">翁德</span>旅游村</>
+          <>关于<span className="text-green-700">翁德</span>旅游村</>
         ) : locale === "ko" ? (
-          <> <span className="text-orange-500">옹 데</span> 관광 마을에 대해</>
+          <> <span className="text-green-700">옹 데</span> 관광 마을에 대해</>
         ) : (
-          <>About <span className="text-orange-500">Ong De</span> Tourism Village</>
+          <>About <span className="text-green-700">Ong De</span> Tourism Village</>
         )}
       </Title>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
@@ -118,7 +134,7 @@ export default function OngDeEcotourismSection() {
             </Paragraph>
             <Title
               level={4}
-              className="text-xl sm:text-2xl lg:text-4xl font-bold text-green-600 leading-tight mb-6"
+              className="text-xl sm:text-2xl lg:text-4xl font-bold text-green-700 leading-tight mb-6"
             >
               {sections[0]?.title || '"Ông Đề – Nơi lưu giữ tinh hoa văn hóa và thiên nhiên Cần Thơ."'}
             </Title>
@@ -151,14 +167,14 @@ export default function OngDeEcotourismSection() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center mt-8 sm:mt-0 lg:-mt-[570px]">
-        <div className="max-w-lg space-y-6 sm:space-y-0 lg:space-y-8 bg-white rounded-lg z-10 px-                    px-4 sm:px-0 order-last sm:order-first lg:order-none">
+        <div className="max-w-lg space-y-6 sm:space-y-0 lg:space-y-8 bg-white rounded-lg z-10 px-4 sm:px-0 order-last sm:order-first lg:order-none">
           <div>
             <Paragraph className="text-gray-600 text-sm sm:text-base mb-4 font-medium">
               {sections[1]?.description || 'Du khách đến Ông Đề sẽ được hòa mình vào các hoạt động dân dã như tát mương bắt cá, chèo xuồng ba lá trên kênh rạch, hay thưởng thức các món ăn miền Tây đậm đà. Không gian xanh mát với những tiểu cảnh sống động là nơi lý tưởng để lưu giữ những khoảnh khắc đáng nhớ.'}
             </Paragraph>
             <Title
               level={4}
-              className="text-xl sm:text-2xl lg:text-4xl font-bold text-green-600 leading-tight mb-6"
+              className="text-xl sm:text-2xl lg:text-4xl font-bold text-green-700 leading-tight mb-6"
             >
               {sections[1]?.title || '"Khám phá miền Tây chân thực, trải nghiệm khó quên tại Ông Đề."'}
             </Title>

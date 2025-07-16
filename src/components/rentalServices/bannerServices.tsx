@@ -8,7 +8,7 @@ import { ConfigProvider } from "antd";
 import { GetBannerRentalServices } from "@/lib/directus/rentalServices/banner";
 import { BannerRentalServicesTranslation } from "@/types/directus/rentalServices/banner";
 import { useLocale } from "next-intl";
-import SkeletonBanner from '@/skeleton/home/banner';
+import SkeletonBanner from '@/skeleton/rentalServices/banner';
 
 export default function BannerService() {
   const carouselRef = useRef<any>(null);

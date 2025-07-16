@@ -1,17 +1,27 @@
+"use client";
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import { Typography, Divider, List, Row, Col, Grid, Menu, Layout, Button, Spin } from 'antd';
+import { Typography, Divider, List, Row, Col, Grid, Menu, Layout, Button } from 'antd';
 import { DownOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
 import { GetCategoriesPolicy } from '@/lib/directus/policy/categoriesPolicy';
 import { CategoriesPolicyTranslation } from '@/types/directus/policy/categoriesPolicy';
-import { PrivacyPolicyTranslation } from '@/types/directus/policy/privacyPolicy';
+import { PrivacyPolicyTranslation as BasePrivacyPolicyTranslation } from '@/types/directus/policy/privacyPolicy';
+
+interface PrivacyPolicyTranslation extends BasePrivacyPolicyTranslation {
+    categories: {
+        categories_policy_id: number;
+        name: string;
+        [key: string]: any;
+    }[];
+}
 import { useLocale } from 'next-intl';
+import PrivacyPolicySkeleton from '@/skeleton/policy/privacyPolicy';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
 const { Text } = Typography;
 const { useBreakpoint } = Grid;
 
-const Breadcrumb = ({ path }) => (
+const Breadcrumb: React.FC<{ path: string }> = ({ path }) => (
     <div style={{
         marginBottom: '24px',
         fontSize: '14px',
@@ -26,10 +36,10 @@ export default function PolicyPage() {
     const screens = useBreakpoint();
     const [collapsed, setCollapsed] = useState(false);
     const [selectedMenuKey, setSelectedMenuKey] = useState('policy-1');
-    
+
     const [categories, setCategories] = useState<CategoriesPolicyTranslation[]>([]);
     const [privacyPolicies, setPrivacyPolicies] = useState<PrivacyPolicyTranslation[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true); // Reintroduce loading state
     const [error, setError] = useState<string | null>(null);
     const [menuItems, setMenuItems] = useState<any[]>([]);
 
@@ -38,9 +48,8 @@ export default function PolicyPage() {
             try {
                 setLoading(true);
                 setError(null);
-
                 const categoriesData = await GetCategoriesPolicy(locale);
-                
+
                 const privacyDataResponse = await fetch(
                     `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/items/privacy_policy?lang=${locale === "vi" ? "vi-VN" : locale === "zh" ? "zh-CN" : locale === "ko" ? "ko-KR" : "en-US"}&fields=*,categories.*,translations.*`,
                     {
@@ -58,13 +67,13 @@ export default function PolicyPage() {
 
                 if (categoriesData) {
                     setCategories(categoriesData);
-                    
+
                     const buildMenuItems = (categories: CategoriesPolicyTranslation[]) => {
                         const parentCategory = categories.find(cat => cat.categories_policy_id === 1);
                         const childCategories = categories.filter(cat => cat.categories_policy_id !== 1);
-                        
+
                         if (!parentCategory) return [];
-                        
+
                         const menuItem = {
                             key: `policy-${parentCategory.categories_policy_id}`,
                             label: parentCategory.name,
@@ -74,13 +83,13 @@ export default function PolicyPage() {
                                 categoryId: child.categories_policy_id
                             }))
                         };
-                        
+
                         return [menuItem];
                     };
-                    
+
                     const items = buildMenuItems(categoriesData);
                     setMenuItems(items);
-                    
+
                     if (items.length > 0 && items[0].children && items[0].children.length > 0) {
                         setSelectedMenuKey(items[0].children[0].key);
                     } else if (items.length > 0) {
@@ -89,11 +98,35 @@ export default function PolicyPage() {
                 }
 
                 if (privacyData && privacyData.length > 0) {
-                    const translations = privacyData.flatMap(policy =>
-                        policy.translations.filter(t => t.languages_code === (locale === "vi" ? "vi-VN" : locale === "zh" ? "zh-CN" : locale === "ko" ? "ko-KR" : "en-US")).map(t => ({
-                            ...t,
-                            categories: policy.categories
-                        }))
+                    interface PolicyTranslation {
+                        id: number;
+                        languages_code: string;
+                        content: string;
+                        breadcrumb?: string;
+                        [key: string]: any;
+                    }
+
+                    interface PolicyCategory {
+                        categories_policy_id: number;
+                        name: string;
+                        [key: string]: any;
+                    }
+
+                    interface PolicyData {
+                        translations: PolicyTranslation[];
+                        categories: PolicyCategory[];
+                        [key: string]: any;
+                    }
+
+                    const translations: (PolicyTranslation & { categories: PolicyCategory[] })[] = (privacyData as PolicyData[]).flatMap((policy: PolicyData) =>
+                        policy.translations
+                            .filter((t: PolicyTranslation) =>
+                                t.languages_code === (locale === "vi" ? "vi-VN" : locale === "zh" ? "zh-CN" : locale === "ko" ? "ko-KR" : "en-US")
+                            )
+                            .map((t: PolicyTranslation) => ({
+                                ...t,
+                                categories: policy.categories
+                            }))
                     );
                     setPrivacyPolicies(translations);
                 }
@@ -136,7 +169,7 @@ export default function PolicyPage() {
 
     const listFontSize = useMemo(() => screens.xs ? 14 : 16, [screens.xs]);
 
-    const handleMenuSelect = useCallback(({ key }) => {
+    const handleMenuSelect = useCallback(({ key }: { key: string }) => {
         setSelectedMenuKey(key);
     }, []);
 
@@ -153,7 +186,7 @@ export default function PolicyPage() {
     const getBreadcrumbPath = useCallback(() => {
         const currentCategory = getCurrentCategoryName();
         const categoryId = parseInt(selectedMenuKey.replace('policy-', ''));
-        
+
         if (categoryId === 1) {
             return "Trang chủ > Chính sách bảo vệ dữ liệu";
         } else {
@@ -170,7 +203,7 @@ export default function PolicyPage() {
     const PolicyContentFromAPI = () => {
         const categoryId = parseInt(selectedMenuKey.replace('policy-', ''));
 
-        const matchingPolicy = privacyPolicies.find(policy => 
+        const matchingPolicy = privacyPolicies.find(policy =>
             policy.categories.some(cat => cat.categories_policy_id === categoryId)
         );
 
@@ -184,10 +217,11 @@ export default function PolicyPage() {
                 </>
             );
         }
+        return null;
     };
 
     const contentMap = useMemo(() => {
-        const map: { [key: string]: JSX.Element } = {};
+        const map: { [key: string]: React.ReactElement } = {};
         categories.forEach(category => {
             map[`policy-${category.categories_policy_id}`] = <PolicyContentFromAPI />;
         });
@@ -196,12 +230,7 @@ export default function PolicyPage() {
 
     const renderContent = useCallback(() => {
         if (loading) {
-            return (
-                <div style={{ textAlign: 'center', padding: '50px' }}>
-                    <Spin size="large" />
-                    <p style={{ marginTop: '16px' }}>Đang tải dữ liệu...</p>
-                </div>
-            );
+            return <PrivacyPolicySkeleton />;
         }
 
         if (error) {
@@ -246,9 +275,7 @@ export default function PolicyPage() {
                         {!collapsed && (
                             <div className='-ml-6 mr-10'>
                                 {loading ? (
-                                    <div style={{ textAlign: 'center', padding: '20px' }}>
-                                        <Spin />
-                                    </div>
+                                    <PrivacyPolicySkeleton />
                                 ) : menuItems.length > 0 ? (
                                     <Menu
                                         mode="inline"

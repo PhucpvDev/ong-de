@@ -8,7 +8,7 @@ import { GetFeatures } from "@/lib/directus/about/features";
 import { FeatureTranslation } from "@/types/directus/about/features";
 import SkeletonFeatures from "@/skeleton/about/features";
 
-const { Title, Text, Paragraph } = Typography
+const { Title, Paragraph } = Typography
 
 export default function Features() {
   const locale = useLocale();
@@ -39,11 +39,7 @@ export default function Features() {
   };
 
   if (isLoading || !featureTranslations) {
-    return (
-      <ConfigProvider theme={themeConfig}>
-        <SkeletonFeatures />
-      </ConfigProvider>
-    );
+    return <SkeletonFeatures />;
   }
 
   return (
@@ -52,15 +48,15 @@ export default function Features() {
         <div className="mb-8 sm:mb-10">
           <Title level={2} className="md:!text-3xl !text-xl font-bold text-gray-900 tracking-tight">
             {locale === "vi" ? (
-              <>Trãi nghiệm độc đáo tại <span className='text-orange-500'>Ông Đề</span></>
+              <>Trãi nghiệm độc đáo tại <span className='text-green-600'>Ông Đề</span></>
             ) : locale === "en" ? (
-              <>Discover Unique Experiences at <span className='text-orange-500'>Ong De</span></>
+              <>Discover Unique Experiences at <span className='text-green-600'>Ong De</span></>
             ) : locale === "zh" ? (
-              <>探索<span className='text-orange-500'>翁德</span>独特体验</>
+              <>探索<span className='text-green-600'>翁德</span>独特体验</>
             ) : locale === "ko" ? (
-              <>옹 데에서 독특한 체험을 <span className='text-orange-500'>옹 데</span> 발견하세요</>
+              <>옹 데에서 독특한 체험을 <span className='text-green-600'>옹 데</span> 발견하세요</>
             ) : (
-              <>Discover Unique Experiences at <span className='text-orange-500'>Ong De</span></>
+              <>Discover Unique Experiences at <span className='text-green-600'>Ong De</span></>
             )}
           </Title>
         </div>

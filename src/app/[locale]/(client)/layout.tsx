@@ -66,7 +66,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   }
 
   return (
-    <ConfigProvider theme={themeConfig}>
+    <ConfigProvider>
       <NextIntlClientProvider locale={locale} messages={messages}>
         {children}
       </NextIntlClientProvider>

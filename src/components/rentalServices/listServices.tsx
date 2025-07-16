@@ -1,37 +1,27 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Typography, Card, Pagination, Button, ConfigProvider, Spin, Alert } from 'antd';
+import { Typography, Card, Pagination, Button, ConfigProvider, Alert } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { IMAGES } from '@/constants/theme';
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { RentalItemProps, RentalCarouselProps, RentalService } from '@/types/rentalServices/listServices';
+import SkeletonServicesList from '@/skeleton/rentalServices/listServices';
 
 const { Title, Text } = Typography;
 
-type RentalItemProps = {
-  data: {
-    id: number;
-    title: string;
-    slug: string; // Added slug field
-    images: string[];
-    description: string;
-    price: number;
-    availability: string;
-  };
-};
-
-const RentalItem = ({ data }: RentalItemProps) => (
+const RentalItem: React.FC<RentalItemProps> = ({ data }) => (
   <Card
-    className="!rounded-2xl !shadow-sm !mb-1 !overflow-hidden !h-[250px] sm:!h-[330px] !flex !flex-col !bg-white !font-roboto !border-none"
+    className="!rounded-xl !shadow-sm !mb-1 !overflow-hidden !h-[250px] sm:!h-[330px] !flex !flex-col !bg-white !font-roboto !border-none"
     bodyStyle={{ padding: 0, display: 'flex', flexDirection: 'column', flex: 1 }}
   >
     <div className="!relative !cursor-pointer !flex-shrink-0">
       <div className="!h-[120px] sm:!h-[150px]">
         <Link href={`/rental-services/${data.slug}`}>
           <Image
-            src={data.images[0] || IMAGES.St_cheo_xuong} 
+            src={data.images[0] || IMAGES.St_cheo_xuong}
             alt={data.title}
             fill
             className="!w-full !h-full !object-cover !rounded-t-lg"
@@ -56,7 +46,7 @@ const RentalItem = ({ data }: RentalItemProps) => (
           <div>
             <div className="!flex !items-baseline !mb-1">
               <Text className="!text-xs !mr-1 !text-gray-700">Từ</Text>
-              <Text strong className="!text-sm sm:!text-base md:!text-lg !text-orange-600">
+              <Text strong className="!text-sm sm:!text-base md:!text-lg !text-green-600">
                 ₫ {data.price.toLocaleString()}
               </Text>
             </div>
@@ -68,15 +58,10 @@ const RentalItem = ({ data }: RentalItemProps) => (
   </Card>
 );
 
-type RentalCarouselProps = {
-  title: string;
-  data: RentalItemProps['data'][];
-};
-
-const RentalCarousel = ({ title, data }: RentalCarouselProps) => {
+const RentalCarousel: React.FC<RentalCarouselProps> = ({ data }) => {
   const locale = useLocale();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(4);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -103,9 +88,9 @@ const RentalCarousel = ({ title, data }: RentalCarouselProps) => {
   const paginatedData = data.slice(startIndex, endIndex);
 
   return (
-    <div className="">
+    <div>
       <div className="max-w-7xl px-4 sm:px-6 mx-auto md:pt-8 pt-5">
-        <div className="mb-6 sm:mb-8">
+        <div className="mb-6 sm:mb-8 text-center">
           <Title level={2} className="!text-xl md:!text-3xl">
             {locale === "vi" ? (
               <>Khám phá Dịch Vụ Cho Thuê</>
@@ -151,10 +136,10 @@ const RentalCarousel = ({ title, data }: RentalCarouselProps) => {
   );
 };
 
-export default function ServicesList() {
+export default function ServicesList () {
   const locale = useLocale();
-  const [rentalData, setRentalData] = useState<RentalItemProps['data'][]>([]);
-  const [loading, setLoading] = useState(true);
+  const [rentalData, setRentalData] = useState<RentalService[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -164,17 +149,17 @@ export default function ServicesList() {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/rental-services?locale=${locale}`);
 
         if (!response.ok) {
-          throw new Error("Không thể tải dữ liệu dịch vụ cho thuê");
+          throw new Error(locale === "vi" ? "Không thể tải dữ liệu dịch vụ cho thuê" : "Failed to load rental services data");
         }
 
         const result = await response.json();
         const services = result.data['rental-services'] || [];
 
-        const transformedData: RentalItemProps['data'][] = services.map((service: any) => ({
+        const transformedData: RentalService[] = services.map((service: any) => ({
           id: service.id,
           title: service.name,
-          slug: service.slug, 
-          images: [service.main_image, ...service.images].filter(Boolean), 
+          slug: service.slug,
+          images: [service.main_image, ...service.images].filter(Boolean),
           description: service.short_description,
           price: service.base_prices.find((bp: any) => bp.price_type.name === "Giá ngày thường")?.price || service.base_prices[0]?.price || 0,
           availability: "Còn trống",
@@ -182,7 +167,7 @@ export default function ServicesList() {
 
         setRentalData(transformedData);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Đã xảy ra lỗi");
+        setError(err instanceof Error ? err.message : locale === "vi" ? "Đã xảy ra lỗi" : "An error occurred");
       } finally {
         setLoading(false);
       }
@@ -198,12 +183,14 @@ export default function ServicesList() {
   };
 
   if (loading) {
+    return <SkeletonServicesList />;
+  }
+
+  if (error) {
     return (
       <ConfigProvider theme={themeConfig}>
         <div className="font-roboto max-w-7xl mx-auto px-4 sm:px-6 py-10">
-          <div className="flex items-center justify-center py-20">
-            <Spin size="large" />
-          </div>
+          <Alert message={error} type="error" showIcon />
         </div>
       </ConfigProvider>
     );
@@ -244,4 +231,5 @@ export default function ServicesList() {
       `}</style>
     </>
   );
-}
+};
+

@@ -1,35 +1,43 @@
-import { Breadcrumb, Row, Col, Card, Button, Divider, Tag, Space, Typography, Spin } from 'antd';
+import { Breadcrumb, Row, Col, Card, Button, Divider, Tag, Space, Typography, Spin, Image } from 'antd';
 import { InfoCircleOutlined, ClockCircleOutlined, CalendarOutlined, UserOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { useParams } from 'next/navigation';
+import parse from 'html-react-parser';
+import { Ticket } from '@/types/tickets/ticketsDetails';
 
 const { Title, Paragraph, Text } = Typography;
 
 export default function TicketDetails() {
   const locale = useLocale();
   const params = useParams();
-  const id = params.ticketId;
-  const [ticket, setTicket] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const id = typeof params.ticketId === 'string' ? params.ticketId : '';
+  const [ticket, setTicket] = useState<Ticket | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchTicketDetails = async () => {
       try {
         setLoading(true);
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tickets/${id}?locale=${locale}`);
-        
+
         if (!response.ok) {
           throw new Error('Failed to fetch ticket details');
         }
-        
-        const data = await response.json();
+
+        const data: { data: Ticket } = await response.json();
         setTicket(data.data);
         setLoading(false);
-      } catch (error) {
+      } catch (error: unknown) {
         console.error('Error fetching ticket details:', error);
-        setError(error.message || (locale === 'vi' ? 'Không thể tải thông tin vé' : 'Unable to load ticket information'));
+        setError(
+          error instanceof Error
+            ? error.message
+            : locale === 'vi'
+            ? 'Không thể tải thông tin vé'
+            : 'Unable to load ticket information'
+        );
         setLoading(false);
       }
     };
@@ -78,41 +86,44 @@ export default function TicketDetails() {
     );
   }
 
-  const fullDescription = [
-    ticket.description,
-    locale === 'vi' 
-      ? "Tham gia các hoạt động văn hóa đặc sắc và trải nghiệm đời sống miền Tây Nam Bộ."
-      : "Join unique cultural activities and experience the life of the Mekong Delta.",
-    locale === 'vi'
-      ? "Đây là lựa chọn lý tưởng cho gia đình, nhóm bạn muốn tìm hiểu về văn hóa địa phương."
-      : "This is an ideal choice for families and groups wanting to explore local culture."
-  ];
+  const galleryImages: string[] = [ticket.main_image, ...(ticket.images || [])].filter((img): img is string => typeof img === 'string' && !!img);
 
-  const PriceItem = ({ label, price, description, locale }) => (
-    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors duration-200 w-full">
+  const formatIncludes = (includes?: string): string => {
+    if (!includes) return '';
+    const items = includes.split('\n').filter(item => item.trim());
+    return `<ul style="padding-left: 20px;">${items.map(item => `<li>${item.replace(/^- /, '')}</li>`).join('')}</ul>`;
+  };
+
+  interface PriceItemProps {
+    label: string;
+    price: number;
+    description?: string;
+    locale: string;
+  }
+
+  const PriceItem: React.FC<PriceItemProps> = ({ label, price, description, locale }) => (
+    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 rounded-lg border border-gray-200 hover:shadow-sm transition-all duration-200 w-full">
       <div className="flex flex-col w-full sm:w-auto">
-        <Text strong className="!text-sm sm:!text-base !text-gray-800">{label}</Text>
+        <Title className="!text-sm sm:!text-base !text-gray-800 !mb-1">{label}</Title>
         {description && (
-          <Text className="!text-xs !text-gray-700 !mt-1 !line-clamp-2 sm:!line-clamp-none">
-            {description}
-          </Text>
+          <Text className="!text-sm !text-gray-600">{description}</Text>
         )}
       </div>
-      <Text strong className="!text-base !text-orange-600 !mt-2 sm:!mt-0 sm:!ml-4 !shrink-0">
+      <Title className="!text-base !text-gray-900 !mt-2 sm:!mt-0 sm:!ml-10 !shrink-0 !font-semibold">
         {price === 0 ? (
-          <span className="inline-flex items-center px-2 py-1 text-sm font-medium text-green-600 bg-green-100 rounded">
+          <span className="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-orange-500 rounded-md">
             {locale === 'vi' ? 'Miễn phí' : 'Free'}
           </span>
         ) : (
           `${price.toLocaleString('vi-VN')} đ`
         )}
-      </Text>
+      </Title>
     </div>
   );
 
   return (
-    <div className="min-h-screen mt-18">
-      <div className="mx-auto max-w-7xl px-6 py-6">
+    <div className="mt-18">
+      <div className="mx-auto max-w-7xl px-6 py-6" style={{ minHeight: '100vh' }}>
         <div className="bg-white mb-8">
           <Breadcrumb
             items={[
@@ -126,6 +137,53 @@ export default function TicketDetails() {
 
         <Row gutter={[14, 24]}>
           <Col xs={24} lg={16}>
+            {galleryImages.length > 0 && (
+              <div className="mb-4">
+                <Image.PreviewGroup>
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="col-span-3 sm:col-span-2 row-span-1 sm:row-span-2">
+                      <div className="relative overflow-hidden h-[250px] sm:h-[400px] rounded-t-lg sm:rounded-l-lg sm:rounded-t-none">
+                        <Image
+                          src={galleryImages[0] || '/default-image.jpg'}
+                          alt={ticket.name}
+                          width="100%"
+                          height="100%"
+                          className="!w-full !h-full !object-cover"
+                          preview
+                        />
+                      </div>
+                    </div>
+                    {galleryImages.length > 1 && (
+                      <div className="hidden sm:grid grid-rows-2 gap-2 h-[400px]">
+                        <div className="relative overflow-hidden rounded-tr-lg">
+                          <Image
+                            src={galleryImages[1] || '/default-image.jpg'}
+                            alt={`${ticket.name} - Image 2`}
+                            width="100%"
+                            height="100%"
+                            className="!w-full !h-full !object-cover"
+                            preview
+                          />
+                        </div>
+                        {galleryImages.length > 2 && (
+                          <div className="relative overflow-hidden rounded-br-lg">
+                            <Image
+                              src={galleryImages[2] || '/default-image.jpg'}
+                              alt={`${ticket.name} - Image 3`}
+                              width="100%"
+                              height="100%"
+                              className="!w-full !h-full !object-cover"
+                              preview
+                            />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </Image.PreviewGroup>
+              </div>
+            )}
+
             <Card className="!border !border-dashed !border-orange-200 !rounded-3xl">
               <div className="mb-8">
                 <Title level={3} className="!text-2xl lg:!text-xl !text-gray-800 !mb-4">
@@ -173,9 +231,7 @@ export default function TicketDetails() {
                   {locale === 'vi' ? 'Mô tả chi tiết' : 'Detailed Description'}
                 </Title>
                 <div className="space-y-4">
-                  {fullDescription.map((paragraph, index) => (
-                    <Paragraph key={index} className="!text-gray-700 !leading-relaxed">{paragraph}</Paragraph>
-                  ))}
+                  {ticket.includes && <div>{parse(formatIncludes(ticket.includes))}</div>}
                 </div>
               </div>
 
@@ -188,12 +244,15 @@ export default function TicketDetails() {
                     </Title>
                     <div className="space-y-4">
                       {ticket.policies.map((policy, index) => (
-                        <div key={index} className="border-l-4 border-orange-400 pl-4">
+                        <div key={index} className="border-l-4 border-orange-400 pl-4 rounded-l-lg">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Tag color="orange" className="!font-medium">{policy.type}</Tag>
-                            <Title level={4} className="!font-semibold !text-lg !text-gray-800 !m-0">{policy.name}</Title>
+                            <Title level={4} className="!font-semibold !text-base !text-gray-800 !m-0">{policy.name}</Title>
+                            <Tag color="orange" className="!font-medium !ml-2">{policy.type}</Tag>
                           </div>
                           <Paragraph className="!text-gray-700 !leading-relaxed">{policy.content}</Paragraph>
+                          {policy.description && (
+                            <Text className="!text-gray-600 !text-sm !mt-1">{policy.description}</Text>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -206,22 +265,20 @@ export default function TicketDetails() {
           <Col xs={24} lg={8}>
             <div className="sticky top-20">
               <Card className="!border !border-dashed !border-orange-200 !rounded-3xl">
-                <div className="text-center mb-6">
-                  <Title level={3} className="!text-lg md:!text-xl !font-bold !text-gray-800">
+                <div className="text-center mb-8">
+                  <Title level={3} className="!text-lg md:!text-xl !text-gray-800">
                     {locale === 'vi' ? 'Bảng Giá Vé' : 'Ticket Pricing'}
                   </Title>
-                  <Text className="!text-gray-500 !text-sm !font-medium !mt-1">
-                    {locale === 'vi' ? 'Thông tin giá chi tiết' : 'Detailed Pricing Information'}
-                  </Text>
                 </div>
 
                 {ticket.base_prices && ticket.base_prices.length > 0 && (
                   <div className="mb-8">
-                    <Title level={4} className="!text-base !font-semibold !text-gray-800 !mb-4 !flex !items-center">
-                      <div className="w-1 h-5 bg-blue-500 rounded mr-3"></div>
-                      {locale === 'vi' ? 'Giá theo thời gian' : 'Price by Time'}
-                    </Title>
-                    <Space direction="vertical" className="!w-full" size="small">
+                    <div className="border-t-4 border-blue-500 p-2 mb-3 text-center rounded-r-lg rounded-l-lg">
+                      <Text strong className="!text-base !text-blue-800">
+                        {locale === 'vi' ? 'Giá theo thời gian' : 'Price by Time'}
+                      </Text>
+                    </div>
+                    <Space direction="vertical" className="!w-full" size="middle">
                       {ticket.base_prices.map((price, index) => (
                         <PriceItem
                           key={index}
@@ -236,49 +293,45 @@ export default function TicketDetails() {
                 )}
 
                 {ticket.segment_prices && ticket.segment_prices.length > 0 && (
-                  <>
-                    <Divider className="!my-6" />
-                    <div className="mb-8">
-                      <Title level={4} className="!text-base !font-semibold !text-gray-800 !mb-4 !flex !items-center">
-                        <div className="w-1 h-5 bg-green-500 rounded mr-3"></div>
+                  <div className="mb-8">
+                    <div className="border-t-4 border-green-500 p-2 mb-3 text-center rounded-r-lg rounded-l-lg">
+                      <Text strong className="!text-base !text-green-700">
                         {locale === 'vi' ? 'Giá theo đối tượng' : 'Price by Customer Segment'}
-                      </Title>
-                      <Space direction="vertical" className="!w-full" size="small">
-                        {ticket.segment_prices.map((price, index) => (
-                          <PriceItem
-                            key={index}
-                            label={price.customer_segment.name}
-                            price={price.price}
-                            description={price.customer_segment.description || price.price_type.description}
-                            locale={locale}
-                          />
-                        ))}
-                      </Space>
+                      </Text>
                     </div>
-                  </>
+                    <Space direction="vertical" className="!w-full" size="middle">
+                      {ticket.segment_prices.map((price, index) => (
+                        <PriceItem
+                          key={index}
+                          label={price.customer_segment.name}
+                          price={price.price}
+                          description={price.customer_segment.description || price.price_type.description}
+                          locale={locale}
+                        />
+                      ))}
+                    </Space>
+                  </div>
                 )}
 
                 {ticket.capacity_prices && ticket.capacity_prices.length > 0 && (
-                  <>
-                    <Divider className="!my-6" />
-                    <div className="mb-6">
-                      <Title level={4} className="!text-base !font-semibold !text-gray-800 !mb-4 !flex !items-center">
-                        <div className="w-1 h-5 bg-orange-500 rounded mr-3"></div>
+                  <div className="mb-6">
+                    <div className="border-t-4 border-orange-500 p-2 mb-3 text-center rounded-r-lg rounded-l-lg">
+                      <Text strong className="!text-base !text-orange-600">
                         {locale === 'vi' ? 'Giá theo đoàn' : 'Price by Group Size'}
-                      </Title>
-                      <Space direction="vertical" className="!w-full" size="small">
-                        {ticket.capacity_prices.map((price, index) => (
-                          <PriceItem
-                            key={index}
-                            label={`Đoàn ${price.min_person}-${price.max_person} người`}
-                            price={price.price}
-                            description={`${price.price_type.name} - ${locale === 'vi' ? 'Giá trên mỗi người' : 'Price per person'}`}
-                            locale={locale}
-                          />
-                        ))}
-                      </Space>
+                      </Text>
                     </div>
-                  </>
+                    <Space direction="vertical" className="!w-full" size="middle">
+                      {ticket.capacity_prices.map((price, index) => (
+                        <PriceItem
+                          key={index}
+                          label={`${price.min_person}-${price.max_person} ${locale === 'vi' ? 'người' : 'people'}`}
+                          price={price.price}
+                          description={`${price.price_type.name} - ${locale === 'vi' ? 'Giá/người' : 'Per person'}`}
+                          locale={locale}
+                        />
+                      ))}
+                    </Space>
+                  </div>
                 )}
 
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg">

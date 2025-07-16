@@ -72,16 +72,16 @@ export default function LanguageSwitcher() {
               onClick={() => switchLocale(lang.code)}
               className={`w-full flex items-center justify-between cursor-pointer px-4 py-2.5 text-sm transition-colors duration-150 ${
                 locale === lang.code 
-                  ? 'bg-orange-50 text-orange-500 font-medium'
+                  ? 'bg-orange-50 text-green-600 font-medium'
                   : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
               <div className="flex items-center gap-3">
-                <GlobalOutlined className={`text-base ${locale === lang.code ? '!text-orange-500' : '!text-gray-600'}`} />
+                <GlobalOutlined className={`text-base ${locale === lang.code ? '!text-green-600' : '!text-gray-600'}`} />
                 <span className="text-left">{lang.name}</span>
               </div>
               {locale === lang.code && (
-                <CheckOutlined className="text-sm !text-orange-500" />
+                <CheckOutlined className="text-sm !text-green-600" />
               )}
             </button>
           ))}

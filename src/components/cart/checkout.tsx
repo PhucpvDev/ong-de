@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Form, Input, Button, Drawer, Select } from 'antd';
+import { Form, Input, Button, Drawer, Select, Typography } from 'antd';
 import Image from 'next/image';
 import { IMAGES } from '@/constants/theme';
+
+const { Title, Text, Paragraph } = Typography;
 
 export default function Checkout() {
     const [form] = Form.useForm();
@@ -29,32 +31,36 @@ export default function Checkout() {
     };
 
     return (
-        <div className="bg-white">
-            <div className="container font-roboto sm:max-w-7xl md:px-6 px-3 py-16 mx-auto">
+        <div className="bg-gray-100">
+            <div className="container font-roboto sm:max-w-7xl md:px-6 px-3 py-16 mt-3 mx-auto">
                 <div className="md:hidden block mt-6">
-                    <div className="bg-white md:rounded-2xl shadow-xs border border-gray-200 p-3 rounded-xl">
+                    <div className="bg-white md:rounded-2xl p-3 rounded-xl">
                         <div className="mb-4 border-b border-gray-300 pb-3">
-                            <h3 className="font-medium text-xl mb-1">
+                            <Title level={3} className="font-medium !text-lg mb-1" style={{ margin: 0, marginBottom: '4px' }}>
                                 Chương Trình Kỳ Ức Tuổi Thơ - Trải Nghiệm Làm Bánh Dân Gian
-                            </h3>
-                            <p className="text-gray-600">Tour trong ngày trải nghiệm tuổi thơ làm bánh dân gian</p>
+                            </Title>
+                            <Text className="!text-sm text-gray-600">Tour trong ngày trải nghiệm tuổi thơ làm bánh dân gian</Text>
                         </div>
 
                         <div className="space-y-4">
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Ngày</span>
-                                <span className="text-slate-700">10/4/2025</span>
+                                <Text className="!text-sm text-gray-600">Ngày</Text>
+                                <Text className="!text-sm text-slate-700">10/4/2025</Text>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Đơn vị</span>
+                                <Text className="!text-sm text-gray-600">Đơn vị</Text>
                                 <div className="text-right">
-                                    <div className="text-slate-700">Trẻ em (90-110cm) x 1</div>
-                                    <div className="text-slate-700">Người lớn x 1</div>
+                                    <div className="text-slate-700">
+                                        <Text className="!text-sm text-slate-700">Trẻ em (90-110cm) x 1</Text>
+                                    </div>
+                                    <div className="text-slate-700">
+                                        <Text className="!text-sm text-slate-700">Người lớn x 1</Text>
+                                    </div>
                                 </div>
                             </div>
                             <div className="flex justify-between border-t border-gray-300 pt-4">
-                                <span className="text-gray-600">Tổng cộng</span>
-                                <span>đ 1,565,000</span>
+                                <Text className="!text-sm text-gray-600">Tổng cộng</Text>
+                                <Text className="!text-sm">đ 1,565,000</Text>
                             </div>
                         </div>
                     </div>
@@ -62,10 +68,11 @@ export default function Checkout() {
 
                 <div className="flex flex-col lg:flex-row gap-8">
                     <div className="flex-1 mt-6 mb-6">
-                        <div className="bg-white md:rounded-2xl rounded-2xl shadow-xs border border-gray-200">
-                            <h1 className="font-medium p-3 text-xl border-b text-[#FF5B00]">Điền thông tin</h1>
-                            <div className="md:block hidden">
-                                <h1 className="font-medium text-xl text-slate-800 px-3 py-3">Thông tin đơn hàng</h1>
+                        <div className="bg-white md:rounded-2xl rounded-2xl">
+                            <Title level={1} className="font-medium p-3 !text-lg border-b border-gray-200 !text-green-800" >
+                                Điền thông tin
+                            </Title>
+                            <div className="md:block hidden py-1 mb-2">
                                 <div className="flex items-center gap-3 m-2 p-4 rounded-lg border border-gray-200">
                                     <Image
                                         src={IMAGES.Sr_am_thuc}
@@ -75,113 +82,60 @@ export default function Checkout() {
                                         className="rounded-lg object-cover"
                                     />
                                     <div>
-                                        <h3 className="font-medium">Chương Trình Kỳ Ức Tuổi Thơ - Trải Nghiệm Làm Bánh Dân Gian</h3>
-                                        <p className="text-gray-600">Tour trong ngày trải nghiệm tuổi thơ làm bánh dân gian</p>
+                                        <Title level={3} className="font-medium !text-base" >
+                                            Chương Trình Kỳ Ức Tuổi Thơ - Trải Nghiệm Làm Bánh Dân Gian
+                                        </Title>
+                                        <Text className="!text-sm text-gray-600">Tour trong ngày trải nghiệm tuổi thơ làm bánh dân gian</Text>
                                     </div>
                                 </div>
                             </div>
 
                             <div>
                                 <Form form={form} layout="vertical" className="font-roboto" onFinish={onFinish}>
-                                    <div className="mb-6 px-3 py-3">
-                                        <h1 className="font-medium text-xl text-slate-800">Thông tin người tham gia</h1>
-                                        <div className="mt-2">
-                                            <p className="font-medium text-base pl-0.5">Trẻ em (90-110cm) <span className="text-[#FF5B00]">(0/1)</span></p>
-
-                                            <div className="rounded-lg flex items-center gap-3 mb-4 mt-4">
-                                                <span className="text-gray-700 rounded-md py-2 px-5 bg-gray-100">Phuc rom</span>
-                                                <Button
-                                                    type="text"
-                                                    className="text-[#FF5B00] rounded-md py-[18.5px] px-5 font-roboto border-[#FF5B00]"
-                                                    onClick={showDrawer}
-                                                >
-                                                    + Thêm
-                                                </Button>
-                                            </div>
-
-                                            <div className="space-y-4 border border-gray-300 rounded-lg p-4">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-gray-700 w-1/3">Họ</span>
-                                                    <span className="text-gray-500 w-2/3">Vui lòng nhập</span>
-                                                </div>
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-gray-700 w-1/3">Tên</span>
-                                                    <span className="text-gray-500 w-2/3">Vui lòng nhập</span>
-                                                </div>
-                                                <div className="flex md:justify-between flex-col md:flex-row items-start md:items-center">
-                                                    <span className="text-gray-700 md:w-1/3 mb-1 md:mb-0">Loại giấy tờ tùy thân</span>
-                                                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center md:w-2/3 w-full">
-                                                        <span className="text-gray-500 mb-2 md:mb-0">Vui lòng nhập</span>
-                                                        <span className="text-[#FF5B00] hover:cursor-pointer" onClick={showDrawer}>Chỉnh sửa</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="mt-5">
-                                            <p className="font-medium text-base mb-2 pl-0.5">Người lớn <span className="text-[#FF5B00]">(0/1)</span></p>
-
-                                            <div className="rounded-lg flex items-center gap-3 mb-4 mt-4">
-                                                <span className="text-gray-700 rounded-md py-2 px-5 bg-gray-100">Phuc rom</span>
-                                                <Button
-                                                    type="text"
-                                                    className="text-[#FF5B00] rounded-md py-[18.5px] px-5 font-roboto border-[#FF5B00]"
-                                                    onClick={showDrawer}
-                                                >
-                                                    + Thêm
-                                                </Button>
-                                            </div>
-
-                                            <div className="space-y-4 border border-gray-300 rounded-lg p-4">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-gray-700 w-1/3">Họ</span>
-                                                    <span className="text-gray-500 w-2/3">Vui lòng nhập</span>
-                                                </div>
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-gray-700 w-1/3">Tên</span>
-                                                    <span className="text-gray-500 w-2/3">Vui lòng nhập</span>
-                                                </div>
-                                                <div className="flex md:justify-between flex-col md:flex-row items-start md:items-center">
-                                                    <span className="text-gray-700 md:w-1/3 mb-1 md:mb-0">Loại giấy tờ tùy thân</span>
-                                                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center md:w-2/3 w-full">
-                                                        <span className="text-gray-500 mb-2 md:mb-0">Vui lòng nhập</span>
-                                                        <span className="text-[#FF5B00] hover:cursor-pointer" onClick={showDrawer}>Chỉnh sửa</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div className="pb-6 px-3">
-                                        <h3 className="font-medium text-xl text-slate-800 mb-3">Thông tin khởi hành</h3>
-                                        <h3 className="font-medium text-base text-gray-500 mb-4 pl-0.5">Địa điểm khởi hành</h3>
+                                        <Title level={3} className="font-medium !text-lg text-slate-800 mb-3">
+                                            Thông tin khởi hành
+                                        </Title>
+                                        <Title level={3} className="font-medium !text-sm text-gray-500 mb-4 pl-0.5">
+                                            Địa điểm khởi hành
+                                        </Title>
                                         <div className="">
-                                            <p className="md:w-full w-[330px] max-w-md p-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white">
-                                                Lăng du lịch Ông Đề - Cần Thơ
-                                            </p>
+                                            <Text className="md:w-full w-[330px] max-w-md p-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white block !text-sm">
+                                                Làng du lịch Ông Đề - Cần Thơ
+                                            </Text>
                                         </div>
                                     </div>
                                     <div className="pb-6 px-3">
-                                        <h3 className="font-medium text-xl text-slate-800 mb-3">Thông tin khác</h3>
-                                        <h3 className="font-medium text-base text-gray-500 mb-4 pl-0.5">Số điện thoại liên lạc</h3>
+                                        <Title level={3} className="font-medium !text-lg text-slate-800 mb-3">
+                                            Thông tin khác
+                                        </Title>
+                                        <Title level={3} className="font-medium !text-sm text-gray-500 mb-4 pl-0.5">
+                                            Số điện thoại liên lạc
+                                        </Title>
                                         <div className="">
                                             <input
                                                 type="tel"
                                                 placeholder="Xin nhập số điện thoại"
-                                                className="md:w-full w-[330px] max-w-md p-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:border-[#FF5B00]"
+                                                className="md:w-full w-[330px] max-w-md p-2 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:border-[#FF5B00] text-sm"
                                             />
                                         </div>
                                     </div>
 
-                                    <h1 className="font-medium text-xl text-slate-800 px-3">Thông tin liên lạc</h1>
+                                    <Title level={1} className="font-medium !text-lg text-slate-800 px-3" >
+                                        Thông tin liên lạc
+                                    </Title>
                                     <div className="px-3 pb-5">
-                                        <p className="font-medium text-base mb-2 pl-0.5 text-slate-700">Chúng tôi sẽ thông báo mọi thay đổi về đơn hàng cho bạn</p>
+                                        <Text className="font-medium !text-sm mb-2 pl-0.5 text-slate-700 block">
+                                            Chúng tôi sẽ thông báo mọi thay đổi về đơn hàng cho bạn
+                                        </Text>
 
                                         <div className="rounded-lg flex items-center gap-3 mb-4 mt-4">
-                                            <span className="text-gray-700 rounded-md py-2 px-5 bg-gray-100">Phuc rom</span>
+                                            <Text className="!text-sm text-gray-700 rounded-md py-2 px-5 bg-gray-100">Phuc rom</Text>
                                             <Button
                                                 type="text"
                                                 onClick={showDrawer}
-                                                className="text-[#FF5B00] rounded-md py-[18.5px] px-5 font-roboto border-[#FF5B00]"
+                                                className="!text-sm text-[#FF5B00] rounded-md py-[18.5px] px-5 font-roboto border-[#FF5B00]"
                                             >
                                                 + Thêm
                                             </Button>
@@ -189,22 +143,26 @@ export default function Checkout() {
 
                                         <div className="space-y-4 border border-gray-300 rounded-lg p-4">
                                             <div className="flex justify-between items-center">
-                                                <span className="text-gray-800 w-2/3">Họ</span>
-                                                <span className="text-gray-800 w-2/3">Phuc</span>
+                                                <Text className="!text-sm text-gray-800 w-2/3">Họ</Text>
+                                                <Text className="!text-sm text-gray-800 w-2/3">Phuc</Text>
                                             </div>
                                             <div className="flex justify-between items-center">
-                                                <span className="text-gray-800 w-2/3">Tên</span>
-                                                <span className="text-gray-800 w-2/3">Rom</span>
+                                                <Text className="!text-sm text-gray-800 w-2/3">Tên</Text>
+                                                <Text className="!text-sm text-gray-800 w-2/3">Rom</Text>
                                             </div>
                                             <div className="flex justify-between items-center">
-                                                <span className="text-gray-800 w-2/3">Số điện thoại</span>
-                                                <span className="text-gray-800 w-2/3">84-0348121917</span>
+                                                <Text className="!text-sm text-gray-800 w-2/3">Số điện thoại</Text>
+                                                <Text className="!text-sm text-gray-800 w-2/3">84-0348121917</Text>
                                             </div>
                                             <div className="flex md:justify-between flex-col md:flex-row items-start md:items-center">
-                                                <span className="text-gray-800 md:w-2/3 mb-1 md:mb-0">Email (để cập nhật thông tin đơn hàng của bạn)</span>
+                                                <Text className="!text-sm text-gray-800 md:w-2/3 mb-1 md:mb-0">
+                                                    Email (để cập nhật thông tin đơn hàng của bạn)
+                                                </Text>
                                                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center md:w-2/3 w-full">
-                                                    <span className="text-gray-800 break-all mb-2 md:mb-0">pvphuc140404@gmail.com</span>
-                                                    <span className="text-[#FF5B00] hover:cursor-pointer" onClick={showDrawer}>Chỉnh sửa</span>
+                                                    <Text className="!text-sm text-gray-800 break-all mb-2 md:mb-0">pvphuc140404@gmail.com</Text>
+                                                    <Text className="!text-sm text-[#FF5B00] hover:cursor-pointer" onClick={showDrawer}>
+                                                        Chỉnh sửa
+                                                    </Text>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,43 +174,43 @@ export default function Checkout() {
 
                     <div className="w-full lg:w-[400px] mt-6 mb-20 md:mb-6 md:block hidden">
                         <div>
-                            <div className="bg-white rounded-2xl shadow-xs p-3 border border-gray-200">
-                                <div className="mb-4 border-b border-gray-300 pb-2">
-                                    <h3 className="text-gray-700 text-lg font-medium mb-2">
+                            <div className="bg-white rounded-2xl p-3">
+                                <div className="mb-4 border-b border-gray-200 pb-1">
+                                    <Title level={3} className="!text-gray-800 !text-base mb-2">
                                         Chương Trình Kỳ Ức Tuổi Thơ - Trải Nghiệm Làm Bánh Dân Gian
-                                    </h3>
+                                    </Title>
                                 </div>
 
                                 <div className="space-y-4">
                                     <div className="flex justify-between">
-                                        <span className="text-gray-600">Ngày</span>
-                                        <span className="text-slate-700">10/4/2025</span>
+                                        <Text className="!text-sm !text-gray-800 font-medium">Ngày</Text>
+                                        <Text className="!text-sm text-slate-700">10/4/2025</Text>
                                     </div>
                                     <div className="flex justify-between">
-                                        <span className="text-gray-600">Đơn vị</span>
+                                        <Text className="!text-sm !text-gray-800 font-medium">Đơn vị</Text>
                                         <div className="text-right">
-                                            <div className="text-slate-700">Trẻ em (90-110cm) x 1</div>
-                                            <div className="text-slate-700">Người lớn x 1</div>
+                                            <div className="text-slate-700">
+                                                <Text className="!text-sm text-slate-700">Trẻ em (90-110cm) x 1</Text>
+                                            </div>
+                                            <div className="text-slate-700">
+                                                <Text className="!text-sm text-slate-700">Người lớn x 1</Text>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="flex justify-between border-t border-gray-300 pt-4">
-                                        <span className="text-gray-600">Tổng cộng</span>
-                                        <span>đ 1,565,000</span>
+                                        <Text className="!text-sm !text-gray-800 font-medium">Tổng cộng</Text>
+                                        <Text className="!text-sm font-medium">đ 1,565,000</Text>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="mt-6 pt-3 bg-white rounded-2xl shadow-xs p-3 border border-gray-200">
-                                <div className="flex justify-between mb-4">
-                                    <span className="text-gray-600">Tổng cộng</span>
-                                    <span>đ 1,565,000</span>
-                                </div>
+                            <div className="mt-6 pt-3 bg-white rounded-2xl p-3">
                                 <div className="flex justify-between">
-                                    <span className="text-gray-900 font-medium">Số tiền thanh toán</span>
-                                    <span className="text-[#FF5B00] font-bold">đ 1,565,000</span>
+                                    <Text className="!text-sm text-gray-900 font-medium">Số tiền thanh toán</Text>
+                                    <Text className="!text-base !text-green-800 font-bold">đ 1,565,000</Text>
                                 </div>
                                 <div className="flex justify-between mt-5 items-center w-full md:block hidden">
-                                    <button className="bg-[#FF5B00] text-white cursor-pointer py-3 rounded-lg font-medium w-full hover:bg-[#E65100] transition-colors">
+                                    <button className="bg-green-600 text-white cursor-pointer py-3 rounded-lg font-medium w-full hover:bg-green-700 transition-colors text-sm">
                                         Thanh Toán
                                     </button>
                                 </div>
@@ -261,16 +219,16 @@ export default function Checkout() {
                     </div>
                 </div>
             </div>
-            <div className="fixed bottom-0 font-roboto z-20 left-0 right-0 bg-white border-t border-gray-200 md:hidden">
+            <div className="fixed bottom-0 z-20 left-0 right-0 bg-white md:hidden">
                 <div className="px-4 py-3">
                     <div className="flex items-center justify-between">
                         <div>
                             <div className="flex items-center gap-1">
-                                <span className="text-[13px] text-gray-600">Tổng cộng (2 Đơn vị)</span>
+                                <Text className="!text-xs text-gray-600">Tổng cộng (2 Đơn vị)</Text>
                             </div>
-                            <p className="text-[17px] font-bold text-slate-800">đ 1,565,000</p>
+                            <Text className="!text-base font-bold text-slate-800">đ 1,565,000</Text>
                         </div>
-                        <button className="bg-[#FF5B00] cursor-pointer text-white px-6 py-2.5 rounded-lg text-[15px] hover:bg-[#E65100] transition-colors">
+                        <button className="bg-[#FF5B00] cursor-pointer text-white px-6 py-2.5 rounded-lg text-sm hover:bg-[#E65100] transition-colors">
                             Thanh toán
                         </button>
                     </div>
@@ -278,7 +236,7 @@ export default function Checkout() {
             </div>
 
             <Drawer
-                title={<span className="font-roboto font-medium text-lg">Thêm thông tin liên lạc</span>}
+                title={<Text className="font-roboto font-medium !text-base">Thêm thông tin liên lạc</Text>}
                 onClose={onClose}
                 open={open}
                 width={600}
@@ -298,24 +256,24 @@ export default function Checkout() {
                         <div className="grid grid-cols-2 gap-4">
                             <Form.Item
                                 name="lastName"
-                                label={<span className="font-roboto text-base">Họ <span className="text-[#FF5B00]">*</span></span>}
+                                label={<Text className="font-roboto !text-sm">Họ <Text className="text-[#FF5B00]">*</Text></Text>}
                                 className="mb-6"
                                 rules={[{ required: true, message: 'Vui lòng nhập họ' }]}
                             >
-                                <Input placeholder="Vd: Phan" className="font-roboto h-10" />
+                                <Input placeholder="Vd: Phan" className="font-roboto h-10 !text-sm" />
                             </Form.Item>
                             <Form.Item
                                 name="firstName"
-                                label={<span className="font-roboto text-base">Tên <span className="text-[#FF5B00]">*</span></span>}
+                                label={<Text className="font-roboto !text-sm">Tên <Text className="text-[#FF5B00]">*</Text></Text>}
                                 className="mb-6"
                                 rules={[{ required: true, message: 'Vui lòng nhập tên' }]}
                             >
-                                <Input placeholder="Vd: Phuc" className="font-roboto h-10" />
+                                <Input placeholder="Vd: Phuc" className="font-roboto h-10 !text-sm" />
                             </Form.Item>
                         </div>
 
                         <Form.Item
-                            label={<span className="font-roboto text-base">Số điện thoại <span className="text-[#FF5B00]">*</span></span>}
+                            label={<Text className="font-roboto !text-sm">Số điện thoại <Text className="text-[#FF5B00]">*</Text></Text>}
                             className="mb-6"
                         >
                             <div className="flex gap-2">
@@ -325,7 +283,7 @@ export default function Checkout() {
                                     initialValue="84"
                                 >
                                     <Select
-                                        className="w-[180px] font-roboto"
+                                        className="w-[180px] font-roboto [&_.ant-select-selector]:!text-sm"
                                         size="large"
                                     >
                                         <Select.Option value="84">Việt Nam (+84)</Select.Option>
@@ -340,7 +298,7 @@ export default function Checkout() {
                                         { pattern: /^[0-9]{9,10}$/, message: 'Số điện thoại không hợp lệ' }
                                     ]}
                                 >
-                                    <Input placeholder="Nhập số điện thoại" className="font-roboto h-10" />
+                                    <Input placeholder="Nhập số điện thoại" className="font-roboto h-10 !text-sm" />
                                 </Form.Item>
                             </div>
                         </Form.Item>
@@ -348,8 +306,8 @@ export default function Checkout() {
                         <Form.Item
                             name="email"
                             label={
-                                <div className="font-roboto text-base">
-                                    Email (để cập nhật thông tin đơn hàng của bạn) <span className="text-[#FF5B00]">*</span>
+                                <div className="font-roboto !text-sm">
+                                    <Text>Email (để cập nhật thông tin đơn hàng của bạn) <Text className="text-[#FF5B00]">*</Text></Text>
                                 </div>
                             }
                             className="mb-8"
@@ -358,26 +316,26 @@ export default function Checkout() {
                                 { type: 'email', message: 'Email không hợp lệ' }
                             ]}
                         >
-                            <Input placeholder="Vui lòng nhập" className="font-roboto h-10" />
+                            <Input placeholder="Vui lòng nhập" className="font-roboto h-10 !text-sm" />
                         </Form.Item>
 
-                        <div className="text-gray-500 text-sm mb-8 font-roboto leading-6">
+                        <Paragraph className="text-gray-500 !text-xs mb-8 font-roboto leading-6">
                             Tôi hiểu rằng bất kỳ thông tin ID nào được cung cấp sẽ chỉ được sử dụng để đặt các dịch vụ du lịch và nghỉ dưỡng
                             cần sử dụng tên để đăng ký. Ông Đề chỉ cho phép sử dụng thông tin đó với
                             các bên thứ ba có liên quan cho các giao dịch cụ thể.
-                        </div>
+                        </Paragraph>
 
                         <div className="flex justify-end gap-3">
                             <button
                                 type="button"
                                 onClick={onClose}
-                                className="font-roboto cursor-pointer rounded-lg border border-gray-500 hover:bg-gray-100 h-10 px-8 text-base"
+                                className="font-roboto cursor-pointer rounded-lg border border-gray-500 hover:bg-gray-100 h-10 px-8 text-sm"
                             >
                                 Huỷ bỏ
                             </button>
                             <button
                                 type="submit"
-                                className="font-roboto cursor-pointer rounded-lg h-10 px-8 text-base bg-[#FF5B00] text-white hover:bg-orange-600"
+                                className="font-roboto cursor-pointer rounded-lg h-10 px-8 text-sm bg-[#FF5B00] text-white hover:bg-orange-600"
                             >
                                 Lưu
                             </button>

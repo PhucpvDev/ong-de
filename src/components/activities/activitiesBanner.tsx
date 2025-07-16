@@ -7,9 +7,9 @@ import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { GetBannerService } from '@/lib/directus/activities/banner';
 import { BannerServiceTranslation } from '@/types/directus/activities/banner';
-import SkeletonBanner from '@/skeleton/services/banner';
+import SkeletonBanner from '@/skeleton/activities/banner';
 
-const { Title, Paragraph, Text } = Typography
+const { Title } = Typography
 
 export default function BannerActivities() {
   const locale = useLocale();
@@ -20,7 +20,7 @@ export default function BannerActivities() {
   useEffect(() => {
     async function fetchBannerService() {
       try {
-        setIsLoading(true);
+        setIsLoading(true);        
         const data = await GetBannerService(locale);
         setBannerService(data || null);
       } catch (error) {
@@ -77,15 +77,14 @@ export default function BannerActivities() {
 
               <div className="relative z-10 max-w-7xl px-6 mx-auto flex items-center justify-center md:justify-start min-h-[650px] md:min-h-[500px]">
                 <div className="pt-7 md:pt-24 flex flex-col items-center sm:items-start text-center sm:text-left">
-                  
                   <Tag 
                     icon={<EnvironmentOutlined />}
-                    color="orange"
-                    className="!rounded-full !px-4 !py-2 !border !border-dashed !border-orange-400/30 !animate-fade-in"
+                    color="green"
+                    className="!rounded-full !px-4 !py-2 !border !border-dashed !border-green-400/30 !animate-fade-in"
                     style={{ 
                       fontSize: '14px',
                       fontWeight: 500,
-                      color: '#fb923c',
+                      color: '#05DF72',
                       backgroundColor: 'rgba(255, 255, 255, 0.1)',
                       borderColor: 'rgba(251, 146, 60, 0.3)'
                     }}
@@ -104,7 +103,7 @@ export default function BannerActivities() {
                       }}
                     >
                       {bannerService.title}
-                      <span className="text-orange-400 block md:inline md:ml-2">
+                      <span className="text-green-500 block md:inline md:ml-2">
                         {bannerService.highlight_title}
                       </span>
                     </Title>
@@ -116,7 +115,7 @@ export default function BannerActivities() {
 
                   <div className="flex flex-col md:flex-row flex-wrap justify-center md:justify-start mt-8 md:mt-10 gap-4 md:gap-6">
                     <Card
-                      className="bg-white/10 backdrop-blur-lg md:backdrop-blur-sm !rounded-2xl md:!rounded-full !border-dashed !border-orange-400/30 hover:!scale-[1.02] md:hover:!scale-105 !transition-transform"
+                      className="bg-white/10 backdrop-blur-lg md:backdrop-blur-sm !rounded-2xl md:!rounded-full !border-dashed !border-green-400/30 hover:!scale-[1.02] md:hover:!scale-105 !transition-transform"
                       style={{
                         backgroundColor: 'rgba(255, 255, 255, 0.1)',
                         borderColor: 'rgba(251, 146, 60, 0.3)',
@@ -129,7 +128,7 @@ export default function BannerActivities() {
                         gap: isMobile ? '16px' : '12px'
                       }}
                     >
-                      <div className="w-12 h-12 bg-orange-500 rounded-xl md:rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-green-600 rounded-xl md:rounded-full flex items-center justify-center">
                         <CameraOutlined className="!text-white !text-xl" />
                       </div>
                       <div className="flex-1 md:flex-none">
@@ -147,7 +146,7 @@ export default function BannerActivities() {
                     </Card>
 
                     <Card
-                      className="bg-white/10 backdrop-blur-lg md:backdrop-blur-sm !rounded-2xl md:!rounded-full !border-dashed !border-orange-400/30 hover:!scale-[1.02] md:hover:!scale-105 !transition-transform"
+                      className="bg-white/10 backdrop-blur-lg md:backdrop-blur-sm !rounded-2xl md:!rounded-full !border-dashed !border-green-400/30 hover:!scale-[1.02] md:hover:!scale-105 !transition-transform"
                       style={{
                         backgroundColor: 'rgba(255, 255, 255, 0.1)',
                         borderColor: 'rgba(251, 146, 60, 0.3)',
@@ -160,7 +159,7 @@ export default function BannerActivities() {
                         gap: isMobile ? '16px' : '12px'
                       }}
                     >
-                      <div className="w-12 h-12 bg-orange-500 rounded-xl md:rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-green-600 rounded-xl md:rounded-full flex items-center justify-center">
                         <FlagOutlined className="!text-white !text-xl" />
                       </div>
                       <div className="flex-1 md:flex-none">

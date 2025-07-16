@@ -11,7 +11,7 @@ import { ConfigProvider } from "antd";
 import { GetBannerHomestay } from "@/lib/directus/homestay/banner";
 import { BannerHomestayTranslation } from "@/types/directus/homestay/banner";
 import { useLocale } from "next-intl";
-import SkeletonBanner from '@/skeleton/home/banner';
+import SkeletonBanner from '@/skeleton/homestay/banner';
 
 export default function BannerHomestay() {
   const carouselRef = React.useRef<any>(null);
@@ -24,6 +24,7 @@ export default function BannerHomestay() {
     async function fetchBanners() {
       try {
         setLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         const data = await GetBannerHomestay(locale);
         if (data) {
           setBanners(data);
@@ -97,7 +98,7 @@ export default function BannerHomestay() {
                 <div className="relative h-full flex items-center justify-center z-10">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
                     <div className="grid lg:grid-cols-12 gap-8 items-center h-full">
-                      <div className="lg:col-span-12 col-start-2 space-y-4 text-center lg:text-left">
+                      <div className="lg:col-span-12 space-y-4 px-6 text-center lg:text-left">
                         <span className="inline-block bg-green-500/40 text-white text-sm font-semibold px-8 py-3 rounded-full">
                           {item.tag}
                         </span>

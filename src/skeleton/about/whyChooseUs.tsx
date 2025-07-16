@@ -1,25 +1,11 @@
-"use client";
-
-import React from "react";
-import { Skeleton } from "antd";
+import React from 'react';
 
 export default function SkeletonWhyChooseUsWithTabs() {
   return (
     <section className="py-16 bg-white animate-pulse">
       <div className="container mx-auto px-4 lg:px-12 xl:px-20 2xl:px-36">
-        <div className="text-center mb-12">
-          <Skeleton
-            active
-            title={{ width: "40%", style: { margin: "0 auto", height: "2.5rem" } }}
-            paragraph={false}
-            className="mb-4"
-          />
-          <Skeleton
-            active
-            title={false}
-            paragraph={{ rows: 2, width: ["60%", "50%"], style: { margin: "0 auto" } }}
-            className="max-w-2xl"
-          />
+        <div className="mb-12">
+          <div className="h-10 w-2/5 bg-gray-200 rounded-lg mb-4"></div>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6 items-start">
@@ -27,7 +13,7 @@ export default function SkeletonWhyChooseUsWithTabs() {
             {Array(3).fill(0).map((_, index) => (
               <div
                 key={index}
-                className={`group relative rounded-xl border bg-white border-gray-200 p-4 transition-all duration-200 ${
+                className={`relative rounded-xl border bg-white border-gray-200 p-4 transition-all duration-200 ${
                   index === 0 ? "shadow-lg" : "hover:shadow-md"
                 }`}
               >
@@ -36,30 +22,17 @@ export default function SkeletonWhyChooseUsWithTabs() {
                 )}
                 <div className="flex items-start gap-3">
                   <div className={`p-3 rounded-lg ${index === 0 ? "bg-green-500" : "bg-gray-100"}`}>
-                    <Skeleton.Avatar
-                      active
-                      size={24}
-                      shape="square"
-                      style={{ backgroundColor: index === 0 ? "#fff" : "#d1d5db" }}
-                    />
+                    <div className="w-6 h-6 bg-gray-200 rounded"></div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <Skeleton
-                      active
-                      title={{ width: "60%", style: { height: "1.25rem" } }}
-                      paragraph={{ rows: 1, width: "80%" }}
-                      className="mb-3"
-                    />
+                    <div className="h-5 w-3/5 bg-gray-200 rounded mb-3"></div>
+                    <div className="h-4 w-4/5 bg-gray-200 rounded"></div>
                     {index === 0 && (
-                      <div className="space-y-1">
+                      <div className="space-y-2 mt-3">
                         {Array(3).fill(0).map((_, idx) => (
                           <div key={idx} className="flex items-center gap-2">
                             <div className="w-1 h-1 rounded-full bg-green-600"></div>
-                            <Skeleton
-                              active
-                              title={{ width: "70%" }}
-                              paragraph={false}
-                            />
+                            <div className="h-4 w-3/4 bg-gray-200 rounded"></div>
                           </div>
                         ))}
                       </div>
@@ -74,37 +47,20 @@ export default function SkeletonWhyChooseUsWithTabs() {
             <div className="rounded-2xl p-4 border bg-white border-gray-200 shadow-xs">
               <div className="text-center mb-3">
                 <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg mb-3 shadow-md bg-green-50">
-                  <Skeleton.Avatar active size={16} shape="square" />
-                  <Skeleton
-                    active
-                    title={{ width: "80px" }}
-                    paragraph={false}
-                  />
+                  <div className="w-4 h-4 bg-gray-200 rounded"></div>
+                  <div className="h-4 w-20 bg-gray-200 rounded"></div>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="rounded-xl p-4 bg-gray-50">
-                  <Skeleton
-                    active
-                    title={{ width: "50%", style: { height: "1rem" } }}
-                    paragraph={false}
-                    className="mb-3"
-                  />
+                  <div className="h-4 w-1/2 bg-gray-200 rounded mb-3"></div>
                   <div className="space-y-2">
                     {Array(3).fill(0).map((_, index) => (
                       <div key={index}>
                         <div className="flex justify-between items-center mb-1">
-                          <Skeleton
-                            active
-                            title={{ width: "40%" }}
-                            paragraph={false}
-                          />
-                          <Skeleton
-                            active
-                            title={{ width: "20%" }}
-                            paragraph={false}
-                          />
+                          <div className="h-4 w-2/5 bg-gray-200 rounded"></div>
+                          <div className="h-4 w-1/5 bg-gray-200 rounded"></div>
                         </div>
                         <div className="h-1.5 rounded-full overflow-hidden bg-gray-200">
                           <div
@@ -119,33 +75,18 @@ export default function SkeletonWhyChooseUsWithTabs() {
 
                 <div className="rounded-xl p-4 bg-gray-50 text-center">
                   <div className="w-24 h-24 mx-auto rounded-full bg-gray-200 flex items-center justify-center">
-                    <Skeleton
-                      active
-                      title={{ width: "40%" }}
-                      paragraph={false}
-                    />
+                    <div className="h-4 w-2/5 bg-gray-300 rounded"></div>
                   </div>
-                  <Skeleton
-                    active
-                    title={{ width: "60%", style: { margin: "16px auto 0" } }}
-                    paragraph={false}
-                  />
+                  <div className="h-4 w-3/5 bg-gray-200 rounded mx-auto mt-4"></div>
                   <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg mt-3 shadow-md bg-green-50">
-                    <Skeleton
-                      active
-                      title={{ width: "80px" }}
-                      paragraph={false}
-                    />
+                    <div className="h-4 w-20 bg-gray-200 rounded"></div>
                   </div>
                 </div>
               </div>
 
               <div className="mt-4 text-center p-4 rounded-xl border bg-gray-50 border-gray-200">
-                <Skeleton
-                  active
-                  title={{ width: "50%", style: { margin: "0 auto", height: "1.25rem" } }}
-                  paragraph={{ rows: 1, width: "80%", style: { margin: "8px auto 0" } }}
-                />
+                <div className="h-5 w-1/2 bg-gray-200 rounded mx-auto mb-2"></div>
+                <div className="h-4 w-4/5 bg-gray-200 rounded mx-auto"></div>
               </div>
             </div>
           </div>

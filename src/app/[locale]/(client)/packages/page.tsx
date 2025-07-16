@@ -17,8 +17,8 @@ export default function PackagesPage() {
             <MenuMobile />
             <Banner />
             <LandingPackets />
-            <RewardPackets />
             <HomestayTourList />
+            {/* <RewardPackets /> */}
             <Footer />
         </>
     );

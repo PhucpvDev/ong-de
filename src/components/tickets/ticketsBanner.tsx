@@ -71,14 +71,14 @@ export default function SightseeingBanner() {
 
             <div className="relative z-10 max-w-7xl px-4 sm:px-6 mx-auto md:mt-0 mt-28  ">
               <div className="pt-20 sm:pt-40 flex flex-col items-center sm:items-start text-center sm:text-left">
-                <div className="bg-white/10 backdrop-blur-lg rounded-full px-4 py-2 flex items-center gap-2 mb-6 border border-dashed border-orange-400/30 animate-fade-in">
-                  <span className="text-orange-400"><EnvironmentOutlined /></span>
-                  <Text className="!text-orange-400 !font-medium">{ticketBanner.location}</Text>
+                <div className="bg-white/10 backdrop-blur-lg rounded-full px-4 py-2 flex items-center gap-2 mb-6 border border-dashed border-green-400/30 animate-fade-in">
+                  <span className="text-green-500"><EnvironmentOutlined /></span>
+                  <Text className="!text-green-500 !font-medium">{ticketBanner.location}</Text>
                 </div>
 
                 <Title className="!text-4xl sm:!text-6xl !text-white">
                   {ticketBanner.title}
-                  <span className="text-orange-400 block sm:inline sm:ml-2">{ticketBanner.highlight_title}</span>
+                  <span className="text-green-500 block sm:inline sm:ml-2">{ticketBanner.highlight_title}</span>
                 </Title>
 
                 <Paragraph className="!text-base font-medium sm:!text-xl !max-w-xl sm:!max-w-2xl mb-8 leading-relaxed !text-gray-200">
@@ -86,8 +86,8 @@ export default function SightseeingBanner() {
                 </Paragraph>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-5xl">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] border border-dashed border-orange-400/30 animate-fade-in">
-                    <div className="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] border border-dashed border-green-400/30 animate-fade-in">
+                    <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
                       <span className="text-white text-lg"><CameraOutlined /></span>
                     </div>
                     <div className="flex-1">
@@ -96,8 +96,8 @@ export default function SightseeingBanner() {
                       </Text>
                     </div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] border border-dashed border-orange-400/30 animate-fade-in">
-                    <div className="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-3 transition-transform hover:scale-[1.02] active:scale-[0.98] border border-dashed border-green-400/30 animate-fade-in">
+                    <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
                       <span className="text-white text-lg"><FlagOutlined /></span>
                     </div>
                     <div className="flex-1">

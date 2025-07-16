@@ -9,7 +9,7 @@ import { PackageBannerTranslation } from '@/types/directus/packages/banner';
 import SkeletonBannerCombo from '@/skeleton/packages/banner';
 import { Typography } from 'antd';
 
-const { Title, Paragraph, Text } = Typography
+const { Title, Text } = Typography
 
 interface Feature {
   icon: string;
@@ -56,9 +56,7 @@ export default function BannerCombo() {
     <div className="relative font-roboto">
       <div className="relative h-[550px] md:h-[600px] overflow-hidden">
         <Image
-          src={packageBanner?.images
-            ? `${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${packageBanner.images}`
-            : "https://r2.nucuoimekong.com/wp-content/uploads/khu-du-lich-ong-de.png"}
+          src={`${process.env.NEXT_PUBLIC_DIRECTUS_URL}/assets/${packageBanner?.images ?? ''}`}
           alt={packageBanner?.title || "Gói tiết kiệm Banner"}
           fill
           className="object-cover"
@@ -74,7 +72,7 @@ export default function BannerCombo() {
         <div className="absolute bottom-0 left-0 w-40 h-40 rounded-full border-4 transform -translate-x-1/2 translate-y-1/2 border-yellow-400/50 md:block hidden"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 mt-10 h-full flex items-center justify-center md:justify-start">
-          <div className="max-w-lg text-center md:text-left md:mt-0 mt-10">
+          <div className="max-w-xl text-center md:text-left md:mt-0 mt-10">
             {isLoading ? (
               <SkeletonBannerCombo />
             ) : packageBanner ? (
@@ -82,7 +80,7 @@ export default function BannerCombo() {
                 <Title className="!text-3xl md:!text-5xl mb-4 !text-white">
                   {packageBanner.title}
                 </Title>
-                <Text className="!text-lg md:!text-xl !text-gray-100 !font-bold !mx-auto md:!mx-0">
+                <Text className="!text-lg md:!text-xl !text-gray-100 !font-medium !mx-auto md:!mx-0">
                   {packageBanner.description}
                 </Text>
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-8 mt-8">

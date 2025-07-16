@@ -120,7 +120,7 @@ export default function Banner() {
                         <div className="grid lg:grid-cols-12 gap-6 items-center h-full">
                           <div className="lg:col-span-7 space-y-6">
                             <div className="space-y-3">
-                              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight drop-shadow-2xl">
+                              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
                                 {item.title}
                               </h1>
                               <p className="text-lg sm:text-2xl lg:text-2xl text-yellow-300 font-semibold drop-shadow-lg hidden md:block">
@@ -128,7 +128,7 @@ export default function Banner() {
                               </p>
                             </div>
 
-                            <p className="text-base sm:text-lg text-white/95 leading-relaxed max-w-2xl drop-shadow-lg bg-black/20 p-4 rounded-lg border border-white/20 backdrop-blur-sm">
+                            <p className="text-base sm:text-lg text-white/95 leading-relaxed max-w-3xl drop-shadow-lg bg-black/20 p-4 rounded-lg border border-white/20 backdrop-blur-sm">
                               {item.description}
                             </p>
 

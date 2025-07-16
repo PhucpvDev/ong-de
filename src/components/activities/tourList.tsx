@@ -1,60 +1,25 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Card, ConfigProvider, Spin, Alert, Typography } from "antd";
+import { Card, ConfigProvider, Alert, Typography } from "antd";
 import { IMAGES } from "@/constants/theme";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { Activity, Tour } from "@/types/activities/tourList";
+import TourListSkeleton from "@/skeleton/activities/tourList";
 
 const { Title } = Typography;
-
-interface PriceType {
-  id: number;
-  name: string;
-  description: string;
-}
-
-interface BasePrice {
-  price: number;
-  price_type: PriceType;
-}
-
-interface Activity {
-  id: number;
-  name: string;
-  slug: string;
-  short_description: string;
-  long_description: string;
-  main_image: string;
-  images: string[];
-  conditions: string;
-  location_area: string;
-  min_participants: number;
-  max_participants: number;
-  base_prices: BasePrice[];
-  capacity_prices: any[];
-  segment_prices: any[];
-  policies: any[];
-}
-
-interface Tour {
-  id: string;
-  image: string;
-  title: string;
-  tag?: string;
-  price: number;
-  slug: string;
-}
 
 const TourCard = ({ tour, isMobile = false }: { tour: Tour; isMobile?: boolean }) => {
   return (
     <Link href={`/activities/${tour.slug}`} passHref>
       <div
-        className={`font-roboto overflow-hidden cursor-pointer ${isMobile
+        className={`font-roboto overflow-hidden cursor-pointer ${
+          isMobile
             ? "flex-none w-[150px] bg-white"
             : "transition-all duration-200 bg-white w-[230px] sm:w-[230px]"
-          }`}
+        }`}
       >
         <div className="relative aspect-[4/3]">
           <Image
@@ -67,13 +32,16 @@ const TourCard = ({ tour, isMobile = false }: { tour: Tour; isMobile?: boolean }
         </div>
         <div className={isMobile ? "p-3" : "p-[12px]"}>
           <h3
-            className={`font-medium mb-${isMobile ? "1" : "2"} line-clamp-2 ${isMobile ? "text-sm" : "text-base"
-              } text-gray-900`}
+            className={`font-medium mb-${
+              isMobile ? "1" : "2"
+            } line-clamp-2 ${isMobile ? "text-sm" : "text-base"} text-gray-900`}
           >
             {tour.title}
           </h3>
           <div className="flex items-baseline mt-4">
-            <span className={`font-medium ${isMobile ? "" : "text-base"} text-gray-900`}>
+            <span
+              className={`font-medium ${isMobile ? "" : "text-base"} text-gray-900`}
+            >
               {new Intl.NumberFormat("vi-VN", {
                 style: "currency",
                 currency: "VND",
@@ -111,7 +79,9 @@ export default function ActivitiesList() {
     const fetchActivities = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/activities?locale=${locale}`);
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/activities?locale=${locale}`
+        );
 
         if (!response.ok) {
           throw new Error("Không thể tải dữ liệu hoạt động");
@@ -125,7 +95,10 @@ export default function ActivitiesList() {
           image: activity.main_image,
           title: activity.name,
           tag: activity.base_prices[0]?.price < 100000 ? "Ưu đãi" : undefined,
-          price: activity.base_prices.find((bp) => bp.price_type.name === "Ngày thường")?.price || activity.base_prices[0]?.price || 0,
+          price:
+            activity.base_prices.find(
+              (bp) => bp.price_type.name === "Ngày thường"
+            )?.price || activity.base_prices[0]?.price || 0,
           slug: activity.slug,
         }));
 
@@ -147,15 +120,7 @@ export default function ActivitiesList() {
   };
 
   if (loading) {
-    return (
-      <ConfigProvider theme={themeConfig}>
-        <div className="font-roboto bg-[#FFF0E5] sm:mx-auto sm:max-w-[1230px] mb-10 rounded-3xl mx-4 p-4 sm:p-6">
-          <div className="flex items-center justify-center py-20">
-            <Spin size="large" />
-          </div>
-        </div>
-      </ConfigProvider>
-    );
+    return <TourListSkeleton />;
   }
 
   if (error) {
@@ -176,10 +141,13 @@ export default function ActivitiesList() {
 
   return (
     <ConfigProvider theme={themeConfig}>
-      <div className="font-roboto bg-[#FFF0E5] sm:mx-auto sm:max-w-[1230px] mb-10 md:mt-0 mt-6 rounded-3xl mx-4 p-4 sm:p-6">
+      <div className="font-roboto bg-green-100/70 sm:mx-auto sm:max-w-[1240px] mb-10 md:mt-0 mt-6 rounded-3xl mx-4 p-4 sm:p-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Title level={2} className="!text-xl md:!text-2xl !text-orange-600">
+            <Title
+              level={2}
+              className="!text-xl md:!text-2xl !text-green-700"
+            >
               {locale === "vi" ? (
                 <>Hoạt động trong ngày</>
               ) : locale === "en" ? (
@@ -196,7 +164,7 @@ export default function ActivitiesList() {
         </div>
 
         {tours.length === 0 ? (
-          <div className="text-center py-10 text-gray-500">
+          <div className="text-center py-10">
             Không có hoạt động nào để hiển thị
           </div>
         ) : (

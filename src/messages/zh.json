@@ -1,3 +1,28 @@
 {
-    
+  "packages": {
+    "brandName": "翁德坎托",
+    "headerTitle": "节省套餐",
+    "filters": "筛选",
+    "reset": "重置",
+    "sortBy": "排序方式：",
+    "priceLowToHigh": "价格：从低到高",
+    "priceHighToLow": "价格：从高到低",
+    "priceUp": "价格 ↑",
+    "priceDown": "价格 ↓",
+    "searchPlaceholder": "按订单编号或产品名称搜索",
+    "priceRange": "价格范围",
+    "minimum": "最低",
+    "maximum": "最高",
+    "all": "全部",
+    "under100": "低于 ¥700",
+    "range100300": "¥700 - ¥2,100",
+    "range300500": "¥2,100 - ¥3,500",
+    "over500": "超过 ¥3,500",
+    "category": "类别",
+    "enterCategory": "输入类别名称",
+    "fetchPackagesError": "无法加载套餐数据",
+    "fetchCategoriesError": "无法加载类别",
+    "noResults": "没有找到匹配结果",
+    "noResultsSuggestion": "尝试调整过滤器或使用不同的关键词搜索"
+  }
 }

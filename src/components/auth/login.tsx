@@ -20,11 +20,11 @@ export default function LoginModal({ isModalOpen, setIsModalOpen }) {
   };
 
   const handleGoogleLogin = () => {
-    router.push(`https://uat-ongde.thanhlc.top/auth/google`);
+    window.location.href = `http://localhost:8000/auth/${locale}/google`;
   };
 
   const handleFacebookLogin = () => {
-    router.push(`https://uat-ongde.thanhlc.top/auth/facebook`);
+    window.location.href = `http://localhost:8000/auth/${locale}/facebook`;
   };
 
   return (
@@ -51,7 +51,7 @@ export default function LoginModal({ isModalOpen, setIsModalOpen }) {
         <div className="flex mb-10 mx-auto">
           <div className="flex items-center space-x-1 mr-2">
             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <div className="w-2 h-2 bg-green-600 rounded-full"></div>
           </div>
           <Image
             src={IMAGES.logo}
@@ -105,11 +105,11 @@ export default function LoginModal({ isModalOpen, setIsModalOpen }) {
             {locale === "vi" ? (
               <>
                 Bằng cách đăng ký hoặc đăng nhập, bạn đã hiểu và đồng ý với{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   Điều Khoản Sử Dụng Chung
                 </Link>{' '}
                 và{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   Chính Sách Bảo Mật
                 </Link>{' '}
                 của Ông Đề
@@ -117,33 +117,33 @@ export default function LoginModal({ isModalOpen, setIsModalOpen }) {
             ) : locale === "en" ? (
               <>
                 By signing up or logging in, you understand and agree to Ông Đề's{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   Terms of Use
                 </Link>{' '}
                 and{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   Privacy Policy
                 </Link>
               </>
             ) : locale === "zh" ? (
               <>
                 通过注册或登录，您表示已了解并同意翁德的{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   使用条款
                 </Link>{' '}
                 和{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   隐私政策
                 </Link>
               </>
             ) : locale === "ko" ? (
               <>
                 가입하거나 로그인함으로써 귀하는 옹 데의{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   이용 약관
                 </Link>{' '}
                 및{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   개인정보 보호정책
                 </Link>
                 에 동의합니다
@@ -151,11 +151,11 @@ export default function LoginModal({ isModalOpen, setIsModalOpen }) {
             ) : (
               <>
                 By signing up or logging in, you understand and agree to Ông Đề's{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   Terms of Use
                 </Link>{' '}
                 and{' '}
-                <Link href="/policy" className="!text-orange-500 hover:!underline">
+                <Link href="/policy" className="!text-green-600 hover:!underline">
                   Privacy Policy
                 </Link>
               </>

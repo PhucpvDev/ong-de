@@ -60,6 +60,11 @@ import xe_khach from '@/assets/images/about/xe_khach.webp'
 import Icon_hoponhopoff from '@/assets/images/icons/hoponhopoff.png'
 import Icon_day_trips from '@/assets/images/icons/day_trips.png'
 import Icon_cau_truot from '@/assets/images/icons/cau_truot.webp'
+import Icon_Facebook from '@/assets/images/icons/facebook.svg'
+import Icon_Zalo from '@/assets/images/icons/zalo.svg'
+import Icon_Youtube from '@/assets/images/icons/youtube.svg'
+import Icon_Cod from '@/assets/images/icons/COD.png'
+import Icon_Momo from '@/assets/images/icons/Momo.png'
 
 
 export const IMAGES = {
@@ -125,4 +130,9 @@ export const IMAGES = {
     Icon_hoponhopoff: Icon_hoponhopoff,
     Icon_day_trips: Icon_day_trips,
     Icon_cau_truot: Icon_cau_truot,
+    Icon_Facebook: Icon_Facebook,
+    Icon_Zalo: Icon_Zalo,
+    Icon_Youtube: Icon_Youtube,
+    Icon_Cod: Icon_Cod,
+    Icon_Momo: Icon_Momo,
 }

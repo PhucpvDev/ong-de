@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Typography } from 'antd';
 import { GetBannerPolicy } from '@/lib/directus/policy/banner_policy';
 import { BannerPolicyTranslation } from '@/types/directus/policy/banner_policy';
-import Image from 'next/image';
 import { ConfigProvider } from 'antd';
 import { useLocale } from 'next-intl';
+import BannerPolicySkeleton from '@/skeleton/policy/banner';
+import Image from 'next/image';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
@@ -19,6 +20,8 @@ export default function BannerPolicy() {
   useEffect(() => {
     async function fetchBanner() {
       try {
+                                await new Promise((resolve) => setTimeout(resolve, 3000));
+
         const data = await GetBannerPolicy(locale);
         if (data) {
           setBanner(data);
@@ -38,7 +41,7 @@ export default function BannerPolicy() {
   };
 
   if (loading) {
-    return <div className="text-center py-12 text-white">Loading...</div>;
+    return <BannerPolicySkeleton />;
   }
 
   if (!banner) {
@@ -91,7 +94,7 @@ export default function BannerPolicy() {
               <Title level={1}>
                 <span className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight drop-shadow-2xl">
                   {banner.title.replace(banner.highlighted_title, '')}
-                  <span className="text-orange-500">{banner.highlighted_title}</span>
+                  <span className="text-green-500">{banner.highlighted_title}</span>
                 </span>
               </Title>
               <p className="text-lg sm:text-xl text-white/90 mt-10 mx-auto drop-shadow-lg bg-black/20 p-4 rounded-lg border border-white/20 backdrop-blur-sm">

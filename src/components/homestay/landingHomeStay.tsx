@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import { GetLandingHomestay } from '@/lib/directus/homestay/landingHomestay';
 import { LandingHomestayTranslation } from '@/types/directus/homestay/landingHomestay';
+import SkeletonLandingSection from '@/skeleton/landingSection/landing';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
@@ -34,74 +35,29 @@ export default function LandingHomeStay() {
   }, [locale]);
 
   if (isLoading || !homestays) {
-    return (
-      <div className="relative max-w-7xl mx-auto md:px-6 px-4 mb-10 bg-light-blue-50 md:pt-16 pt-10">
-        <div className="grid grid-cols-1 gap-8">
-          <div className="grid-item">
-            <Title level={2} className="!text-xl md:!text-3xl">
-              {locale === "vi" ? (
-                <>HomeStay Làng Du Lịch <span className="text-orange-500">Ông Đề</span></>
-              ) : locale === "en" ? (
-                <>HomeStay at <span className="text-orange-500">Ong De</span> Tourism Village</>
-              ) : locale === "zh" ? (
-                <> <span className="text-orange-500">翁德</span>旅游村的民宿</>
-              ) : locale === "ko" ? (
-                <> <span className="text-orange-500">옹 데</span> 관광 마을의 홈스테이</>
-              ) : (
-                <>HomeStay at <span className="text-orange-500">Ong De</span> Tourism Village</>
-              )}
-            </Title>
-          </div>
-
-          <div className="bg-green-50 rounded-2xl p-6 animate-pulse">
-            <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 items-center">
-              <div className="order-2 lg:order-1 lg:col-span-4">
-                <div className="h-60 bg-gray-200 rounded-lg w-full"></div>
-              </div>
-              <div className="order-1 lg:order-2 lg:col-span-6">
-                <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="h-4 text-sm bg-gray-200 rounded w-full mb-2"></div>
-                <div className="h-4 text-sm bg-gray-200 rounded w-5/6"></div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-orange-50 rounded-2xl p-6 animate-pulse">
-            <div className="grid grid-cols-1 lg:grid-cols-10 gap-6 items-center">
-              <div className="order-1 lg:col-span-6">
-                <div className="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="h-4 text-sm bg-gray-200 rounded w-full mb-2"></div>
-                <div className="h-4 text-sm bg-gray-200 rounded w-5/6"></div>
-              </div>
-              <div className="order-2 lg:col-span-4">
-                <div className="h-60 bg-gray-200 rounded-lg w-full"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+     return <SkeletonLandingSection />;
   }
 
   return (
     <div className="relative max-w-7xl mx-auto md:px-6 px-4 mb-10 bg-light-blue-50 md:pt-16 pt-10">
       <div className="grid grid-cols-1 gap-8">
-        <div className="grid-item">
+        <div className="grid-item text-center">
           <Title level={2} className="!text-xl md:!text-3xl">
             {locale === "vi" ? (
-              <>HomeStay Làng Du Lịch <span className="text-orange-500">Ông Đề</span></>
+              <>HomeStay Làng Du Lịch <span className="text-green-700">Ông Đề</span></>
             ) : locale === "en" ? (
-              <>HomeStay at <span className="text-orange-500">Ong De</span> Tourism Village</>
+              <>HomeStay at <span className="text-green-700">Ong De</span> Tourism Village</>
             ) : locale === "zh" ? (
-              <> <span className="text-orange-500">翁德</span>旅游村的民宿</>
+              <> <span className="text-green-700">翁德</span>旅游村的民宿</>
             ) : locale === "ko" ? (
-              <> <span className="text-orange-500">옹 데</span> 관광 마을의 홈스테이</>
+              <> <span className="text-green-700">옹 데</span> 관광 마을의 홈스테이</>
             ) : (
-              <>HomeStay at <span className="text-orange-500">Ong De</span> Tourism Village</>
+              <>HomeStay at <span className="text-green-700">Ong De</span> Tourism Village</>
             )}
           </Title>
         </div>
 
-        {homestays.map((homestay, index) => (
+        {homestays.map((homestay) => (
           <div
             key={homestay.id}
             className="rounded-2xl p-6"

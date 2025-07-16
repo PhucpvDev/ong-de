@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
-import locale from 'antd/es/date-picker/locale/vi_VN';
 import dayjs, { Dayjs } from 'dayjs';
 import parse from 'html-react-parser';
 import Head from 'next/head';
@@ -39,7 +38,7 @@ export default function ServiceDetailsList() {
         }
       );
 
-      const packageData = response.data.data; // Access the 'data' field from the API response
+      const packageData = response.data.data; 
       if (!packageData) {
         throw new Error('No package data found');
       }
@@ -255,7 +254,7 @@ export default function ServiceDetailsList() {
         <meta name="description" content={serviceData.meta_description} />
         <title>{serviceData.name}</title>
       </Head>
-      <div className="mx-auto max-w-7xl px-6 py-6" style={{ minHeight: '100vh' }}>
+      <div className="mx-auto max-w-7xl md:px-6 px-4 py-6" style={{ minHeight: '100vh' }}>
         <div className="bg-white mb-8">
           <Breadcrumb
             items={[
@@ -336,7 +335,7 @@ export default function ServiceDetailsList() {
                     </Tooltip>
                   ))}
                 </Space>
-                <Title level={3} className="!text-2xl lg:! Influences!text-xl !text-gray-800 !mb-4">
+                <Title level={3} className="!text-2xl lg:!text-xl !text-gray-800 !mb-4">
                   {locale === 'vi' ? 'Gói dịch vụ: ' : 'Package: '}{serviceData.name}
                 </Title>
                 <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-lg">
